@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 마이페이지 메인 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- layout: 헤더 타입 홈 -->
+          <header>
+            <div>
+              <h1>
+                <a href="#">
+                  <img src="" alt="">
+                </a>
+              </h1>
+            </div>
+            <div>
+              <button type="button">
+                <span>내정보</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 홈 -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 유저 카드 -->
+                <section>
+                  <div>
+                    <div>
+                      <figure>
+                        <img src="" alt="">
+                      </figure>
+                      <span></span>
+                    </div>
+                    <ul>
+                      <li>
+                        <div>
+                          <h5>유저닉네임</h5><span>Lv.10</span>
+                        </div>
+                        <p>마크닉네임</p>
+                      </li>
+                      <li>
+                        <div>
+                          <span>직업명</span>
+                          <span>1차 전직</span>
+                        </div>
+                      </li>
+                    </ul>
+                    <button type="button">
+                      <span>편집하기</span>
+                      <i></i>
+                    </button>
+                  </div>
+
+                  <!-- 프로그레스 -->
+                  <div>
+                    <div>
+                      <span>경험치</span>
+                      <span>
+                  <b>90%</b>
+                </span>
+                    </div>
+                    <div>
+                      <span></span>
+                    </div>
+                  </div>
+
+                  <!-- END 프로그레스 -->
+                </section>
+
+                <!-- END 섹션: 유저 카드 -->
+
+                <!-- 섹션: 포인트 정보 -->
+                <section>
+                  <dl>
+                    <dt>
+                      <i></i>
+                      <span>골드</span>
+                    </dt>
+                    <dd>1,000</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i></i>
+                      <span>골드</span>
+                    </dt>
+                    <dd>1,000</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i></i>
+                      <span>크리스탈</span>
+                    </dt>
+                    <dd>1,000</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i></i>
+                      <span>캐쉬</span>
+                    </dt>
+                    <dd>1,000</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i></i>
+                      <span>보스포인트</span>
+                    </dt>
+                    <dd>1,000</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i></i>
+                      <span>명예포인트</span>
+                    </dt>
+                    <dd>1,000</dd>
+                  </dl>
+                </section>
+
+                <!-- END 섹션: 포인트 정보 -->
+
+                <!-- 섹션: 게임 정보 -->
+                <section>
+                  <dl>
+                    <dt>
+                      <i></i>
+                      <span>총 플레이 시간</span>
+                    </dt>
+                    <dd>1일 2시간 35분 23초</dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <i></i>
+                      <span>플레이 랭크</span>
+                    </dt>
+                    <dd>연습생</dd>
+                  </dl>
+                </section>
+
+                <!-- END 섹션: 게임 정보 -->
+
+                <!-- 섹션: 마이페이지 메뉴버튼 -->
+                <section>
+                  <button type="button">
+                    <div>
+                      <i></i>
+                      <span>서버 접속하기</span>
+                    </div>
+                    <i></i>
+                  </button>
+                  <button type="button">
+                    <div>
+                      <i></i>
+                      <span>결제내역 확인</span>
+                    </div>
+                    <i></i>
+                  </button>
+                  <button type="button">
+                    <div>
+                      <i></i>
+                      <span>친구채팅</span>
+                    </div>
+                    <i></i>
+                  </button>
+                  <button type="button">
+                    <div>
+                      <i></i>
+                      <span>쿠폰 등록</span>
+                    </div>
+                    <i></i>
+                  </button>
+                </section>
+
+                <!-- END 섹션: 마이페이지 메뉴버튼 -->
+
+                <!-- 섹션: 스택정보 ~ 펫사육 -->
+                <section>
+                  <div>
+                    <button type="button">스탯정보</button>
+                    <button type="button">장비</button>
+                    <button type="button">길드</button>
+                    <button type="button">퀘스트</button>
+                    <button type="button">펫사육</button>
+                  </div>
+                  <div>
+
+                    <!-- 탭내용: 스탯정보 -->
+                    <div>
+                      <div>
+                        <button type="button">팔라딘 프리셋</button>
+                        <button type="button">워로드 프리셋</button>
+                        <button type="button">프리스트 프리셋</button>
+                      </div>
+                      <div>
+
+                        <!-- 팔라딘 프리셋 -->
+                        <div>
+                          <div>
+                            <h4>전투 스탯</h4>
+                            <ul>
+                              <li>
+                                <div>
+                                  <p>ATK</p>
+                                  <span>공격력</span>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div>
+                                  <p>STR</p>
+                                  <span>근력</span>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div>
+                                  <p>INT</p>
+                                  <span>지능</span>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div>
+                                  <p>LUCK</p>
+                                  <span>행운</span>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div>
+                                  <p>DEX</p>
+                                  <span>민첩</span>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div>
+                                  <p>DEF</p>
+                                  <span>방어력</span>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div>
+                                  <p>HEALTH</p>
+                                  <span>체력</span>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h4>모험 스탯</h4>
+                            <ul>
+                              <li>
+                                <div>
+                                  <p>크리티컬 피해량</p>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div>
+                                  <p>크리티컬 확률</p>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                              <li>
+                                <div>
+                                  <p>장비획득률</p>
+                                </div>
+                                <div>
+                                  <p>+ 2</p>
+                                  <span>(+ 0.00%)</span>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <!-- END 팔라딘 프리셋 -->
+
+                        <!-- 워로드 프리셋 -->
+                        <div>
+                        </div>
+
+                        <!-- END 워로드 프리셋 -->
+
+                        <!-- 프리스트 프리셋 -->
+                        <div>
+                        </div>
+
+                        <!-- END 프리스트 프리셋 -->
+                      </div>
+                    </div>
+
+                    <!-- END 탭내용: 스탯정보 -->
+
+                    <!-- 탭내용: 장비 -->
+                    <div>
+                      <div>
+                        <button type="button">장비</button>
+                        <button type="button">악세서리</button>
+                      </div>
+                      <div>
+
+                        <!-- 장비 -->
+                        <div>
+
+                          <!-- 가운데 아바타 -->
+                          <div></div>
+
+                          <!-- END 가운데 아바타 -->
+
+                          <!-- 상의/모자 -->
+                          <div>
+                            <div>
+                              <p>상의</p>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </div>
+                            <div>
+                              <p>모자</p>
+                              <figure></figure>
+                            </div>
+                          </div>
+
+                          <!-- END 상의/모자 -->
+
+                          <!-- 하의/무기 -->
+                          <div>
+                            <div>
+                              <p>하의</p>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </div>
+                            <div>
+                              <p>무기</p>
+                              <figure></figure>
+                            </div>
+                          </div>
+
+                          <!-- END 하의/무기 -->
+
+                          <!-- 신발 -->
+                          <div>
+                            <div>
+                              <p>신발</p>
+                              <figure></figure>
+                            </div>
+                          </div>
+
+                          <!-- END 신발 -->
+                        </div>
+
+                        <!-- END 장비 -->
+
+                        <!-- 악세서리 -->
+                        <div>
+
+                          <!-- 가운데 아바타 -->
+                          <div></div>
+
+                          <!-- END 가운데 아바타 -->
+
+                          <!-- 목걸이1/반지1 -->
+                          <div>
+                            <div>
+                              <p>목걸이1</p>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </div>
+                            <div>
+                              <p>반지1</p>
+                              <figure></figure>
+                            </div>
+                          </div>
+
+                          <!-- END 목걸이1/반지1 -->
+
+                          <!-- 목걸이2/반지2 -->
+                          <div>
+                            <div>
+                              <p>목걸이2</p>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </div>
+                            <div>
+                              <p>반지2</p>
+                              <figure></figure>
+                            </div>
+                          </div>
+
+                          <!-- END 목걸이2/반지2 -->
+
+                          <!-- 룬 -->
+                          <div>
+                            <div>
+                              <p>룬</p>
+                              <div>
+                                <figure></figure>
+                                <figure></figure>
+                                <figure></figure>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- END 룬 -->
+                        </div>
+
+                        <!-- END 악세서리 -->
+                      </div>
+                    </div>
+
+                    <!-- END 탭내용: 장비 -->
+
+                    <!-- 탭내용: 길드 -->
+                    <div>
+
+                      <!-- TODO: 길드 있을 때 -->
+                      <div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+                        <ul>
+                          <li>
+                            <div>
+                              <h5>길드이름</h5><span>5/1234</span>
+                            </div>
+                            <p>길드 한줄 소개</p>
+                          </li>
+                          <li>
+                            <div>
+                              <i></i>
+                              <span>닉네임</span>
+                            </div>
+                          </li>
+                        </ul>
+                        <button type="button">
+                          <span>자세히 보기</span>
+                          <i></i>
+                        </button>
+                      </div>
+
+                      <!-- TODO: 길드 없을 때 -->
+                      <div>
+                        <div>
+                          <i></i>
+                          <p>소속된 길드가 없어요</p>
+                        </div>
+                        <button type="button">길드 모아보기</button>
+                      </div>
+                    </div>
+
+                    <!-- END 탭내용: 길드 -->
+
+                    <!-- 탭내용: 퀘스트 -->
+                    <div>
+                      <div>
+
+                        <!-- 셀렉트 옵션 모음 -->
+                        <div>
+                          <div>
+                            <label>카테고리</label>
+                            <button type="button">전체</button>
+                          </div>
+                          <div>
+                            <label>진행상황</label>
+                            <button type="button">전체</button>
+                          </div>
+                        </div>
+
+                        <!-- END 셀렉트 옵션 모음 -->
+
+                        <!-- TODO: 퀘스트 있을 때 -->
+                        <div>
+                          <h4>총 3개</h4>
+                          <ul>
+                            <li>
+
+                              <!-- 프로그레스 -->
+                              <div>
+                                <div>
+                                  <div>
+                                    <span>메인</span>
+                                    <span>퀘스트명(진행중 디자인) 한줄 초과 말 줄임표</span>
+                                  </div>
+                                  <span>
+                              <b>90%</b>
+                            </span>
+                                </div>
+                                <div>
+                                  <span></span>
+                                </div>
+
+                                <!-- TODO: 완료일자가 보여야할 때 보입니다. -->
+                                <div>
+                                  <span>완료일자 23.00.00</span>
+                                </div>
+                              </div>
+
+                              <!-- END 프로그레스 -->
+                            </li>
+                            <li>
+
+                              <!-- 프로그레스 -->
+                              <div>
+                                <div>
+                                  <div>
+                                    <span>메인</span>
+                                    <span>퀘스트명(진행중 디자인) 한줄 초과 말 줄임표</span>
+                                  </div>
+                                  <span>
+                              <b>90%</b>
+                            </span>
+                                </div>
+                                <div>
+                                  <span></span>
+                                </div>
+
+                                <!-- TODO: 완료일자가 보여야할 때 보입니다. -->
+                                <div>
+                                  <span>완료일자 23.00.00</span>
+                                </div>
+                              </div>
+
+                              <!-- END 프로그레스 -->
+                            </li>
+                            <li>
+
+                              <!-- 프로그레스 -->
+                              <div>
+                                <div>
+                                  <div>
+                                    <span>메인</span>
+                                    <span>퀘스트명(진행중 디자인) 한줄 초과 말 줄임표</span>
+                                  </div>
+                                  <span>
+                              <b>90%</b>
+                            </span>
+                                </div>
+                                <div>
+                                  <span></span>
+                                </div>
+
+                                <!-- TODO: 완료일자가 보여야할 때 보입니다. -->
+                                <div>
+                                  <span>완료일자 23.00.00</span>
+                                </div>
+                              </div>
+
+                              <!-- END 프로그레스 -->
+                            </li>
+                            <li>
+
+                              <!-- 프로그레스 -->
+                              <div>
+                                <div>
+                                  <div>
+                                    <span>메인</span>
+                                    <span>퀘스트명(진행중 디자인) 한줄 초과 말 줄임표</span>
+                                  </div>
+                                  <span>
+                              <b>90%</b>
+                            </span>
+                                </div>
+                                <div>
+                                  <span></span>
+                                </div>
+
+                                <!-- TODO: 완료일자가 보여야할 때 보입니다. -->
+                                <div>
+                                  <span>완료일자 23.00.00</span>
+                                </div>
+                              </div>
+
+                              <!-- END 프로그레스 -->
+                            </li>
+                          </ul>
+                        </div>
+
+                        <!-- TODO: 퀘스트 없을 때 -->
+                        <div>
+                          <h4>총 0개</h4>
+                          <div>
+                            <i></i>
+                            <p>소속된 길드가 없어요</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- END 탭내용: 퀘스트 -->
+
+                    <!-- 탭내용: 펫사육 -->
+                    <div>
+                      <div>
+
+                        <!-- TODO: 있을 때 -->
+                        <div>
+                          <h4>총 25마리</h4>
+                          <ul>
+                            <li>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </li>
+                            <li>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </li>
+                            <li>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </li>
+                            <li>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </li>
+                            <li>
+                              <figure>
+                                <img src="" alt="">
+                              </figure>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <!-- TODO: 없을 때 -->
+                        <div>
+                          <h4>총 0개</h4>
+                          <div>
+                            <i></i>
+                            <p>보유하고 있는 펫이 없어요</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- END 탭내용: 펫사육 -->
+                  </div>
+                </section>
+
+                <!-- END 섹션: 스택정보 ~ 펫사육 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">
+                <i></i>
+                <span>홈</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>길드</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>게시판</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>상점</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>채팅</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+
+        <!-- layout: 페이지 팝업 (프로필 수정) -->
+        <div class="l-page l-page-popup">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>프로필 수정</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+
+              <!-- 섹션: 프로필 수정 -->
+              <section>
+                <div>
+                  <h3>XBOX 사진을 불러옵니다.</h3>
+                  <div>
+                    <figure></figure>
+                    <input type="file">
+                    <label for="">
+                      <span>편집</span>
+                      <i></i>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <label>유저 닉네임 수정</label>
+                  <div>
+                    <div>
+                      <input type="text" placeholder="현재유저닉네임">
+                      <div><span>7</span>/10</div>
+                    </div>
+                    <button type="button">중복확인</button>
+                  </div>
+                  <p>이미 존재하는 닉네임입니다.</p>
+                </div>
+              </section>
+
+              <!-- END 섹션: 프로필 수정 -->
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">수정 완료</button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 팝업 (프로필 수정) -->
+
+        <!-- layout: 바텀시트 (장비-아이템) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="invisible">
+                <h2></h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 장비 아이템 정보 요약 -->
+                <section>
+                  <div>
+                    <p>상의</p>
+                    <figure></figure>
+                    <div>
+                      <h5>장비이름</h5>
+                      <span>인게임닉네임</span>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 장비 아이템 정보 요약 -->
+
+                <!-- 섹션: 장비 아이템 전투스탯 -->
+                <section>
+                  <h4>전투 스탯</h4>
+                  <ul>
+                    <li>
+                      <div>
+                        <p>ATK</p>
+                        <span>공격력</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>STR</p>
+                        <span>근력</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>INT</p>
+                        <span>지능</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>LUCK</p>
+                        <span>행운</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>DEX</p>
+                        <span>민첩</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>DEF</p>
+                        <span>방어력</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>HEALTH</p>
+                        <span>체력</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 장비 아이템 전투스탯 -->
+
+                <!-- 섹션: 장비 아이템 모험 스탯 -->
+                <section>
+                  <h4>모험 스탯</h4>
+                  <ul>
+                    <li>
+                      <div>
+                        <p>크리티컬 피해량</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>크리티컬 확률</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>장비획득률</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 장비 아이템 모험 스탯 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (장비-아이템) -->
+
+        <!-- layout: 바텀시트 (퀘스트-카테고리) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>카테고리</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+                <ul>
+                  <li>
+                    <button type="button">
+                      <span>전체</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>메인</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>서브</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>전직</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (퀘스트-카테고리) -->
+
+        <!-- layout: 바텀시트 (퀘스트-진행상황) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>진행상황</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+                <ul>
+                  <li>
+                    <button type="button">
+                      <span>전체</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>진행중</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>진행완료</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (퀘스트-진행상황) -->
+
+        <!-- layout: 바텀시트 (펫사육-상세) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="invisible">
+                <h2></h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+                <div>
+                  <figure></figure>
+                  <div>
+                    <h5>선택한 펫이름</h5>
+                    <div>
+                      <span>n등급</span>
+                      <span>Lv.000</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <ul>
+                    <li>
+                      <div>
+                        <p>허기</p>
+                      </div>
+                      <div>
+                        <p>50/100</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>배고픔</p>
+                      </div>
+                      <div>
+                        <p>50/100</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>장비 획득률</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>스킬</p>
+                      </div>
+                      <div>
+                        <p>파이어볼</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>탑승</p>
+                      </div>
+                      <div>
+                        <p>가능</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>날기</p>
+                      </div>
+                      <div>
+                        <p>가능</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>착용효과</h4>
+                  <ul>
+                    <li>
+                      <div>
+                        <p>ATK</p>
+                        <span>공격력</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>STR</p>
+                        <span>근력</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>INT</p>
+                        <span>지능</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>LUCK</p>
+                        <span>행운</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>DEX</p>
+                        <span>민첩</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>DEF</p>
+                        <span>방어력</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>HEALTH</p>
+                        <span>체력</span>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                        <span>(+ 0.00%)</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>보유효과</h4>
+                  <ul>
+                    <li>
+                      <div>
+                        <p>크리티컬 피해량</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>치명타 피해량</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>장비 획득률</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>전리품 획득률</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>스킬 대기시간</p>
+                      </div>
+                      <div>
+                        <p>+ 2</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (펫사육-상세) -->
+      </div>
+
+      <!-- END layout: 마이페이지 메인 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

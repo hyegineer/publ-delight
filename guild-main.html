@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 길드 목록 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
+          <header>
+            <div>
+              <div>
+                <h2>길드</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                길드 버튼
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 내 길드 정보 -->
+                <section>
+                  <figure>
+                    <img src="" alt="">
+                  </figure>
+                  <ul>
+                    <li>
+                      <p>랭킹 00위</p>
+                    </li>
+                    <li>
+                      <div>
+                        <h5>길드이름</h5><span>5/1234</span>
+                      </div>
+                      <p>길드 한줄 소개</p>
+                    </li>
+                    <li>
+                      <div>
+                        <i></i>
+                        <span>닉네임</span>
+                      </div>
+                    </li>
+                  </ul>
+                  <button type="button">
+                    가입
+                  </button>
+                </section>
+
+                <!-- END 섹션: 내 길드 정보 -->
+
+                <!-- 섹션: 길드원 -->
+                <section>
+                  <div>
+                    <h4>길드원</h4>
+                    <span>20/100</span>
+                  </div>
+                  <div>
+                    <button type="button">가입순</button>
+                    <button type="button">전투력순</button>
+                  </div>
+
+                  <!-- TODO: 길드원이 있을 때 -->
+                  <ul>
+                    <li>
+                      <div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+
+                        <!-- TODO: 활동하고있을 시 파란 불이 뜹니다. 클래스는 active를 추가합니다. -->
+                        <span></span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+
+                        <!-- TODO: 활동하고있을 시 파란 불이 뜹니다. 클래스는 active를 추가합니다. -->
+                        <span></span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+
+                        <!-- TODO: 활동하고있을 시 파란 불이 뜹니다. 클래스는 active를 추가합니다. -->
+                        <span></span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+
+                        <!-- TODO: 활동하고있을 시 파란 불이 뜹니다. 클래스는 active를 추가합니다. -->
+                        <span></span>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+
+                        <!-- TODO: 활동하고있을 시 파란 불이 뜹니다. 클래스는 active를 추가합니다. -->
+                        <span></span>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <!-- TODO: 길드원이 없을 때 -->
+                  <div>
+                    <div>
+                      <i></i>
+                      <p>가입한 길드원이 없어요</p>
+                    </div>
+                  </div>
+                  <button type="button">
+                    <span>더보기</span>
+                    <i></i>
+                  </button>
+                </section>
+
+                <!-- END 섹션: 길드원 -->
+
+                <!-- 섹션: 게시판 -->
+                <section>
+                  <div>
+                    <h4>게시판</h4>
+                    <div>
+                      <button type="button">더보기</button>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <i></i>
+                      <span>공지</span>
+                    </div>
+                    <ul>
+                      <li>
+                        <div>
+                          <p>[예고 이벤트] 🚨 작은 건축물을 위한 가이드가 출간될 예정입니다(feat. 모장 공식)</p>
+                        </div>
+                      </li>
+                      <li>
+                        <div>
+                          <p>게시글 제목 2줄 까지 노출, 이후로는 말줄임표 노출</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div>
+                      <i></i>
+                      <span>최신 게시글</span>
+                    </div>
+                    <ul>
+                      <li>
+
+                        <!-- 게시글 아이템 -->
+                        <div>
+                          <ul>
+                            <li>
+                              <div>
+                                <span>일반</span>
+                                <p>게시글 제목</p>
+                              </div>
+                            </li>
+                            <li>
+                              <div>
+                                <div>
+                                  <span>닉네임</span>
+                                  <p>23.00.00</p>
+                                </div>
+                                <div>
+                                  <i></i>
+                                  <span>1,234</span>
+                                </div>
+                                <div>
+                                  <i></i>
+                                  <span>9,999</span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <figure></figure>
+                        </div>
+
+                        <!-- END 게시글 아이템 -->
+                      </li>
+                      <li>
+
+                        <!-- 게시글 아이템 -->
+                        <div>
+                          <ul>
+                            <li>
+                              <div>
+                                <span>일반</span>
+                                <p>게시글 제목</p>
+                                <span>(999+)</span>
+                              </div>
+                            </li>
+                            <li>
+                              <div>
+                                <div>
+                                  <span>닉네임</span>
+                                  <p>23.00.00</p>
+                                </div>
+                                <div>
+                                  <i></i>
+                                  <span>1,234</span>
+                                </div>
+                                <div>
+                                  <i></i>
+                                  <span>9,999</span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <figure></figure>
+                        </div>
+
+                        <!-- END 게시글 아이템 -->
+                      </li>
+                      <li>
+
+                        <!-- 게시글 아이템 -->
+                        <div>
+                          <ul>
+                            <li>
+                              <div>
+                                <span>일반</span>
+                                <i></i>
+                                <p>게시글 제목</p>
+                                <span>(999+)</span>
+                              </div>
+                            </li>
+                            <li>
+                              <div>
+                                <div>
+                                  <span>닉네임</span>
+                                  <p>23.00.00</p>
+                                </div>
+                                <div>
+                                  <i></i>
+                                  <span>1,234</span>
+                                </div>
+                                <div>
+                                  <i></i>
+                                  <span>9,999</span>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <figure></figure>
+                        </div>
+
+                        <!-- END 게시글 아이템 -->
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 게시판 -->
+                <button type="button">
+                  <i></i>
+                  <span>길드 탈퇴하기</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">
+                <i></i>
+                <span>홈</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>길드</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>게시판</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>상점</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>채팅</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+
+        <!-- layout: 페이지 팝업 (길드 정보 수정) -->
+        <div class="l-page l-page-popup">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>길드 정보 수정</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+
+              <!-- 섹션: 길드 정보 수정 -->
+              <section>
+                <div>
+                  <h3>길드 프로필 사진을 등록합니다.</h3>
+                  <div>
+                    <figure></figure>
+                    <input type="file">
+                    <label for="">
+                      <span>편집</span>
+                      <i></i>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <label>길드명 수정</label>
+                    <div>
+                      <div>
+                        <input type="text" placeholder="수정할 길드명 입력" value="입력 텍스트">
+                        <div><span>7</span>/10</div>
+                      </div>
+                      <button type="button">중복확인</button>
+                    </div>
+                    <p>이미 존재하는 길드명입니다.</p>
+                  </div>
+                  <div>
+                    <label>길드 한줄 소개</label>
+                    <div>
+                      <div>
+                        <input type="text" placeholder="길드를 간단히 소개하세요">
+                        <div><span>0</span>/00</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <label>길드 안내글</label>
+                    <div>
+                      <textarea rows="10" placeholder="어떤 길드인가요?"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- END 섹션: 길드 정보 수정 -->
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">수정 완료</button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 팝업 (길드 정보 수정) -->
+
+        <!-- layout: 바텀시트 (길드원 정보) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>길드원 정보</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 길드원 정보 요약 -->
+                <section>
+                  <div>
+                    <figure>
+                      <img src="" alt="">
+                    </figure>
+                    <span></span>
+                  </div>
+                  <div>
+                    <h5>길드원닉네임</h5>
+                    <span>인게임닉네임</span>
+                    <div>
+                      <span>직업명</span>
+                      <span>Lv.000</span>
+                      <span>n차 전직</span>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 길드원 정보 요약 -->
+
+                <!-- 섹션: 길드원 게임 정보 -->
+                <section>
+                  <ul>
+                    <li>
+                      <div>
+                        <p>플레이 타임</p>
+                      </div>
+                      <div>
+                        <p>99시간 59분 59초</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>전투력</p>
+                      </div>
+                      <div>
+                        <p>+ 000</p>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 길드원 게임 정보 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (길드원 정보) -->
+
+        <!-- layout: 시스템 모달 (길드 탈퇴 확인) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>아래 길드를 탈퇴하시겠습니까?</h3>
+                <div>
+                  <figure>
+                    <img src="" alt="">
+                  </figure>
+                  <ul>
+                    <li>
+                      <div>
+                        <h5>길드이름</h5>
+                      </div>
+                    </li>
+                    <li>
+                      <p>길드 한줄 소개</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">아니오</button>
+              <button type="button">예</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (길드 탈퇴 확인) -->
+      </div>
+
+      <!-- END layout: 길드 목록 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

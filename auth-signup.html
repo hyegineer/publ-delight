@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 회원가입 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
+          <header>
+            <div>
+              <button type="button">
+                <span class="">뒤로 가기</span>
+                <i></i>
+              </button>
+              <div class="">
+                <h2>회원가입</h2>
+              </div>
+            </div>
+            <div class="">
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 회원가입 정보 입력 -->
+                <section>
+                  <div>
+                    <h3>계정 정보를 <br> 입력해주세요.</h3>
+                  </div>
+                  <div>
+                    <div>
+                      <label>닉네임</label>
+                      <div>
+                        <input type="text" placeholder="마인크래프트 닉네임">
+                      </div>
+                      <p>마인크래프트 인게임 닉네임을 입력해주세요</p>
+                    </div>
+                    <div>
+                      <label>유저 닉네임</label>
+                      <div>
+                        <input type="text" placeholder="마인크래프트 닉네임">
+                        <button type="button">중복확인</button>
+                      </div>
+                      <p>사용가능한 닉네임입니다</p>
+                    </div>
+                    <div>
+                      <label>비밀번호</label>
+                      <div>
+                        <input type="password" placeholder="영문, 숫자, 특수문자 조합 8자 이상">
+                      </div>
+                      <p>영문, 숫자, 특수문자를 조합하여 8자 이상 입력해주세요</p>
+                    </div>
+                    <div>
+                      <label>비밀번호 확인</label>
+                      <div>
+                        <input type="password" placeholder="영문, 숫자, 특수문자 조합 8자 이상">
+                      </div>
+                      <p>비밀번호를 다시 확인해주세요</p>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 회원가입 정보 입력 -->
+
+                <!-- 섹션: 카카오톡 인증 -->
+                <section>
+                  <div>
+                    <h3>계정 정보를 <br> 입력해주세요.</h3>
+                    <p>본인인증을 완료하면 개인정보를 불러옵니다.</p>
+                  </div>
+                  <div>
+                    <button type="button">
+                      <i></i>
+                      <span>카카오톡 인증하기</span>
+                    </button>
+                    <div>
+                      <dl>
+                        <dt>성별</dt>
+                        <dd>남자</dd>
+                      </dl>
+                      <dl>
+                        <dt>휴대폰 번호</dt>
+                        <dd>010-0000-0000</dd>
+                      </dl>
+                      <dl>
+                        <dt>생년월일</dt>
+                        <dd>1990.00.00</dd>
+                      </dl>
+                      <dl>
+                        <dt>성명</dt>
+                        <dd>김마인크래프트</dd>
+                      </dl>
+                      <dl>
+                        <dt>이메일</dt>
+                        <dd>email@email.com</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 카오톡 인증 -->
+
+                <!-- 섹션: 추천인 -->
+                <section>
+                  <div>
+                    <h3>딜라잇게임즈를 <br>추천받으셨나요?</h3>
+                    <p>추천인이 없다면 약관 동의로 이동해주세요.</p>
+                  </div>
+                  <div>
+                    <div>
+                      <label>추천인 닉네임</label>
+                      <div>
+                        <div>
+                          <input type="text" placeholder="마인크래프트 닉네임">
+                          <div><span>0</span>/00</div>
+                        </div>
+                        <button type="button">확인</button>
+                      </div>
+                      <p>해당 유저는 커뮤니티에 가입하지 않았습니다</p>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 추천인 -->
+
+                <!-- 섹션: 동의 -->
+                <section>
+                  <div>
+                    <h3>약관에 동의해주세요.</h3>
+                  </div>
+                  <div>
+                    <div>
+                      <h4>필수 약관</h4>
+                      <ul>
+                        <li>
+                          <div>
+                            <input type="checkbox">
+                            <label for=""></label>
+                            <label for="">이용약관 동의</label>
+                          </div>
+                          <button type="button">확인</button>
+                        </li>
+                        <li>
+                          <div>
+                            <input type="checkbox">
+                            <label for=""></label>
+                            <label for="">개인정보 수집 및 이용동의</label>
+                          </div>
+                          <button type="button">확인</button>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4>선택 약관</h4>
+                      <ul>
+                        <li>
+                          <div>
+                            <input type="checkbox">
+                            <label for=""></label>
+                            <label for="">이벤트 및 혜택 알림</label>
+                          </div>
+                          <button type="button">확인</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 동의 -->
+                <button type="button">회원가입 완료</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <p>딜라잇 게임즈가 처음이신가요?</p>
+              <button type="button">
+                <span>회원가입</span>
+                <i></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+
+        <!-- layout: 바텀시트 (이용약관) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>약관명</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+
+              <!-- 섹션: 이용약관 텍스트 -->
+              <section>
+                <p>이용약관 텍스트</p>
+              </section>
+
+              <!-- END 섹션: 이용약관 텍스트 -->
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (이용약관) -->
+      </div>
+
+      <!-- END layout: 회원가입 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

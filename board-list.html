@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 게시판 목록 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
+          <header>
+            <div>
+              <div>
+                <h2></h2>
+              </div>
+            </div>
+            <div>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 검색 옵션 + 게시판 분류 + 보기 갯수 설정 -->
+                <section>
+
+                  <!-- 검색 옵션 모음 -->
+                  <div>
+                    <select>
+                      <option value="">전체</option>
+                    </select>
+                    <input type="text" placeholder="검색어를 입력하세요">
+                    <button type="button">
+                      <span>검색하기</span>
+                      <i></i>
+                    </button>
+                  </div>
+
+                  <!-- END 검색 옵션 모음 -->
+                  <div>
+                    <button type="button">
+                      <span>일반 게시판</span>
+                    </button>
+                    <div>
+                      <button type="button">
+                        <span>10개씩 보기</span>
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 검색 옵션 + 게시판 분류 + 보기 갯수 설정 -->
+
+                <!-- 섹션: 공지사항이 있을 시 -->
+                <section>
+                  <ul>
+                    <li>
+                      <div>
+                        <i></i>
+                        <p>게시글 제목 1줄 까지 노출</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <i></i>
+                        <p>[예고 이벤트] 🚨 작은 건축물을 위한 가이드가 출간될 예정입니다(feat. 모장 공식)</p>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 공지사항이 있을 시 -->
+
+                <!-- 섹션: 게시글 리스트 -->
+                <section>
+
+                  <!-- TODO: 게시글 있을 때 -->
+                  <ul>
+                    <li>
+
+                      <!-- 게시글 아이템 -->
+                      <div>
+                        <ul>
+                          <li>
+                            <div>
+                              <span>일반</span>
+                              <i></i>
+                              <p>새글+비밀글+이미지 입니다.</p>
+                              <span>(999+)</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <div>
+                                <span>닉네임</span>
+                                <p>23.00.00</p>
+                              </div>
+                              <div>
+                                <i></i>
+                                <span>1,234</span>
+                              </div>
+                              <div>
+                                <i></i>
+                                <span>9,999</span>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <figure></figure>
+                      </div>
+
+                      <!-- END 게시글 아이템 -->
+                    </li>
+                  </ul>
+                  <div>
+                    <button type="button">
+                      <span>이전</span>
+                      <i></i>
+                    </button>
+                    <button type="button">1</button>
+                    <button type="button">2</button>
+                    <button type="button">3</button>
+                    <button type="button">4</button>
+                    <button type="button">5</button>
+                    <button type="button">
+                      <span>다음</span>
+                      <i></i>
+                    </button>
+                  </div>
+
+                  <!-- TODO: 게시글 없을 때 -->
+                  <div>
+                    <i></i>
+                    <p>존재하는 길드가 없어요</p>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 게시글 리스트 -->
+                <button type="button">
+                  <span>글쓰기</span>
+                  <i></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">
+                <i></i>
+                <span>홈</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>길드</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>게시판</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>상점</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>채팅</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+
+        <!-- layout: 바텀시트 (게시판 선택) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>게시판 선택</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 분류 카테고리 -->
+                <section>
+                  <h4>대분류 카테고리</h4>
+                  <ul>
+                    <li>
+                      <button type="button">
+                        <i></i>
+                        <span>공지사항</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button">
+                        <span>일반 게시판</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button">
+                        <span>공략 게시판</span>
+                      </button>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 분류 카테고리 -->
+
+                <!-- 섹션: 분류 카테고리 -->
+                <section>
+                  <h4>대분류 카테고리</h4>
+                  <ul>
+                    <li>
+                      <button type="button">
+                        <i></i>
+                        <span>추가 게시판1</span>
+                      </button>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 분류 카테고리 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (게시판 선택) -->
+
+        <!-- layout: 바텀시트 (게시글 목록) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>게시글 목록</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+                <ul>
+                  <li>
+                    <button type="button">
+                      <span>10개씩 보기</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>30개씩 보기</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>50개씩 보기</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (게시글 목록) -->
+
+        <!-- layout: 바텀시트 (검색 조건) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>검색 조건</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+                <ul>
+                  <li>
+                    <button type="button">
+                      <span>전체</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>활동명</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>마크닉네임</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (검색 조건) -->
+      </div>
+
+      <!-- END layout: 게시판 목록 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 채팅 목록 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- END layout: 헤더 타입 3 (채팅) -->
+          <header>
+            <div>
+              <button type="button">
+                <i></i>
+                <span>99+</span>
+              </button>
+            </div>
+            <div>
+              <h2>인게임&그룹채팅방 이름</h2>
+            </div>
+            <div>
+              <button type="button">
+                <span>채팅방버튼</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 3 (채팅) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+                <div>
+
+                  <!-- TODO: 채팅방 상태는 이 요소에 담겨져서 보입니다. -->
+                  <div>
+                    <p>2023.00.00</p>
+                    <p>딜라잇게임즈님이 채팅방에 참여했습니다</p>
+                    <p>딜라잇게임즈님이 채팅방을 나갔습니다</p>
+                  </div>
+
+                  <!-- TODO: 채팅방 말풍선은 이 요소에 담겨져서 보입니다. -->
+
+                  <!-- TODO: 보낸 사람일 경우에 클래스 send가 추가됩니다. -->
+                  <section>
+                    <div>
+
+                      <!-- 사람 정보 -->
+
+                      <!-- TODO: 보낸 사람일 경우 보이지 않습니다. -->
+                      <div>
+                        <div>
+                          <figure>
+                            <img src="" alt="">
+                          </figure>
+                          <span></span>
+                        </div>
+                        <ul>
+                          <li>
+                            <div>
+                              <span>Lv.00</span>
+                              <span>직업명</span>
+                              <span>0차 전직</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <h5>닉네임</h5>
+                              <span>길드이름</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <!-- END 사람 정보 -->
+
+                      <!-- TODO: 말풍선일 때입니다. -->
+                      <p>컨셉을 위한 장식용 머리블록 이라던가
+                        거점은 초반에 진짜 살아남으려고 지어서 심층암으로 된 투박한 컨테이너예요..ㅎㅎ</p>
+
+                      <!-- TODO: 이모티콘 디자인 이미지일 때입니다. -->
+                      <figure>
+                        <img src="" alt="">
+                      </figure>
+
+                      <!-- TODO: 이모티콘 선물할 때입니다. -->
+                      <div>
+                        <div>
+                          <i></i>
+                          <p>‘상대방닉네임'이 <br>
+                            이모티콘을 선물했습니다.</p>
+                        </div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+                        <div>
+                          <p>똥강아지 용구</p>
+                          <span>작가닉네임</span>
+                        </div>
+                        <div>
+                          <button type="button">거절</button>
+                          <button type="button">수락</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <span>1</span>
+                      <p>00:00</p>
+                    </div>
+                  </section>
+
+                  <!-- TODO: 채팅방 상태는 이 요소에 담겨져서 보입니다. -->
+
+                  <!-- TODO: 보낸 사람일 경우에 클래스 send가 추가됩니다. -->
+                  <section>
+                    <div>
+
+                      <!-- 사람 정보 -->
+
+                      <!-- TODO: 보낸 사람일 경우 보이지 않습니다. -->
+                      <div style="display: none;">
+                        <div>
+                          <figure>
+                            <img src="" alt="">
+                          </figure>
+                          <span></span>
+                        </div>
+                        <ul>
+                          <li>
+                            <div>
+                              <span>Lv.00</span>
+                              <span>직업명</span>
+                              <span>0차 전직</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <h5>닉네임</h5>
+                              <span>길드이름</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <!-- END 사람 정보 -->
+
+                      <!-- TODO: 말풍선일 때입니다. -->
+                      <p>카카오톡 처럼 읽은 사람 수 노출함</p>
+
+                      <!-- TODO: 이모티콘 디자인 이미지일 때입니다. -->
+                      <figure>
+                        <img src="" alt="">
+                      </figure>
+
+                      <!-- TODO: 이모티콘 선물할 때입니다. -->
+                      <div>
+                        <div>
+                          <i></i>
+                          <p>‘상대방닉네임'이 <br>
+                            이모티콘을 선물했습니다.</p>
+                        </div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+                        <div>
+                          <p>똥강아지 용구</p>
+                          <span>작가닉네임</span>
+                        </div>
+                        <div>
+                          <button type="button">거절</button>
+                          <button type="button">수락</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <span>10</span>
+                      <p>00:00</p>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+
+              <!-- 채팅 작성 상단 -->
+              <div>
+                <div>
+                  <input type="text" placeholder="채팅을 작성해주세요">
+                  <div>
+                    <button type="button">
+                      <span>이모티콘</span>
+                      <i></i>
+                    </button>
+                    <button type="button">
+                      <span>앨범</span>
+                      <i></i>
+                    </button>
+                  </div>
+                </div>
+                <button type="button">
+                  <span>전송</span>
+                  <i></i>
+                </button>
+              </div>
+
+              <!-- END 채팅 작성 상단 -->
+
+              <!-- 채팅 작성 하단 (이모티콘 선택시) -->
+              <div>
+                <div>
+                  <button type="button">
+                    <span>이모티콘 선물하기</span>
+                    <i></i>
+                  </button>
+                  <div>
+                    <button type="button">
+                      <img src="" alt="">
+                    </button>
+                    <button type="button">
+                      <img src="" alt="">
+                    </button>
+                    <button type="button">
+                      <img src="" alt="">
+                    </button>
+                  </div>
+                </div>
+                <div>
+
+                  <!-- TODO: 이모티콘 있을 때 -->
+                  <div>
+                    <div>
+                      <h5>이모티콘이름</h5>
+                      <span>작가닉네임</span>
+                    </div>
+                    <div>
+                      <ul>
+                        <li>
+
+                          <!-- 이모티콘 아이템 -->
+                          <figure>
+                            <img src="" alt="">
+                          </figure>
+
+                          <!-- END 이모티콘 아이템 -->
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- TODO: 이모티콘 없을 때 -->
+                  <div>
+                    <div>
+                      <p>이모티콘이 없어요</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- END 채팅 작성 하단 (이모티콘 선택시) -->
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+
+        <!-- layout: 오른쪽에서 나타나는 모달 (멤버 구성) -->
+        <div class="l-right-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal right-modal">
+            <button type="button">
+              <span>닫기</span>
+              <i></i>
+            </button>
+            <div class="">
+              <div>
+                <h4>멤버</h4>
+                <span>30</span>
+              </div>
+              <button type="button">+ 멤버 초대하기</button>
+              <div>
+                <ul>
+                  <li>
+
+                    <!-- 사람 정보 -->
+                    <div>
+                      <div>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+                        <span></span>
+                      </div>
+                      <ul>
+                        <li>
+                          <div>
+                            <span>Lv.00</span>
+                            <span>직업명</span>
+                            <span>0차 전직</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <h5>닉네임</h5>
+                            <span>길드이름</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- END 사람 정보 -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div>
+                <button type="button">
+                  <i></i>
+                  <span>채팅방 나가기</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 오른쪽에서 나타나는 모달 (멤버 구성) -->
+
+        <!-- layout: 페이지 팝업 (멤버 초대하기) -->
+        <div class="l-page l-page-popup">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>멤버 초대하기</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 멤버 구성원 -->
+                <section>
+                  <h4>총 22명</h4>
+                  <ul>
+                    <li>
+
+                      <!-- 멤버 아이템 -->
+                      <div>
+                        <div>
+                          <figure>
+                            <img src="" alt="">
+                          </figure>
+                          <span></span>
+                        </div>
+                        <ul>
+                          <li>
+                            <div>
+                              <span>Lv.00</span>
+                              <span>직업명</span>
+                              <span>0차 전직</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <h5>닉네임</h5>
+                              <span>길드이름</span>
+                            </div>
+                          </li>
+                        </ul>
+                        <input type="checkbox">
+                        <label for=""></label>
+                      </div>
+
+                      <!-- END 멤버 아이템 -->
+                    </li>
+                    <li>
+
+                      <!-- 멤버 아이템 -->
+                      <div>
+                        <div>
+                          <figure>
+                            <img src="" alt="">
+                          </figure>
+                          <span></span>
+                        </div>
+                        <ul>
+                          <li>
+                            <div>
+                              <span>Lv.00</span>
+                              <span>직업명</span>
+                              <span>0차 전직</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <h5>닉네임</h5>
+                              <span>길드이름</span>
+                            </div>
+                          </li>
+                        </ul>
+                        <input type="checkbox">
+                        <label for=""></label>
+                      </div>
+
+                      <!-- END 멤버 아이템 -->
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 멤버 구성원 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">2명 초대하기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 페이지 팝업 (멤버 초대하기) -->
+
+        <!-- layout: 시스템 모달 (채팅방 나가기) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>채팅방을 나가시겠습니까?</h3>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">아니오</button>
+              <button type="button">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (채팅방 나가기) -->
+
+        <!-- layout: 시스템 모달 (이모티콘 수락/거절 확인) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>‘상대방닉네임'이 선물한 <br>이모티콘을 수락/거절 하시겠습니까?</h3>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">아니오</button>
+              <button type="button">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (이모티콘 수락/거절 확인) -->
+
+        <!-- layout: 시스템 모달 (이모티콘 선물 확인) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>이모티콘을 선물하시겠습니까?</h3>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">아니오</button>
+              <button type="button">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (이모티콘 선물 확인) -->
+
+        <!-- layout: 페이지 팝업 (이모티콘 선물하기) -->
+        <div class="l-page l-page-popup">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>이모티콘 선물하기</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 이모티콘 선물하기 문구 -->
+                <section>
+                  <div>
+                    <img src="" alt="">
+                    <h3>선물할 이모티콘을 <br>선택하세요!</h3>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 이모티콘 선물하기 문구 -->
+
+                <!-- 섹션: 이모티콘 목록과 상세보기 -->
+                <section>
+                  <h4>총 16개</h4>
+                  <div>
+                    <button type="button">
+                      <img src="" alt="">
+                    </button>
+                    <button type="button">
+                      <img src="" alt="">
+                    </button>
+                    <button type="button">
+                      <img src="" alt="">
+                    </button>
+                    <button type="button">
+                      <img src="" alt="">
+                    </button>
+                  </div>
+                  <div>
+                    <div>
+                      <figure>
+                        <img src="" alt="">
+                      </figure>
+                      <div>
+                        <p>똥강아지 용구</p>
+                        <span>작가닉네임</span>
+                      </div>
+                      <p>이모티콘 한줄 소개 텍스트</p>
+                    </div>
+                    <ul>
+                      <li>
+                        <figure>
+                          <img src="" alt="">
+                        </figure>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 이모티콘 목록과 상세보기 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">선물하기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 페이지 팝업 (이모티콘 선물하기) -->
+      </div>
+
+      <!-- END layout: 채팅 목록 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 길드 목록 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
+          <header>
+            <div>
+              <div>
+                <h2></h2>
+              </div>
+            </div>
+            <div>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+
+              <!-- 섹션: 길드 리스트 -->
+              <section>
+                <div>
+                  <button type="button">최신순</button>
+                  <button type="button">가나다순</button>
+                  <button type="button">랭킹순</button>
+                </div>
+
+                <!-- TODO: 이미 존재하는 길드 리스트가 있을 때 -->
+                <ul>
+                  <li>
+                    <div>
+                      <figure>
+                        <img src="" alt="">
+                      </figure>
+                      <ul>
+                        <li>
+                          <p>랭킹 00위</p>
+                        </li>
+                        <li>
+                          <div>
+                            <h5>길드이름</h5><span>5/1234</span>
+                          </div>
+                          <p>길드 한줄 소개</p>
+                        </li>
+                        <li>
+                          <div>
+                            <i></i>
+                            <span>닉네임</span>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button">
+                        가입
+                      </button>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <figure>
+                        <img src="" alt="">
+                      </figure>
+                      <ul>
+                        <li>
+                          <p>랭킹 00위</p>
+                        </li>
+                        <li>
+                          <div>
+                            <h5>길드이름</h5><span>5/1234</span>
+                          </div>
+                          <p>길드 한줄 소개</p>
+                        </li>
+                        <li>
+                          <div>
+                            <i></i>
+                            <span>닉네임</span>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button">
+                        가입
+                      </button>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <figure>
+                        <img src="" alt="">
+                      </figure>
+                      <ul>
+                        <li>
+                          <p>랭킹 00위</p>
+                        </li>
+                        <li>
+                          <div>
+                            <h5>길드이름</h5><span>5/1234</span>
+                          </div>
+                          <p>길드 한줄 소개</p>
+                        </li>
+                        <li>
+                          <div>
+                            <i></i>
+                            <span>닉네임</span>
+                          </div>
+                        </li>
+                      </ul>
+                      <button type="button">
+                        가입
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+
+                <!-- TODO: 이미 존재하는 길드 리스트가 없을 때 -->
+                <div>
+                  <div>
+                    <i></i>
+                    <p>존재하는 길드가 없어요</p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- END 섹션: 길드 리스트 -->
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">
+                <i></i>
+                <span>홈</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>길드</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>게시판</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>상점</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>채팅</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+      </div>
+
+      <!-- END layout: 길드 목록 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

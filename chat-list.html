@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 채팅 목록 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
+          <header>
+            <div>
+              <div>
+                <h2></h2>
+              </div>
+            </div>
+            <div>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 채팅 목록 -->
+                <section>
+                  <ul>
+                    <li>
+
+                      <!-- 채팅 목록 아이템 -->
+                      <div>
+                        <figure></figure>
+                        <ul>
+                          <li>
+                            <h5>닉네임</h5>
+                          </li>
+                          <li>
+                            <p>최근메세지 내용</p>
+                          </li>
+                        </ul>
+                        <div>
+                          <p>오후 00:00</p>
+                          <span>99+</span>
+                        </div>
+                      </div>
+
+                      <!-- END 채팅 목록 아이템 -->
+                    </li>
+                    <li>
+
+                      <!-- 채팅 목록 아이템 -->
+                      <div>
+                        <figure></figure>
+                        <ul>
+                          <li>
+                            <h5>닉네임</h5>
+                          </li>
+                          <li>
+                            <p>최근메세지 내용</p>
+                          </li>
+                        </ul>
+                        <div>
+                          <p>오후 00:00</p>
+                          <span>99+</span>
+                        </div>
+                      </div>
+
+                      <!-- END 채팅 목록 아이템 -->
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 채팅 목록 -->
+                <button type="button">
+                  <span>채팅방 만들기</span>
+                  <i></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">
+                <i></i>
+                <span>홈</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>길드</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>게시판</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>상점</span>
+              </button>
+              <button type="button">
+                <i></i>
+                <span>채팅</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+
+        <!-- layout: 페이지 팝업 (채팅 추가) -->
+        <div class="l-page l-page-popup">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>채팅 추가</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 멤버 구성원 -->
+                <section>
+                  <h4>총 22명</h4>
+                  <ul>
+                    <li>
+
+                      <!-- 멤버 아이템 -->
+                      <div>
+                        <div>
+                          <figure>
+                            <img src="" alt="">
+                          </figure>
+                          <span></span>
+                        </div>
+                        <ul>
+                          <li>
+                            <div>
+                              <span>Lv.00</span>
+                              <span>직업명</span>
+                              <span>0차 전직</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <h5>닉네임</h5>
+                              <span>길드이름</span>
+                            </div>
+                          </li>
+                        </ul>
+                        <input type="checkbox">
+                        <label for=""></label>
+                      </div>
+
+                      <!-- END 멤버 아이템 -->
+                    </li>
+                    <li>
+
+                      <!-- 멤버 아이템 -->
+                      <div>
+                        <div>
+                          <figure>
+                            <img src="" alt="">
+                          </figure>
+                          <span></span>
+                        </div>
+                        <ul>
+                          <li>
+                            <div>
+                              <span>Lv.00</span>
+                              <span>직업명</span>
+                              <span>0차 전직</span>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <h5>닉네임</h5>
+                              <span>길드이름</span>
+                            </div>
+                          </li>
+                        </ul>
+                        <input type="checkbox">
+                        <label for=""></label>
+                      </div>
+
+                      <!-- END 멤버 아이템 -->
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 멤버 구성원 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">채팅하기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 페이지 팝업 (채팅 추가) -->
+      </div>
+
+      <!-- END layout: 채팅 목록 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

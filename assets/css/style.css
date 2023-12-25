@@ -1,0 +1,139 @@
+@charset "UTF-8";
+html {
+  font-size: 10px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: var(--background, #101017);
+  color: var(--white);
+}
+
+.l-page-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.l-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.l-page-top {
+  flex: 1;
+  width: 100%;
+  overflow: auto;
+}
+
+.l-page-popup {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #121212;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+
+.l-page-popup.show {
+  opacity: 1;
+  top: 0;
+  pointer-events: visible;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+/* 텍스트 숨김 */
+.txt-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+/* 무조건 안보이게 */
+.invisible {
+  display: none !important;
+}
+
+/* 그냥 안보이게 */
+.none {
+  display: none;
+}
+
+@media all and (min-width: 450px) {
+  ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--primary-200, #BB86FC);
+    border-radius: 16px;
+    border: 4px solid transparent;
+  }
+}
+.l-guide-wrapper {
+  padding: 2rem;
+  background-color: inherit;
+}
+
+.guide-tbl {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.guide-tbl th {
+  color: var(--text-light-06);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.guide-tbl td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  font-size: 1rem;
+  color: var(--text-light-08);
+  word-break: keep-all;
+}
+
+.guide-tbl td:first-child {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.guide-tbl td a {
+  color: var(--primary-100);
+  text-decoration: underline;
+}
+
+.guide-tbl ol {
+  list-style-type: decimal;
+  padding-left: 1rem;
+}

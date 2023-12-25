@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 이모티콘 등록 신청 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
+          <header>
+            <div>
+              <button type="button">
+                <span class="">뒤로 가기</span>
+                <i></i>
+              </button>
+              <div class="">
+                <h2>등록 신청하기</h2>
+              </div>
+            </div>
+            <div class="">
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+
+                <!-- 섹션: 기본 정보 -->
+                <section>
+                  <div>
+                    <h4>기본 정보</h4>
+                  </div>
+                  <ul>
+                    <li>
+                      <div>
+                        <input type="text" placeholder="이모티콘 제목을 입력하세요">
+                        <div><span>0</span>/40</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <input type="text" placeholder="이모티콘을 간단하게 설명해주세요">
+                        <div><span>0</span>/40</div>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 기본 정보 -->
+
+                <!-- 섹션: 이모티콘 이미지 -->
+                <section>
+                  <div>
+                    <h4>이모티콘 이미지</h4>
+                  </div>
+                  <div>
+                    <dl>
+                      <dt>파일형식 :</dt>
+                      <dd>PNG (배경 투명)</dd>
+                    </dl>
+                    <dl>
+                      <dt>이미지 개수 :</dt>
+                      <dd>최대 16개</dd>
+                    </dl>
+                    <dl>
+                      <dt>이미지 사이즈 :</dt>
+                      <dd>360 X 360 px (픽셀)</dd>
+                    </dl>
+                    <dl>
+                      <dt>이미지 용량 :</dt>
+                      <dd>개당 150 KB 이하</dd>
+                    </dl>
+                    <dl>
+                      <dt>해상도 :</dt>
+                      <dd>72dpi, 컬러모드 RGB 권장</dd>
+                    </dl>
+                  </div>
+                  <ul>
+                    <li>
+                      <input type="file">
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                      <label for="">
+                        <span>1</span>
+
+                        <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+
+                        <!-- FIXME: -->
+
+                        <!-- <img src="" alt=""> -->
+                        <button type="button">
+                          <span>삭제하기</span>
+                          <i></i>
+                        </button>
+                      </label>
+                    </li>
+                    <li>
+                      <input type="file">
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                      <label for="">
+                        <span>2</span>
+
+                        <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+
+                        <!-- FIXME: -->
+
+                        <!-- <img src="" alt=""> -->
+                        <button type="button">
+                          <span>삭제하기</span>
+                          <i></i>
+                        </button>
+                      </label>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 이모티콘 이미지 -->
+
+                <!-- 섹션: 메인 이미지 -->
+                <section>
+                  <div>
+                    <div>
+                      <h4>메인 이미지</h4>
+                      <p>+를 눌러 파일을 첨부하세요</p>
+                      <dl>
+                        <dt>이미지 사이즈 : </dt>
+                        <dd>360 X 360 px (픽셀)</dd>
+                      </dl>
+                    </div>
+                    <div>
+                      <input type="file">
+                      <label for="">
+                        <span>메인 이미지 첨부하기</span>
+                        <i></i>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- TODO: 메인 이미지 첨부되어있을 때 -->
+                  <ul>
+                    <li>
+
+                      <!-- 첨부파일 아이템 -->
+                      <div>
+                        <div>
+                          <i></i>
+                          <span>파일첨부명 1줄까지만 표기.jpg</span>
+                        </div>
+                        <button type="button">
+                          <span>삭제하기</span>
+                          <i></i>
+                        </button>
+                      </div>
+
+                      <!-- END 첨부파일 아이템 -->
+                    </li>
+                  </ul>
+
+                  <!-- TODO: 메인 이미지 첨부되어있지 않을 때 -->
+                  <div>
+                    <i></i>
+                    <p>등록된 파일이 없어요</p>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 메인 이미지 -->
+
+                <!-- 섹션: 탭 이미지 -->
+                <section>
+                  <div>
+                    <div>
+                      <h4>탭 이미지</h4>
+                      <p>+를 눌러 파일을 첨부하세요</p>
+                      <dl>
+                        <dt>이미지 사이즈 : </dt>
+                        <dd>30 X 30 px (픽셀)</dd>
+                      </dl>
+                    </div>
+                    <div>
+                      <input type="file">
+                      <label for="">
+                        <span>탭 이미지 첨부하기</span>
+                        <i></i>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- TODO: 탭 이미지 첨부되어있을 때 -->
+                  <ul>
+                    <li>
+
+                      <!-- 첨부파일 아이템 -->
+                      <div>
+                        <div>
+                          <i></i>
+                          <span>파일첨부명 1줄까지만 표기.jpg</span>
+                        </div>
+                        <button type="button">
+                          <span>삭제하기</span>
+                          <i></i>
+                        </button>
+                      </div>
+
+                      <!-- END 첨부파일 아이템 -->
+                    </li>
+                  </ul>
+
+                  <!-- TODO: 탭 이미지 첨부되어있지 않을 때 -->
+                  <div>
+                    <i></i>
+                    <p>등록된 파일이 없어요</p>
+                  </div>
+                </section>
+
+                <!-- END 섹션: 탭 이미지 -->
+
+                <!-- 섹션: 판매 가격 -->
+                <section>
+                  <div>
+                    <div>
+                      <div>
+                        <h4>탭 이미지</h4>
+                        <span>3</span>
+                      </div>
+                      <p>재화를 추가할 수 있습니다</p>
+                    </div>
+                    <div>
+                      <button type="button">
+                        <span>판매 가격 추가하기</span>
+                        <i></i>
+                      </button>
+                    </div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div>
+                        <input type="text" placeholder="가격 입력">
+                        <button type="button">
+                          <img src="" alt="">
+                        </button>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <input type="text" placeholder="가격 입력">
+                        <button type="button">
+                          선택
+                        </button>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+
+                <!-- END 섹션: 판매 가격 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div>
+              <button type="button">등록하기</button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+
+        <!-- layout: 바텀시트 (재화 선택) -->
+        <div class="l-bottom-sheet">
+
+          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+          <header>
+            <div>
+              <div class="">
+                <h2>재화 선택</h2>
+              </div>
+            </div>
+            <div>
+              <button type="button">
+                <span>닫기</span>
+                <i></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+              <div>
+                <ul>
+                  <li>
+                    <button type="button">
+                      <i></i>
+                      <span>골드</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <i></i>
+                      <span>크리스탈</span>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button">
+                      <span>원 (현금)</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+        </div>
+
+        <!-- END layout: 바텀시트 (재화 선택) -->
+
+        <!-- layout: 시스템 모달 (이모티콘 등록 확인) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>이모티콘을 등록하시겠습니까?</h3>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">아니오</button>
+              <button type="button">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (이모티콘 등록 확인) -->
+      </div>
+
+      <!-- END layout: 이모티콘 등록 신청 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- layout: 쿠폰 등록 페이지 -->
+      <div class="l-page-wrapper">
+
+        <!-- layout: 페이지 -->
+        <div class="l-page">
+
+          <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
+          <header>
+            <div>
+              <button type="button">
+                <span class="">뒤로 가기</span>
+                <i></i>
+              </button>
+              <div class="">
+                <h2>쿠폰 등록</h2>
+              </div>
+            </div>
+            <div class="">
+            </div>
+          </header>
+
+          <!-- END layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
+
+          <!-- layout: 페이지 상단 -->
+          <div class="l-page-top">
+            <div class="page">
+
+              <!-- 섹션: 쿠폰 등록 -->
+              <section>
+                <div>
+                  <img src="" alt="">
+                  <h3>쿠폰을 등록합니다</h3>
+                </div>
+                <div>
+                  <label>쿠폰번호</label>
+                  <div>
+                    <input type="text" placeholder="쿠폰번호 n자리 입력">
+                  </div>
+                  <p>쿠폰번호를 입력해주세요.</p>
+                </div>
+                <div>
+                  <h4>유의사항</h4>
+                  <ul>
+                    <li>유의사항 텍스트가 들어갑니다.</li>
+                    <li>모든 것이 네모난 블록으로 이루어진 세계에서 혼자, 혹은 여럿이 생존하면서 건축 또는 직접 게임을 제작하는 등 정해진 목표 없이 자유롭게 즐길 수 있다.</li>
+                  </ul>
+                </div>
+              </section>
+
+              <!-- END 섹션: 쿠폰 등록 -->
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 상단 -->
+
+          <!-- layout: 페이지 하단 -->
+          <div class="l-page-bottom">
+            <div class="">
+              <button type="button">등록하기</button>
+            </div>
+          </div>
+
+          <!-- END layout: 페이지 하단 -->
+        </div>
+
+        <!-- END layout: 페이지 -->
+
+        <!-- layout: 시스템 모달 (이미 사용한 쿠폰) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>이미 사용한 쿠폰입니다</h3>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (이미 사용한 쿠폰) -->
+
+        <!-- layout: 시스템 모달 (선착순 사용 마감 쿠폰) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>선착순 사용이 마감된 쿠폰입니다</h3>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (선착순 사용 마감 쿠폰) -->
+
+        <!-- layout: 시스템 모달 (기간 마감 쿠폰) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>기간이 지난 쿠폰입니다</h3>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (기간 마감 쿠폰) -->
+
+        <!-- layout: 시스템 모달 (쿠폰 사용 완료 쿠폰) -->
+        <div class="l-modal">
+          <div class="modal-overlay"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div>
+                <h3>쿠폰을 사용했습니다</h3>
+                <div>
+                  <p>서버에 접속 후 <span>(/우편함) 명령어</span>로 <br>
+                    보상을 수령하세요!</p>
+                  <p>(오늘 기준 7일 까지 보관)</p>
+                  <button type="button">
+                    <i></i>
+                    <span>인게임 접속하기</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="smodal-bottom">
+              <button type="button">확인</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- END layout: 시스템 모달 (쿠폰 사용 완료 쿠폰) -->
+      </div>
+
+      <!-- END layout: 쿠폰 등록 페이지 -->
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>

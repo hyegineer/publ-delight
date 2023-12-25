@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>딜라잇게임즈</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      :root {
+        --background: #101017;
+        --white: #fff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff3056;
+        --primary-50: #F2E7FE;
+        --primary-100: #DBB2FF;
+        --primary-200: #BB86FC;
+        --primary-300: #985EFF;
+        --primary-400: #7F39FB;
+        --primary-500: #6200EE;
+        --primary-600: #5600E8;
+        --primary-700: #3700B3;
+        --primary-800: #30009C;
+        --primary-900: #23036A;
+        --secondary-50: #C8FFF4;
+        --secondary-100: #70EFDE;
+        --secondary-200: #03DAC5;
+        --secondary-300: #00C4B4;
+        --secondary-400: #00B3A6;
+        --secondary-500: #01A299;
+        --secondary-600: #019592;
+        --secondary-700: #018786;
+        --secondary-800: #017374;
+        --secondary-900: #005457;
+        --tertiary-100: #FFCD08;
+        --tertiary-200: #FFCD08;
+        --tertiary-300: #FFE168;
+        --text-light-01: rgba(255, 255, 255, 0.1);
+        --text-light-02: rgba(255, 255, 255, 0.2);
+        --text-light-04: rgba(255, 255, 255, 0.4);
+        --text-light-06: rgba(255, 255, 255, 0.6);
+        --text-light-08: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="l-guide-wrapper">
+        <table class="guide-tbl">
+          <thead>
+            <tr>
+              <th>페이지명</th>
+              <th>함께 있는 페이지팝업</th>
+              <th>파일명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>인트로</td>
+              <td>
+                <ol>
+                  <li>(페이지 팝업) 로그인</li>
+                </ol>
+              </td>
+              <td>
+                <a href="auth-login.html">auth-login.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>회원가입</td>
+              <td>
+                <ol>
+                  <li>(바텀시트) 이용약관</li>
+                </ol>
+              </td>
+              <td>
+                <a href="auth-signup.html">auth-signup.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>회원가입 완료</td>
+              <td>
+              </td>
+              <td>
+                <a href="auth-signup-complete.html">auth-signup-complete.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>마이페이지 메인</td>
+              <td>
+                <ol>
+                  <li>(페이지 팝업) 프로필 수정</li>
+                  <li>(바텀시트) 장비-아이템</li>
+                  <li>(바텀시트) 퀘스트-카테고리</li>
+                  <li>(바텀시트) 퀘스트-진행상황</li>
+                  <li>(바텀시트) 펫사육-상세</li>
+                </ol>
+              </td>
+              <td>
+                <a href="mypage-main.html">mypage-main.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>마이페이지 계정정보 수정</td>
+              <td>
+                <ol>
+                  <li>(바텀시트) 은행 선택</li>
+                </ol>
+              </td>
+              <td>
+                <a href="mypage-edit-account.html">mypage-edit-account.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>마이페이지 쿠폰 등록</td>
+              <td>
+                <ol>
+                  <li>(시스템 모달) 이미 사용한 쿠폰</li>
+                  <li>(시스템 모달) 선착순 사용 마감 쿠폰</li>
+                  <li>(시스템 모달) 기간 마감 쿠폰</li>
+                  <li>(시스템 모달) 쿠폰 사용 완료 쿠폰</li>
+                </ol>
+              </td>
+              <td>
+                <a href="mypage-enroll-coupon.html">mypage-enroll-coupon.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>길드 있을 때</td>
+              <td>
+                <ol>
+                  <li>(페이지 팝업) 길드 정보 수정</li>
+                  <li>(바텀시트) 길드원 정보</li>
+                  <li>(시스템 모달) 길드 탈퇴 확인</li>
+                </ol>
+              </td>
+              <td>
+                <a href="guild-main.html">guild-main.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>길드 없을 때</td>
+              <td>
+              </td>
+              <td>
+                <a href="guild-list.html">guild-list.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>길드 상점</td>
+              <td>
+              </td>
+              <td>
+                <a href="guild-shop.html">guild-shop.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>길드 탈퇴 완료</td>
+              <td>
+              </td>
+              <td>
+                <a href="guild-exit-complete.html">guild-exit-complete.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>게시판 목록</td>
+              <td>
+                <ol>
+                  <li>(바텀시트) 게시판 선택</li>
+                  <li>(바텀시트) 게시글 목록</li>
+                  <li>(바텀시트) 검색 조건</li>
+                </ol>
+              </td>
+              <td>
+                <a href="board-list.html">board-list.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>게시판 상세</td>
+              <td>
+                <ol>
+                  <li>(바텀시트) 게시글 관리</li>
+                  <li>(바텀시트) 내 댓글 관리</li>
+                  <li>(시스템 모달) 게시글 삭제 확인</li>
+                  <li>(시스템 모달) 댓글 삭제 확인</li>
+                </ol>
+              </td>
+              <td>
+                <a href="board-detail.html">board-detail.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>게시판 작성</td>
+              <td>
+              </td>
+              <td>
+                <a href="board-create.html">board-create.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>상점 목록</td>
+              <td>
+                <ol>
+                  <li>(페이지 팝업) 상품 상세</li>
+                </ol>
+              </td>
+              <td>
+                <a href="shop-list.html">shop-list.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>결제 내역</td>
+              <td>
+                <ol>
+                  <li>(페이지 팝업) 결제내역 상세</li>
+                </ol>
+              </td>
+              <td>
+                <a href="pay-history-list.html">pay-history-list.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>채팅 목록</td>
+              <td>
+                <ol>
+                  <li>(페이지 팝업) 채팅 추가</li>
+                </ol>
+              </td>
+              <td>
+                <a href="chat-list.html">chat-list.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>채팅 상세</td>
+              <td>
+                <ol>
+                  <li>(오른쪽 모달) 멤버 구성</li>
+                  <li>(페이지 팝업) 멤버 초대하기</li>
+                  <li>(페이지 팝업) 이모티콘 선물하기</li>
+                  <li>(시스템 모달) 채팅방 나가기</li>
+                  <li>(시스템 모달) 이모티콘 수락/거절 확인</li>
+                  <li>(시스템 모달) 이모티콘 선물 확인</li>
+                </ol>
+              </td>
+              <td>
+                <a href="chat-detail.html">chat-detail.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>이모티콘 선물하기 스텝 1</td>
+              <td>
+              </td>
+              <td>
+                <a href="emoticon-gift-1.html">emoticon-gift-1.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>이모티콘 선물하기 스텝 2</td>
+              <td>
+              </td>
+              <td>
+                <a href="emoticon-gift-2.html">emoticon-gift-2.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>이모티콘 선물하기 스텝 3</td>
+              <td>
+                <ol>
+                  <li>(시스템 모달) 이모티콘 선물 확인</li>
+                </ol>
+              </td>
+              <td>
+                <a href="emoticon-gift-3.html">emoticon-gift-3.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>이모티콘 관리</td>
+              <td>
+              </td>
+              <td>
+                <a href="emoticon-setting.html">emoticon-setting.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>이모티콘 신청 내역</td>
+              <td>
+                <ol>
+                  <li>(바텀시트) 반려사유 확인</li>
+                </ol>
+              </td>
+              <td>
+                <a href="emoticon-history-list.html">emoticon-history-list.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>이모티콘 등록 신청</td>
+              <td>
+                <ol>
+                  <li>(바텀시트) 재화 선택</li>
+                  <li>(시스템 모달) 이모티콘 등록 확인</li>
+                </ol>
+              </td>
+              <td>
+                <a href="emoticon-apply.html">emoticon-apply.html</a>
+              </td>
+            </tr>
+            <tr>
+              <td>이모티콘 등록 신청 완료</td>
+              <td>
+              </td>
+              <td>
+                <a href="emoticon-apply-complete.html">emoticon-apply-complete.html</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- <script src="assets/js/ui.js"></script> -->
+  </body>
+</html>
