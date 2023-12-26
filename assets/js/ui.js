@@ -33,3 +33,20 @@
 // $("#nav-close-btn").on("click", function () {
 //   $("#nav-page").removeClass("active");
 // })
+/*
+=============================================
+모달창 열고 닫기
+=============================================
+*/
+
+function openModal(id) {
+  $('#' + id).addClass('show');
+}
+
+function closeModal(id) {
+  $('#' + id).removeClass('show');
+}
+
+function allCloseModal() {
+  $('.modal-wrapper').removeClass('show');
+}

@@ -9,8 +9,6 @@
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/vendor/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <style>
       :root {
         --background: #101017;
@@ -45,31 +43,47 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --surface-01: #15151e;
+        --surface-02: #1A1A24;
+        --surface-03: #1F1F2B;
+        --surface-04: #242431;
+        --surface-05: #292938;
+        --surface-06: #2D2D3F;
+        --surface-07: #38384B;
+        --surface-08: #464658;
+        --surface-09: #555566;
+        --surface-10: #686879;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/vendor/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Js -->
+    <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
   </head>
-  <body>
+  <body ontouchstart>
     <div id="app">
 
       <!-- layout: 로그인 인트로 페이지 -->
-      <div class="l-page-wrapper">
+      <div class="login-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
+            <div class="page-content">
 
               <!-- 섹션: 로그인 인트로 -->
-              <section>
-                <img src="" alt="">
-                <div>
-                  <button type="button">기존 회원 로그인</button>
-                  <button type="button">
-                    <i></i>
-                    <span>딜라잇 게임즈 디스코드</span>
-                    <i></i>
+              <section class="intro-section">
+                <img src="assets/images/img-intro.svg" alt="" class="img-intro">
+                <div class="btn-container">
+                  <button type="button" onclick="openModal('page-popup-1');" class="theme-solid-btn btn-lg btn-w100">기존 회원
+                    로그인</button>
+                  <button type="button" class="ico-txt-btn">
+                    <i class="ico ico-24 ico-discord"></i>
+                    <span class="txt">딜라잇 게임즈 디스코드</span>
+                    <i class="ico ico-18 ico-arrow-right"></i>
                   </button>
                 </div>
               </section>
@@ -82,12 +96,14 @@
 
           <!-- layout: 페이지 하단 -->
           <div class="l-page-bottom">
-            <div>
-              <p>딜라잇 게임즈가 처음이신가요?</p>
-              <button type="button">
-                <span>회원가입</span>
-                <i></i>
-              </button>
+            <div class="login-bottom-wrap">
+              <p class="left-txt">딜라잇 게임즈가 처음이신가요?</p>
+              <div class="mg-left iflex-row">
+                <button class="btn txt-btn" type="button">
+                  <span class="txt">회원가입</span>
+                  <i class="ico ico-18 ico-arrow-right"></i>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -97,19 +113,19 @@
         <!-- END layout: 페이지 -->
 
         <!-- layout: 페이지 팝업 (로그인) -->
-        <div class="l-page l-page-popup">
+        <div id="page-popup-1" class="l-page l-page-popup">
 
           <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header>
-            <div>
+          <header class="header">
+            <div class="header-left">
               <div class="invisible">
                 <h2></h2>
               </div>
             </div>
-            <div>
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
+            <div class="header-right">
+              <button type="button" onclick="closeModal('page-popup-1');" class="hd-btn">
+                <span class="txt-hidden">닫기</span>
+                <i class="ico ico-22 ico-x"></i>
               </button>
             </div>
           </header>
@@ -118,30 +134,38 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
+            <div class="popup-page-content">
 
               <!-- 섹션: 로그인 -->
-              <section>
-                <img src="" alt="">
-                <div>
-                  <div>
-                    <label>닉네임</label>
-                    <div>
-                      <input type="text" placeholder="마인크래프트 닉네임">
+              <section class="login-section">
+                <img src="assets/images/img-intro.svg" alt="인트로 이미지" class="img-intro">
+                <div class="form-item-grp">
+                  <div class="form-item">
+                    <label class="form-label">닉네임</label>
+                    <div class="form-inp-wrap">
+                      <input type="text" placeholder="마인크래프트 닉네임" class="form-inp">
                     </div>
+
+                    <!-- TODO: 보조텍스트가 적합할 때는 correct 클래스를 달아주세요. -->
+
+                    <!-- <p class="form-validation-msg">닉네임을 입력해주세요</p> -->
                   </div>
-                  <div>
-                    <label>비밀번호</label>
-                    <div>
-                      <input type="password" placeholder="영문, 숫자, 특수문자 조합 8자 이상">
+                  <div class="form-item">
+                    <label class="form-label">비밀번호</label>
+                    <div class="form-inp-wrap">
+                      <input type="password" placeholder="영문, 숫자, 특수문자 조합 8자 이상" autocomplete="new-password" class="form-inp">
                     </div>
+
+                    <!-- TODO: 보조텍스트가 적합할 때는 correct 클래스를 달아주세요. -->
+
+                    <!-- <p class="form-validation-msg correct">영문, 숫자, 특수문자를 조합하여 8자 이상 입력해주세요</p> -->
                   </div>
                 </div>
-                <div>
-                  <button type="button">로그인</button>
-                  <div>
-                    <button type="button">아이디 찾기</button>
-                    <button type="button">비밀번호 찾기</button>
+                <div class="btn-container">
+                  <button type="button" class="theme-solid-btn btn-lg btn-w100">로그인</button>
+                  <div class="list-btn-grp">
+                    <button type="button" class="btn list-btn">아이디 찾기</button>
+                    <button type="button" class="btn list-btn">비밀번호 찾기</button>
                   </div>
                 </div>
               </section>
@@ -160,5 +184,20 @@
     </div>
 
     <!-- <script src="assets/js/ui.js"></script> -->
+    <script>
+      openModal('page-popup-1');
+      function openModal(id) {
+        if ($('#' + id).hasClass('hide')) {
+          $('#' + id).removeClass('hide');
+        }
+        $('#' + id).addClass('show');
+      }
+      function closeModal(id) {
+        $('#' + id).addClass('hide');
+      }
+      function allCloseModal() {
+        $('.modal-wrapper').removeClass('show');
+      }
+    </script>
   </body>
 </html>
