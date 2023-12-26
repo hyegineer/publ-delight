@@ -72,7 +72,7 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page-content">
+            <div class="login-page-content">
 
               <!-- 섹션: 로그인 인트로 -->
               <section class="intro-section">
@@ -99,7 +99,7 @@
             <div class="login-bottom-wrap">
               <p class="left-txt">딜라잇 게임즈가 처음이신가요?</p>
               <div class="mg-left iflex-row">
-                <button class="btn txt-btn" type="button">
+                <button type="button" onclick="location.href='auth-signup.html';" class="btn txt-btn">
                   <span class="txt">회원가입</span>
                   <i class="ico ico-18 ico-arrow-right"></i>
                 </button>
@@ -118,9 +118,7 @@
           <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
           <header class="header">
             <div class="header-left">
-              <div class="invisible">
-                <h2></h2>
-              </div>
+              <h2 class="hd-title invisible"></h2>
             </div>
             <div class="header-right">
               <button type="button" onclick="closeModal('page-popup-1');" class="hd-btn">

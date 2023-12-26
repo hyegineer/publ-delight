@@ -65,23 +65,21 @@
     <div id="app">
 
       <!-- layout: 회원가입 페이지 -->
-      <div class="l-page-wrapper">
+      <div class="signup-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
 
           <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
-          <header>
-            <div>
-              <button type="button">
-                <span class="">뒤로 가기</span>
-                <i></i>
+          <header class="header">
+            <div class="header-left">
+              <button type="button" class="hd-btn">
+                <span class="txt-hidden">뒤로 가기</span>
+                <i class="ico ico-22 ico-arrow-back"></i>
               </button>
-              <div class="">
-                <h2>회원가입</h2>
-              </div>
+              <h2 class="hd-title ">회원가입</h2>
             </div>
-            <div class="">
+            <div class="header-right">
             </div>
           </header>
 
@@ -89,173 +87,158 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
-              <div>
+            <div class="signup-page-content">
 
-                <!-- 섹션: 회원가입 정보 입력 -->
-                <section>
-                  <div>
-                    <h3>계정 정보를 <br> 입력해주세요.</h3>
+              <!-- 섹션: 회원가입 정보 입력 -->
+              <section class="section">
+                <div class="left-title-wrap">
+                  <h3 class="left-title">계정 정보를 <br> 입력해주세요.</h3>
+                </div>
+                <div class="form-item-grp">
+                  <div class="form-item">
+                    <label class="form-label">닉네임</label>
+                    <div class="form-inp-wrap">
+                      <input type="text" placeholder="마인크래프트 닉네임" class="form-inp">
+                    </div>
+                    <p class="form-validation-msg">마인크래프트 인게임 닉네임을 입력해주세요</p>
                   </div>
-                  <div>
-                    <div>
-                      <label>닉네임</label>
-                      <div>
-                        <input type="text" placeholder="마인크래프트 닉네임">
+                  <div class="form-item">
+                    <label class="form-label">유저 닉네임</label>
+                    <div class="form-inp-wrap">
+                      <div class="form-inp-unit-item">
+                        <input type="text" data-unit-inp data-count-inp class="inp" maxlength="10" placeholder="유저 닉네임">
+                        <div class="unit"><span class="unit-count">0</span>/10</div>
                       </div>
-                      <p>마인크래프트 인게임 닉네임을 입력해주세요</p>
+                      <button type="button" class="btn-md theme-solid-btn form-inp-btn">중복확인</button>
                     </div>
-                    <div>
-                      <label>유저 닉네임</label>
-                      <div>
-                        <input type="text" placeholder="마인크래프트 닉네임">
-                        <button type="button">중복확인</button>
-                      </div>
-                      <p>사용가능한 닉네임입니다</p>
-                    </div>
-                    <div>
-                      <label>비밀번호</label>
-                      <div>
-                        <input type="password" placeholder="영문, 숫자, 특수문자 조합 8자 이상">
-                      </div>
-                      <p>영문, 숫자, 특수문자를 조합하여 8자 이상 입력해주세요</p>
-                    </div>
-                    <div>
-                      <label>비밀번호 확인</label>
-                      <div>
-                        <input type="password" placeholder="영문, 숫자, 특수문자 조합 8자 이상">
-                      </div>
-                      <p>비밀번호를 다시 확인해주세요</p>
-                    </div>
+                    <p class="form-validation-msg correct">사용가능한 닉네임입니다</p>
                   </div>
-                </section>
-
-                <!-- END 섹션: 회원가입 정보 입력 -->
-
-                <!-- 섹션: 카카오톡 인증 -->
-                <section>
-                  <div>
-                    <h3>계정 정보를 <br> 입력해주세요.</h3>
-                    <p>본인인증을 완료하면 개인정보를 불러옵니다.</p>
-                  </div>
-                  <div>
-                    <button type="button">
-                      <i></i>
-                      <span>카카오톡 인증하기</span>
-                    </button>
-                    <div>
-                      <dl>
-                        <dt>성별</dt>
-                        <dd>남자</dd>
-                      </dl>
-                      <dl>
-                        <dt>휴대폰 번호</dt>
-                        <dd>010-0000-0000</dd>
-                      </dl>
-                      <dl>
-                        <dt>생년월일</dt>
-                        <dd>1990.00.00</dd>
-                      </dl>
-                      <dl>
-                        <dt>성명</dt>
-                        <dd>김마인크래프트</dd>
-                      </dl>
-                      <dl>
-                        <dt>이메일</dt>
-                        <dd>email@email.com</dd>
-                      </dl>
+                  <div class="form-item">
+                    <label class="form-label">비밀번호</label>
+                    <div class="form-inp-wrap">
+                      <input type="password" placeholder="영문, 숫자, 특수문자 조합 8자 이상" autocomplete="new-password" class="form-inp">
                     </div>
+                    <p class="form-validation-msg">영문, 숫자, 특수문자를 조합하여 8자 이상 입력해주세요</p>
                   </div>
-                </section>
-
-                <!-- END 섹션: 카오톡 인증 -->
-
-                <!-- 섹션: 추천인 -->
-                <section>
-                  <div>
-                    <h3>딜라잇게임즈를 <br>추천받으셨나요?</h3>
-                    <p>추천인이 없다면 약관 동의로 이동해주세요.</p>
+                  <div class="form-item">
+                    <label class="form-label">비밀번호 확인</label>
+                    <div class="form-inp-wrap">
+                      <input type="password" placeholder="영문, 숫자, 특수문자 조합 8자 이상" autocomplete="new-password" class="form-inp">
+                    </div>
+                    <p class="form-validation-msg">비밀번호를 다시 확인해주세요</p>
                   </div>
+                </div>
+              </section>
+
+              <!-- END 섹션: 회원가입 정보 입력 -->
+
+              <!-- 섹션: 카카오톡 인증 -->
+              <section class="section">
+                <div class="left-title-wrap">
+                  <h3 class="left-title">카카오톡 인증을 <br>완료해주세요.</h3>
+                  <p class="left-title-desc">본인인증을 완료하면 개인정보를 불러옵니다.</p>
+                </div>
+                <div>
+                  <button type="button">
+                    <i></i>
+                    <span>카카오톡 인증하기</span>
+                  </button>
                   <div>
-                    <div>
-                      <label>추천인 닉네임</label>
-                      <div>
+                    <dl>
+                      <dt>성별</dt>
+                      <dd>남자</dd>
+                    </dl>
+                    <dl>
+                      <dt>휴대폰 번호</dt>
+                      <dd>010-0000-0000</dd>
+                    </dl>
+                    <dl>
+                      <dt>생년월일</dt>
+                      <dd>1990.00.00</dd>
+                    </dl>
+                    <dl>
+                      <dt>성명</dt>
+                      <dd>김마인크래프트</dd>
+                    </dl>
+                    <dl>
+                      <dt>이메일</dt>
+                      <dd>email@email.com</dd>
+                    </dl>
+                  </div>
+                </div>
+              </section>
+
+              <!-- END 섹션: 카오톡 인증 -->
+
+              <!-- 섹션: 추천인 -->
+              <section class="section">
+                <div class="left-title-wrap">
+                  <h3 class="left-title">딜라잇게임즈를 <br>추천받으셨나요?</h3>
+                  <p class="left-title-desc">추천인이 없다면 약관 동의로 이동해주세요.</p>
+                </div>
+                <div class="form-item-grp">
+                  <div class="form-item">
+                    <label class="form-label">추천인 닉네임</label>
+                    <div class="form-inp-wrap">
+                      <input type="text" placeholder="마인크래프트 닉네임" class="form-inp">
+                      <button type="button" class="btn-md theme-solid-btn form-inp-btn">확인</button>
+                    </div>
+                    <p class="form-validation-msg">해당 유저는 커뮤니티에 가입하지 않았습니다</p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- END 섹션: 추천인 -->
+
+              <!-- 섹션: 동의 -->
+              <section class="section">
+                <div class="left-title-wrap">
+                  <h3 class="left-title">약관에 동의해주세요.</h3>
+                </div>
+                <div>
+                  <div>
+                    <h4>필수 약관</h4>
+                    <ul>
+                      <li>
                         <div>
-                          <input type="text" placeholder="마인크래프트 닉네임">
-                          <div><span>0</span>/00</div>
+                          <input type="checkbox">
+                          <label for=""></label>
+                          <label for="">이용약관 동의</label>
                         </div>
                         <button type="button">확인</button>
-                      </div>
-                      <p>해당 유저는 커뮤니티에 가입하지 않았습니다</p>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 추천인 -->
-
-                <!-- 섹션: 동의 -->
-                <section>
-                  <div>
-                    <h3>약관에 동의해주세요.</h3>
+                      </li>
+                      <li>
+                        <div>
+                          <input type="checkbox">
+                          <label for=""></label>
+                          <label for="">개인정보 수집 및 이용동의</label>
+                        </div>
+                        <button type="button">확인</button>
+                      </li>
+                    </ul>
                   </div>
                   <div>
-                    <div>
-                      <h4>필수 약관</h4>
-                      <ul>
-                        <li>
-                          <div>
-                            <input type="checkbox">
-                            <label for=""></label>
-                            <label for="">이용약관 동의</label>
-                          </div>
-                          <button type="button">확인</button>
-                        </li>
-                        <li>
-                          <div>
-                            <input type="checkbox">
-                            <label for=""></label>
-                            <label for="">개인정보 수집 및 이용동의</label>
-                          </div>
-                          <button type="button">확인</button>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4>선택 약관</h4>
-                      <ul>
-                        <li>
-                          <div>
-                            <input type="checkbox">
-                            <label for=""></label>
-                            <label for="">이벤트 및 혜택 알림</label>
-                          </div>
-                          <button type="button">확인</button>
-                        </li>
-                      </ul>
-                    </div>
+                    <h4>선택 약관</h4>
+                    <ul>
+                      <li>
+                        <div>
+                          <input type="checkbox">
+                          <label for=""></label>
+                          <label for="">이벤트 및 혜택 알림</label>
+                        </div>
+                        <button type="button">확인</button>
+                      </li>
+                    </ul>
                   </div>
-                </section>
+                </div>
+              </section>
 
-                <!-- END 섹션: 동의 -->
-                <button type="button">회원가입 완료</button>
-              </div>
+              <!-- END 섹션: 동의 -->
+              <button type="button" class="theme-solid-btn btn-lg btn-w100">회원가입 완료</button>
             </div>
           </div>
 
           <!-- END layout: 페이지 상단 -->
-
-          <!-- layout: 페이지 하단 -->
-          <div class="l-page-bottom">
-            <div>
-              <p>딜라잇 게임즈가 처음이신가요?</p>
-              <button type="button">
-                <span>회원가입</span>
-                <i></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- END layout: 페이지 하단 -->
         </div>
 
         <!-- END layout: 페이지 -->
@@ -266,9 +249,7 @@
           <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
           <header class="header">
             <div class="header-left">
-              <div class="">
-                <h2>약관명</h2>
-              </div>
+              <h2 class="hd-title ">약관명</h2>
             </div>
             <div class="header-right">
               <button type="button">
@@ -303,5 +284,38 @@
     </div>
 
     <!-- <script src="assets/js/ui.js"></script> -->
+    <script>
+      $('[data-unit-inp]').on('focus', function() {
+        $(this).parents('.form-inp-unit-item').addClass('active');
+      }).on('blur', function() {
+        $(this).parents('.form-inp-unit-item').removeClass('active');
+      })
+      $('[data-count-inp]').on('keyup', function() {
+        let content = $(this).val();
+        let maxlength = $(this).attr('maxlength');
+        // 글자수 세기
+        if (content.length == 0 || content == '') {
+          $(this).siblings('.unit').children('.unit-count').text('0');
+        } else {
+          $(this).siblings('.unit').children('.unit-count').text(content.length);
+        }
+        // 글자수 제한
+        if (content.length > maxlength) {
+          $(this).val($(this).val().substring(0, maxlength));
+          alert(`글자수는 ${maxlength}자까지 입력 가능합니다.`);
+          $(this).siblings('.unit').children('.unit-count').text(maxlength);
+        };
+      })
+      // 텍스트에어리어: 자동 높이 조절
+      $('textarea[data-autoresize]').each(function() {
+        var offset = this.offsetHeight - this.clientHeight;
+        var resizeTextarea = function(el) {
+          $(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+        };
+        $(this).on('keyup input', function() {
+          resizeTextarea(this);
+        }).removeAttr('data-autoresize');
+      })
+    </script>
   </body>
 </html>
