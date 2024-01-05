@@ -43,6 +43,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
         --surface-03: #1F1F2B;
@@ -72,11 +73,11 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="login-page-content">
+            <div class="page-content">
 
               <!-- 섹션: 로그인 인트로 -->
               <section class="intro-section">
-                <img src="assets/images/img-intro.svg" alt="" class="img-intro">
+                <img src="assets/images/img-intro.png" alt="" class="img-intro">
                 <div class="btn-container">
                   <button type="button" onclick="openModal('page-popup-1');" class="theme-solid-btn btn-lg btn-w100">기존 회원
                     로그인</button>
@@ -136,7 +137,7 @@
 
               <!-- 섹션: 로그인 -->
               <section class="login-section">
-                <img src="assets/images/img-intro.svg" alt="인트로 이미지" class="img-intro">
+                <img src="assets/images/img-intro.png" alt="인트로 이미지" class="img-intro">
                 <div class="form-item-grp">
                   <div class="form-item">
                     <label class="form-label">닉네임</label>
@@ -180,21 +181,6 @@
 
       <!-- END layout: 로그인 인트로 페이지 -->
     </div>
-
-    <!-- <script src="assets/js/ui.js"></script> -->
-    <script>
-      function openModal(id) {
-        if ($('#' + id).hasClass('hide')) {
-          $('#' + id).removeClass('hide');
-        }
-        $('#' + id).addClass('show');
-      }
-      function closeModal(id) {
-        $('#' + id).addClass('hide');
-      }
-      function allCloseModal() {
-        $('.modal-wrapper').removeClass('show');
-      }
-    </script>
+    <script src="assets/js/ui.js"></script>
   </body>
 </html>

@@ -43,6 +43,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
         --surface-03: #1F1F2B;
@@ -349,26 +350,41 @@
 
           <!-- layout: 페이지 하단 -->
           <div class="l-page-bottom">
-            <div>
-              <button type="button">
-                <i></i>
-                <span>홈</span>
+            <div class="l-bottom-nav">
+              <button type="button" class="nav-btn active">
+                <div class="ico-box">
+                  <i class="ico ico-off ico-nav-home"></i>
+                  <i class="ico ico-on ico-nav-home"></i>
+                </div>
+                <span class="txt">홈</span>
               </button>
-              <button type="button">
-                <i></i>
-                <span>길드</span>
+              <button type="button" class="nav-btn">
+                <div class="ico-box">
+                  <i class="ico ico-off ico-nav-guild"></i>
+                  <i class="ico ico-on ico-nav-guild"></i>
+                </div>
+                <span class="txt">길드</span>
               </button>
-              <button type="button">
-                <i></i>
-                <span>게시판</span>
+              <button type="button" class="nav-btn">
+                <div class="ico-box">
+                  <i class="ico ico-off ico-nav-board"></i>
+                  <i class="ico ico-on ico-nav-board"></i>
+                </div>
+                <span class="txt">게시판</span>
               </button>
-              <button type="button">
-                <i></i>
-                <span>상점</span>
+              <button type="button" class="nav-btn">
+                <div class="ico-box">
+                  <i class="ico ico-off ico-nav-shop"></i>
+                  <i class="ico ico-on ico-nav-shop"></i>
+                </div>
+                <span class="txt">상점</span>
               </button>
-              <button type="button">
-                <i></i>
-                <span>채팅</span>
+              <button type="button" class="nav-btn">
+                <div class="ico-box">
+                  <i class="ico ico-off ico-nav-chat"></i>
+                  <i class="ico ico-on ico-nav-chat"></i>
+                </div>
+                <span class="txt">채팅</span>
               </button>
             </div>
           </div>
@@ -573,7 +589,6 @@
 
       <!-- END layout: 길드 목록 페이지 -->
     </div>
-
-    <!-- <script src="assets/js/ui.js"></script> -->
+    <script src="assets/js/ui.js"></script>
   </body>
 </html>

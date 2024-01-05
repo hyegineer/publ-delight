@@ -43,6 +43,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
         --surface-03: #1F1F2B;
@@ -87,7 +88,7 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="signup-page-content">
+            <div class="page-content">
 
               <!-- 섹션: 회원가입 정보 입력 -->
               <section class="section">
@@ -138,31 +139,31 @@
                   <h3 class="left-title">카카오톡 인증을 <br>완료해주세요.</h3>
                   <p class="left-title-desc">본인인증을 완료하면 개인정보를 불러옵니다.</p>
                 </div>
-                <div>
-                  <button type="button">
+                <div class="content kakao-content">
+                  <button type="button" class="kakao-btn">
                     <i></i>
                     <span>카카오톡 인증하기</span>
                   </button>
-                  <div>
-                    <dl>
-                      <dt>성별</dt>
-                      <dd>남자</dd>
+                  <div class="info-section">
+                    <dl class="info-dl">
+                      <dt class="dt">성별</dt>
+                      <dd class="dd">남자</dd>
                     </dl>
-                    <dl>
-                      <dt>휴대폰 번호</dt>
-                      <dd>010-0000-0000</dd>
+                    <dl class="info-dl">
+                      <dt class="dt">휴대폰 번호</dt>
+                      <dd class="dd">010-0000-0000</dd>
                     </dl>
-                    <dl>
-                      <dt>생년월일</dt>
-                      <dd>1990.00.00</dd>
+                    <dl class="info-dl">
+                      <dt class="dt">생년월일</dt>
+                      <dd class="dd">1990.00.00</dd>
                     </dl>
-                    <dl>
-                      <dt>성명</dt>
-                      <dd>김마인크래프트</dd>
+                    <dl class="info-dl">
+                      <dt class="dt">성명</dt>
+                      <dd class="dd">김마인크래프트</dd>
                     </dl>
-                    <dl>
-                      <dt>이메일</dt>
-                      <dd>email@email.com</dd>
+                    <dl class="info-dl">
+                      <dt class="dt">이메일</dt>
+                      <dd class="dd">email@email.com</dd>
                     </dl>
                   </div>
                 </div>
@@ -195,38 +196,38 @@
                 <div class="left-title-wrap">
                   <h3 class="left-title">약관에 동의해주세요.</h3>
                 </div>
-                <div>
-                  <div>
-                    <h4>필수 약관</h4>
-                    <ul>
-                      <li>
-                        <div>
-                          <input type="checkbox">
-                          <label for=""></label>
-                          <label for="">이용약관 동의</label>
+                <div class="content agree-content">
+                  <div class="agree-content-row">
+                    <h4 class="title">필수 약관</h4>
+                    <ul class="list-grp">
+                      <li class="list">
+                        <div class="checkbox-item">
+                          <input type="checkbox" id="agree01" class="custom-checkbox-inp">
+                          <label for="agree01" class="custom-checkbox"></label>
+                          <label for="agree01" class="checkbox-item-txt">이용약관 동의</label>
                         </div>
-                        <button type="button">확인</button>
+                        <button type="button" onclick="openModal('bottom-sheet-1');" class="btn theme-txt list-btn">확인</button>
                       </li>
-                      <li>
-                        <div>
-                          <input type="checkbox">
-                          <label for=""></label>
-                          <label for="">개인정보 수집 및 이용동의</label>
+                      <li class="list">
+                        <div class="checkbox-item">
+                          <input type="checkbox" id="agree02" class="custom-checkbox-inp">
+                          <label for="agree02" class="custom-checkbox"></label>
+                          <label for="agree02" class="checkbox-item-txt">개인정보 수집 및 이용동의</label>
                         </div>
-                        <button type="button">확인</button>
+                        <button type="button" onclick="openModal('bottom-sheet-1');" class="btn theme-txt list-btn">확인</button>
                       </li>
                     </ul>
                   </div>
-                  <div>
-                    <h4>선택 약관</h4>
-                    <ul>
-                      <li>
-                        <div>
-                          <input type="checkbox">
-                          <label for=""></label>
-                          <label for="">이벤트 및 혜택 알림</label>
+                  <div class="agree-content-row">
+                    <h4 class="title">선택 약관</h4>
+                    <ul class="list-grp">
+                      <li class="list">
+                        <div class="checkbox-item">
+                          <input type="checkbox" id="agree03" class="custom-checkbox-inp">
+                          <label for="agree03" class="custom-checkbox"></label>
+                          <label for="agree03" class="checkbox-item-txt">이벤트 및 혜택 알림</label>
                         </div>
-                        <button type="button">확인</button>
+                        <button type="button" onclick="openModal('bottom-sheet-1');" class="btn theme-txt list-btn">확인</button>
                       </li>
                     </ul>
                   </div>
@@ -244,37 +245,38 @@
         <!-- END layout: 페이지 -->
 
         <!-- layout: 바텀시트 (이용약관) -->
-        <div class="l-bottom-sheet">
+        <div id="bottom-sheet-1" class="l-bottom-sheet">
+          <div class="overlay" onclick="closeModal('bottom-sheet-1');"></div>
+          <div class="bottom-sheet">
 
-          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header class="header">
-            <div class="header-left">
-              <h2 class="hd-title ">약관명</h2>
-            </div>
-            <div class="header-right">
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
-              </button>
-            </div>
-          </header>
+            <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <header class="header">
+              <div class="header-left">
+                <h2 class="hd-title ">약관명</h2>
+              </div>
+              <div class="header-right">
+                <button onclick="closeModal('bottom-sheet-1');" type="button" class="hd-btn">
+                  <span class="txt-hidden">닫기</span>
+                  <i class="ico ico-22 ico-x"></i>
+                </button>
+              </div>
+            </header>
 
-          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
 
-          <!-- layout: 페이지 상단 -->
-          <div class="l-page-top">
-            <div class="page">
+            <!-- layout: 페이지 상단 -->
+            <div class="l-page-top">
+              <div class="bs-terms-container">
 
-              <!-- 섹션: 이용약관 텍스트 -->
-              <section>
+                <!-- 이용약관 텍스트 -->
                 <p>이용약관 텍스트</p>
-              </section>
 
-              <!-- END 섹션: 이용약관 텍스트 -->
+                <!-- END 이용약관 텍스트 -->
+              </div>
             </div>
-          </div>
 
-          <!-- END layout: 페이지 상단 -->
+            <!-- END layout: 페이지 상단 -->
+          </div>
         </div>
 
         <!-- END layout: 바텀시트 (이용약관) -->
@@ -282,40 +284,6 @@
 
       <!-- END layout: 회원가입 페이지 -->
     </div>
-
-    <!-- <script src="assets/js/ui.js"></script> -->
-    <script>
-      $('[data-unit-inp]').on('focus', function() {
-        $(this).parents('.form-inp-unit-item').addClass('active');
-      }).on('blur', function() {
-        $(this).parents('.form-inp-unit-item').removeClass('active');
-      })
-      $('[data-count-inp]').on('keyup', function() {
-        let content = $(this).val();
-        let maxlength = $(this).attr('maxlength');
-        // 글자수 세기
-        if (content.length == 0 || content == '') {
-          $(this).siblings('.unit').children('.unit-count').text('0');
-        } else {
-          $(this).siblings('.unit').children('.unit-count').text(content.length);
-        }
-        // 글자수 제한
-        if (content.length > maxlength) {
-          $(this).val($(this).val().substring(0, maxlength));
-          alert(`글자수는 ${maxlength}자까지 입력 가능합니다.`);
-          $(this).siblings('.unit').children('.unit-count').text(maxlength);
-        };
-      })
-      // 텍스트에어리어: 자동 높이 조절
-      $('textarea[data-autoresize]').each(function() {
-        var offset = this.offsetHeight - this.clientHeight;
-        var resizeTextarea = function(el) {
-          $(el).css('height', 'auto').css('height', el.scrollHeight + offset);
-        };
-        $(this).on('keyup input', function() {
-          resizeTextarea(this);
-        }).removeAttr('data-autoresize');
-      })
-    </script>
+    <script src="assets/js/ui.js"></script>
   </body>
 </html>
