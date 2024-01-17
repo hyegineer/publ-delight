@@ -2,8 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>딜라잇게임즈</title>
+
+    <!-- Open Graph -->
+    <meta name="title" content="Delight Games">
+    <meta name="author" content="딜라잇 게임즈">
+    <meta name="description" content="딜라잇 게임즈 커뮤니티입니다.">
+    <meta name="keywords" content="딜라잇 게임즈 커뮤니티, 게임 커뮤니티">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+
+    <!-- TODO: web url 설정해야함 -->
+
+    <!-- <meta property="og:url" content="해당 웹 url"> -->
+    <meta property="og:title" content="딜라잇 게임즈">
+    <meta property="og:description" content="딜라잇 게임즈 커뮤니티입니다.">
+
+    <!-- TODO: meta thumbnail 설정 -->
+    <meta property="og:image" content="assets/images/og/og-thumbnail.png">
+
+    <!-- Favicon -->
+
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-36x36.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#101017">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> -->
 
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -43,6 +83,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light-10: #fff;
         --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
@@ -56,17 +97,20 @@
         --surface-10: #686879;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 
     <!-- Js -->
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
   </head>
   <body ontouchstart>
     <div id="app">
 
       <!-- layout: 이모티콘 선물 페이지 (스텝 1) -->
-      <div class="l-page-wrapper">
+      <div class="emoticon-gift-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
@@ -74,7 +118,7 @@
           <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
           <header class="header">
             <div class="header-left">
-              <button type="button" class="hd-btn">
+              <button type="button" onclick="history.back();" class="hd-btn">
                 <span class="txt-hidden">뒤로 가기</span>
                 <i class="ico ico-22 ico-arrow-back"></i>
               </button>
@@ -88,69 +132,173 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
-              <div>
+            <div class="page-content">
 
-                <!-- 섹션: 이모티콘 선물하기 문구 -->
-                <section>
-                  <div>
-                    <img src="" alt="">
-                    <h3>선물할 이모티콘을 <br>선택하세요!</h3>
-                    <p>
-                      <span>1</span>/3
-                    </p>
+              <!-- 섹션: 이모티콘 선물하기 문구 -->
+              <section class="section step-section">
+                <div class="emoticon-choice-card">
+                  <div class="ico-txt-wrap">
+                    <i class="ico ico-gift ico-32"></i>
+                    <p class="txt">선물할 이모티콘을 <br>선택하세요</p>
                   </div>
-                </section>
+                  <p class="step-txt">
+                    <span class="bold-txt">1</span>/3
+                  </p>
+                </div>
+              </section>
 
-                <!-- END 섹션: 이모티콘 선물하기 문구 -->
+              <!-- END 섹션: 이모티콘 선물하기 문구 -->
 
-                <!-- 섹션: 이모티콘 목록과 상세보기 -->
-                <section>
-                  <h4>총 16개</h4>
-                  <div>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                  </div>
-                  <div>
-                    <div>
-                      <figure>
-                        <img src="" alt="">
-                      </figure>
-                      <div>
-                        <p>똥강아지 용구</p>
-                        <span>작가닉네임</span>
-                      </div>
-                      <p>이모티콘 한줄 소개 텍스트</p>
+              <!-- 섹션: 이모티콘 목록과 상세보기 -->
+              <section class="section">
+                <h4 class="title title-14">총 16개</h4>
+                <div class="emoticon-container">
+                  <div class="emoticon-btns-wrap">
+                    <div class="emoticon-btns">
+
+                      <!-- TODO: 선택시 active 클래스가 추가됩니다 -->
+                      <button type="button" class="emoticon-btn active">
+                        <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      </button>
+                      <button type="button" class="emoticon-btn">
+                        <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                      </button>
                     </div>
-                    <ul>
-                      <li>
-                        <figure>
-                          <img src="" alt="">
-                        </figure>
-                      </li>
-                    </ul>
                   </div>
-                </section>
+                  <div class="emoticon-grid-container">
 
-                <!-- END 섹션: 이모티콘 목록과 상세보기 -->
-              </div>
+                    <!-- TODO: 이모티콘 있을 때 -->
+                    <div class="emoticon-content">
+                      <div class="content">
+                        <div class="emoticon-info-wrap">
+                          <h5 class="info-name">이모티콘이름</h5>
+                          <span class="tertiary-txt">작가닉네임</span>
+                        </div>
+                        <ul class="grid-grp type-col4">
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                          <li class="grid">
+                            <figure class="thumbnail-box type-transparent">
+                              <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                            </figure>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <!-- TODO: 이모티콘 없을 때 -->
+                      <div class="nothing-card" style="display: none;">
+                        <p class="txt">이모티콘이 없어요</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- END 섹션: 이모티콘 목록과 상세보기 -->
             </div>
           </div>
 
           <!-- END layout: 페이지 상단 -->
           <div class="l-page-bottom">
-            <div>
-              <button type="button">다음</button>
+            <div class="l-bottom-btn-wrap">
+              <button type="button" onclick="location.href='emoticon-gift-2.html';" class="theme-solid-btn btn-lg btn-w100">다음</button>
             </div>
           </div>
         </div>

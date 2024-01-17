@@ -2,8 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>딜라잇게임즈</title>
+
+    <!-- Open Graph -->
+    <meta name="title" content="Delight Games">
+    <meta name="author" content="딜라잇 게임즈">
+    <meta name="description" content="딜라잇 게임즈 커뮤니티입니다.">
+    <meta name="keywords" content="딜라잇 게임즈 커뮤니티, 게임 커뮤니티">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+
+    <!-- TODO: web url 설정해야함 -->
+
+    <!-- <meta property="og:url" content="해당 웹 url"> -->
+    <meta property="og:title" content="딜라잇 게임즈">
+    <meta property="og:description" content="딜라잇 게임즈 커뮤니티입니다.">
+
+    <!-- TODO: meta thumbnail 설정 -->
+    <meta property="og:image" content="assets/images/og/og-thumbnail.png">
+
+    <!-- Favicon -->
+
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-36x36.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#101017">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> -->
 
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -43,6 +83,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light-10: #fff;
         --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
@@ -56,17 +97,20 @@
         --surface-10: #686879;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 
     <!-- Js -->
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
   </head>
   <body ontouchstart>
     <div id="app">
 
       <!-- layout: 게시판 작성 페이지 -->
-      <div class="l-page-wrapper">
+      <div class="board-create-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
@@ -74,16 +118,18 @@
           <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
           <header class="header">
             <div class="header-left">
-              <button type="button" class="hd-btn">
+              <button type="button" onclick="history.back();" class="hd-btn">
                 <span class="txt-hidden">뒤로 가기</span>
                 <i class="ico ico-22 ico-arrow-back"></i>
               </button>
               <h2 class="hd-title ">게시글 작성</h2>
             </div>
             <div class="header-right">
-              <button type="button">
-                등록
-              </button>
+              <div class="hd-btn-grp">
+                <button type="button" class="txt-btn type-primary01">
+                  등록
+                </button>
+              </div>
             </div>
           </header>
 
@@ -91,73 +137,90 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
-              <div>
+            <div class="page-content">
 
-                <!-- 섹션: 제목 입력 -->
-                <section>
-                  <input type="text" placeholder="제목을 입력해주세요">
-                </section>
+              <!-- 섹션: 제목 + 내용 입력 -->
+              <section class="section title-content-section">
+                <textarea rows="1" data-autoresize class="inp" placeholder="제목을 입력해주세요"></textarea>
+                <div class="editor-area">editor-area</div>
+              </section>
 
-                <!-- END 섹션: 제목 입력 -->
+              <!-- END 섹션: 제목 + 내용 입력 -->
 
-                <!-- 섹션: 내용 입력 -->
-                <section>
-                  <div></div>
-                </section>
-
-                <!-- END 섹션: 내용 입력 -->
-
-                <!-- 섹션: 비밀글 설정 -->
-                <section></section>
-
-                <!-- END 섹션: 비밀글 설정 -->
-
-                <!-- 섹션: 첨부파일 -->
-                <section>
-                  <div>
-                    <div>
-                      <h3>파일첨부 <span>0</span></h3>
-                      <p>+를 눌러 파일을 첨부하세요</p>
-                    </div>
-                    <div>
-                      <input type="file">
-                      <label for="">
-                        <span>첨부하기</span>
-                        <i></i>
-                      </label>
-                    </div>
+              <!-- 섹션: 비밀글 설정 -->
+              <section class="section opt-section">
+                <div class="checkbox-item-grp">
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="secret" class="custom-checkbox-inp">
+                    <label for="secret" class="custom-checkbox type-sm"></label>
+                    <label for="secret" class="checkbox-item-txt type-sm">비밀글</label>
                   </div>
-
-                  <!-- TODO: 파일 있을 때 -->
-                  <ul>
-                    <li>
-
-                      <!-- 첨부파일 아이템 -->
-                      <div>
-                        <div>
-                          <i></i>
-                          <span>파일첨부명 1줄까지만 표기.jpg</span>
-                        </div>
-                        <button type="button">
-                          <span>삭제하기</span>
-                          <i></i>
-                        </button>
-                      </div>
-
-                      <!-- END 첨부파일 아이템 -->
-                    </li>
-                  </ul>
-
-                  <!-- TODO: 파일 없을 때 -->
-                  <div>
-                    <i></i>
-                    <p>등록된 파일이 없어요</p>
+                  <div class="checkbox-item">
+                    <input type="checkbox" id="comment" class="custom-checkbox-inp">
+                    <label for="comment" class="custom-checkbox type-sm"></label>
+                    <label for="comment" class="checkbox-item-txt type-sm">댓글허용</label>
                   </div>
-                </section>
+                </div>
+              </section>
 
-                <!-- END 섹션: 첨부파일 -->
-              </div>
+              <!-- END 섹션: 비밀글 설정 -->
+
+              <!-- 섹션: 첨부파일 -->
+              <section class="section file-section">
+                <div class="section-title-wrap">
+                  <div class="left-title-wrap type-sm">
+                    <h3 class="left-title">파일첨부 <span class="cnt-txt">0</span></h3>
+                    <p class="left-title-desc">+를 눌러 파일을 첨부하세요</p>
+                  </div>
+                  <input id="upload" type="file" class="none">
+                  <label for="upload" class="theme-circle-btn">
+                    <span class="txt-hidden">첨부하기</span>
+                    <i class="ico ico-add"></i>
+                  </label>
+                </div>
+
+                <!-- TODO: 파일 있을 때 -->
+                <div class="btn-grp">
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn">
+                      <span class="txt-hidden">삭제하기</span>
+                      <i class="ico ico-x"></i>
+                    </button>
+                  </div>
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn">
+                      <span class="txt-hidden">삭제하기</span>
+                      <i class="ico ico-x"></i>
+                    </button>
+                  </div>
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn">
+                      <span class="txt-hidden">삭제하기</span>
+                      <i class="ico ico-x"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- TODO: 파일 없을 때 -->
+                <div class="nothing-card">
+                  <i class="ico-nothing"></i>
+                  <p class="txt">등록된 파일이 없어요</p>
+                </div>
+              </section>
+
+              <!-- END 섹션: 첨부파일 -->
             </div>
           </div>
 

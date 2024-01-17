@@ -1,13 +1,3 @@
-// $(".custom-select .opt").on("click", function () {
-//   $(this).siblings(".opt-list-wrap").addClass("active");
-// })
-
-// $(".opt-list-grp .opt-list").on("click", function () {
-//   var val = $(this).text();
-
-//   $(this).parents(".opt-list-wrap").removeClass("active");
-//   $(this).parents(".opt-list-wrap").siblings(".opt").text(val);
-// })
 /*
 =============================================
 폼양식 관련 js
@@ -51,37 +41,49 @@ $('textarea[data-autoresize]').each(function () {
 
   $(this).on('keyup input', function () { resizeTextarea(this); }).removeAttr('data-autoresize');
 })
-// // ========================== 헤더 ) hover 시 서브메뉴 노출
-// $(".header .nav-wrap .nav-list").on("mouseover", function () {
-//   $(".header").addClass("active");
-// })
 
-// $(".header").on("mouseleave", function () {
-//   $(".header").removeClass("active");
-// })
+// 4. 댓글 작성 시 비밀글 체크 동작
+$('#secret-mode').on('change', function () {
+  if ($(this).is(':checked')) {
+    $(this).siblings('.secret-mode-txt').addClass('active');
+    $(this).siblings('.secret-mode-txt').html('비밀댓글 작성');
+    $(this).parents('.create-top').siblings('.create-bottom').children('.create-inp-unit-item').addClass('active');
+  } else {
+    $(this).siblings('.secret-mode-txt').removeClass('active');
+    $(this).siblings('.secret-mode-txt').html('댓글 작성');
+    $(this).parents('.create-top').siblings('.create-bottom').children('.create-inp-unit-item').removeClass('active');
+  }
+})
 
-// // $("#opt-lang-btn").on("mouseover", function () {
-// //   $(".opt-lang-grp").slideDown();
-// // })
+// 5. 커스텀 셀렉박스 동작
+$('[data-opt-btn]').on('click', function () {
+  var optValue = $(this).children('.txt')[0].innerHTML;
+  var content = $(this).attr('data-opt-btn');
+  var optParent = $(this).parents('.l-bottom-sheet').attr('id');
 
-// // $("#opt-lang-btn-wrap").on("mouseleave", function () {
-// //   $(".opt-lang-grp").slideUp();
-// // })
+  closeModal(optParent);
+  $(`[data-custom-select="${content}"]`).html(optValue);
 
-// // ========================== 헤더 ) 확장형 메뉴
-// $("#nav-open-btn").on("click", function () {
-//   $("#nav-page").addClass("active");
-// })
+  $(`#${optParent} [data-opt-btn]`).removeClass('active');
+  $(this).addClass('active');
+})
 
-// $("#nav-close-btn").on("click", function () {
-//   $("#nav-page").removeClass("active");
-// })
+// 6. 보더 인풋 그룹 효과
+$('[data-border-inp]').on('focus', function () {
+  $(this).parent('.border-inp-unit-item').addClass('active');
+})
+
+$('[data-border-inp]').on('blur', function () {
+  $(this).parent('.border-inp-unit-item').removeClass('active');
+})
+
 /*
 =============================================
 모달창 열고 닫기
 =============================================
 */
 
+// 1. 모달 열기
 function openModal(id) {
   if ($('#' + id).hasClass('hide')) {
     $('#' + id).removeClass('hide');
@@ -90,10 +92,65 @@ function openModal(id) {
   $('#' + id).addClass('show');
 }
 
+// 1. 모달 닫기
 function closeModal(id) {
   $('#' + id).addClass('hide');
 }
+/*
+=============================================
+탭버튼 동작
+=============================================
+*/
 
-// function allCloseModal() {
-//   $('.modal-wrapper').removeClass('show');
-// }
+$('[data-tab-btn]').on('click', function () {
+  var tabContent = $(this).attr('data-tab-btn');
+  var btns = $(this).parent('[data-tab-btns]').attr('data-tab-btns');
+  var contents = $(this).parent('[data-tab-btns]').siblings('[data-tab-contents]').attr('data-tab-contents');
+
+  $(`[data-tab-contents="${contents}"] > .tabs-content`).removeClass('active');
+  $(`#${tabContent}`).addClass('active');
+
+  $(`[data-tab-btns="${btns}"] [data-tab-btn]`).removeClass('active');
+  $(this).addClass('active');
+})
+/*
+=============================================
+기타 동작
+=============================================
+*/
+
+// 1. 더보기 박스
+$('.more-box-btn').on('click', function () {
+  $(this).siblings('.more-box-content').toggleClass('active');
+  $(this).toggleClass('active');
+})
+
+// 2. 댓글 작성 / 채팅창 내용 입력 시 이모티콘 선택하면 나타나는 동작
+$('#chat-emoticon-choice').on('change', function () {
+  if ($(this).prop('checked')) {
+    $(this).parents('.create-container').siblings('.emoticon-container').addClass('active');
+  } else {
+    $(this).parents('.create-container').siblings('.emoticon-container').removeClass('active');
+  }
+})
+
+// 3. 채팅 초대시 멤버영역 누르면 체크되는 동작 
+$('[data-user-checkbox]').on('click', function () {
+  $(this).siblings('[type="checkbox"]').prop('checked', function () {
+    return !$(this).prop('checked');
+  });
+
+  if ($(this).siblings('[type="checkbox"]').prop('checked')) {
+    $(this).addClass('active');
+  } else {
+    $(this).removeClass('active');
+  }
+})
+
+$('[data-user-checkbox]').siblings('[type="checkbox"]').on('change', function () {
+  if ($(this).prop('checked')) {
+    $(this).siblings('[data-user-checkbox]').addClass('active');
+  } else {
+    $(this).siblings('[data-user-checkbox]').removeClass('active');
+  }
+})

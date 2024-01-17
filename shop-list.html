@@ -2,8 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>딜라잇게임즈</title>
+
+    <!-- Open Graph -->
+    <meta name="title" content="Delight Games">
+    <meta name="author" content="딜라잇 게임즈">
+    <meta name="description" content="딜라잇 게임즈 커뮤니티입니다.">
+    <meta name="keywords" content="딜라잇 게임즈 커뮤니티, 게임 커뮤니티">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+
+    <!-- TODO: web url 설정해야함 -->
+
+    <!-- <meta property="og:url" content="해당 웹 url"> -->
+    <meta property="og:title" content="딜라잇 게임즈">
+    <meta property="og:description" content="딜라잇 게임즈 커뮤니티입니다.">
+
+    <!-- TODO: meta thumbnail 설정 -->
+    <meta property="og:image" content="assets/images/og/og-thumbnail.png">
+
+    <!-- Favicon -->
+
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-36x36.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#101017">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> -->
 
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -43,6 +83,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light-10: #fff;
         --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
@@ -56,17 +97,20 @@
         --surface-10: #686879;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 
     <!-- Js -->
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
   </head>
   <body ontouchstart>
     <div id="app">
 
       <!-- layout: 상점 메인 페이지 -->
-      <div class="l-page-wrapper">
+      <div class="shop-list-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
@@ -74,13 +118,9 @@
           <!-- layout: 헤더 타입 1-1 (왼: 페이지명 / 오: 기타 버튼) -->
           <header class="header">
             <div class="header-left">
-              <h2 class="hd-title ">페이지 !!! ㅎㅎ</h2>
+              <h2 class="hd-title ">상점</h2>
             </div>
             <div class="header-right">
-              <button type="button">
-                <span>내정보</span>
-                <i></i>
-              </button>
             </div>
           </header>
 
@@ -88,116 +128,220 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
-              <div>
+            <div class="page-content">
 
-                <!-- 섹션: 상점 아이템 -->
-                <section>
-                  <button type="button">결제내역 확인</button>
-                  <div>
-                    <button type="button">거래소</button>
-                    <button type="button">패키지상품</button>
-                    <button type="button">일반상품</button>
-                    <button type="button">특가상품</button>
+              <!-- 섹션: 상점 아이템 상단 버튼들 -->
+              <section class="section top-section">
+                <button type="button" class="w100-btn btn-w100 bd-btn btn-sm" onclick="location.href='pay-history-list.html';">결제내역 확인</button>
+                <div class="rounded-tabs">
+                  <button type="button" class="rounded-tab active">거래소</button>
+                  <button type="button" class="rounded-tab">패키지상품</button>
+                  <button type="button" class="rounded-tab">일반상품</button>
+                  <button type="button" class="rounded-tab">특가상품</button>
+                </div>
+                <div class="opt-item-grp">
+                  <div class="mg-left">
+                    <button onclick="openModal('bottom-sheet-1');" type="button" class="opt-item type-02">
+                      <span data-custom-select="opt-item-cnt" class="selected-txt">10개씩 보기</span>
+                      <i class="ico ico-18 ico-arrow-down"></i>
+                    </button>
                   </div>
-                  <div>
-                    <div>
-                      <button type="button">
-                        <span>10개씩 보기</span>
-                      </button>
-                    </div>
-                  </div>
+                </div>
+              </section>
 
-                  <!-- TODO: 아이템 있을 때 -->
-                  <div>
-                    <h4>재화상품</h4>
-                    <ul>
-                      <li>
+              <!-- END 섹션: 상점 아이템 상단 버튼들 -->
 
-                        <!-- 아이템 -->
-                        <div>
-                          <figure>
-                            <img src="" alt="">
-                            <p>00% 할인중</p>
+              <!-- 섹션: 상점 아이템 -->
+              <section class="section items-section">
+
+                <!-- TODO: 아이템 있을 때 -->
+                <div class="content">
+                  <h4 class="title title-18">재화상품</h4>
+                  <ul class="grid-grp type-col3">
+                    <li class="grid">
+                      <div onclick="openModal('page-popup-1');" class="item-card type-01">
+                        <div class="thumbnail-wrap">
+                          <figure class="thumbnail">
+                            <img src="assets/images/img-sample-item.png" alt="" class="img-thumbnail">
                           </figure>
-                          <ul>
-                            <li>
-                              <h5>상품이름 1줄표기</h5>
-                            </li>
-                            <li>
-                              <div>
-                                <i></i>
-                                <span>0,000</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div>
-                                <span>구매가능 수량</span>
-                                <span>1,234</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div>
-                                <i></i>
-                                <span>등록자 닉네임</span>
-                              </div>
-                            </li>
-                          </ul>
+                          <p class="thumbnail-label">상품 00% 할인중</p>
                         </div>
-
-                        <!-- END 아이템 -->
-                      </li>
-                    </ul>
-                  </div>
-
-                  <!-- TODO: 아이템 없을 때 -->
-                  <div>
-                    <h4>재화상품</h4>
-                    <div>
-                      <i></i>
-                      <p>등록된 상품이 없어요</p>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 상점 아이템 -->
-
-                <!-- 섹션: 업데이트 추가상품 배너 -->
-                <section>
-                  <h4>12월 8일 업데이트 추가 상품</h4>
-                  <ul>
-                    <li>
-
-                      <!-- 배너 아이템 -->
-                      <div>
-                        <img src="" alt="">
+                        <ul class="card-information">
+                          <li>
+                            <h5 class="card-name">상품이름 1줄표기</h5>
+                          </li>
+                          <li>
+                            <div class="price-item">
+                              <i class="ico ico-20 ico-coin-cash"></i>
+                              <span class="txt">0,000</span>
+                            </div>
+                          </li>
+                          <li>
+                            <dl class="gray-dl">
+                              <dt class="dt">구매가능 수량</dt>
+                              <dt class="dd">1,234</dt>
+                            </dl>
+                          </li>
+                          <li>
+                            <div class="user-item">
+                              <figure class="user-thumbnail">
+                                <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                              </figure>
+                              <span class="user-name">등록자 닉네임</span>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
-
-                      <!-- END 배너 아이템 -->
                     </li>
-                    <li>
-
-                      <!-- 배너 아이템 -->
-                      <div>
-                        <img src="" alt="">
+                    <li class="grid">
+                      <div class="item-card type-01">
+                        <div class="thumbnail-wrap">
+                          <figure class="thumbnail">
+                            <img src="assets/images/img-sample-item.png" alt="" class="img-thumbnail">
+                          </figure>
+                          <p class="thumbnail-label">상품 00% 할인중</p>
+                        </div>
+                        <ul class="card-information">
+                          <li>
+                            <h5 class="card-name">상품이름 1줄표기</h5>
+                          </li>
+                          <li>
+                            <div class="price-item">
+                              <i class="ico ico-20 ico-coin-cash"></i>
+                              <span class="txt">0,000</span>
+                            </div>
+                          </li>
+                          <li>
+                            <dl class="gray-dl">
+                              <dt class="dt">구매가능 수량</dt>
+                              <dt class="dd">1,234</dt>
+                            </dl>
+                          </li>
+                          <li>
+                            <div class="user-item">
+                              <figure class="user-thumbnail">
+                                <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                              </figure>
+                              <span class="user-name">등록자 닉네임</span>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
-
-                      <!-- END 배너 아이템 -->
                     </li>
-                    <li>
-
-                      <!-- 배너 아이템 -->
-                      <div>
-                        <img src="" alt="">
+                    <li class="grid">
+                      <div class="item-card type-01">
+                        <div class="thumbnail-wrap">
+                          <figure class="thumbnail">
+                            <img src="assets/images/img-sample-item.png" alt="" class="img-thumbnail">
+                          </figure>
+                          <p class="thumbnail-label">상품 00% 할인중</p>
+                        </div>
+                        <ul class="card-information">
+                          <li>
+                            <h5 class="card-name">상품이름 1줄표기</h5>
+                          </li>
+                          <li>
+                            <div class="price-item">
+                              <i class="ico ico-20 ico-coin-cash"></i>
+                              <span class="txt">0,000</span>
+                            </div>
+                          </li>
+                          <li>
+                            <dl class="gray-dl">
+                              <dt class="dt">구매가능 수량</dt>
+                              <dt class="dd">1,234</dt>
+                            </dl>
+                          </li>
+                          <li>
+                            <div class="user-item">
+                              <figure class="user-thumbnail">
+                                <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                              </figure>
+                              <span class="user-name">등록자 닉네임</span>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
-
-                      <!-- END 배너 아이템 -->
+                    </li>
+                    <li class="grid">
+                      <div class="item-card type-01">
+                        <div class="thumbnail-wrap">
+                          <figure class="thumbnail">
+                            <img src="assets/images/img-sample-item.png" alt="" class="img-thumbnail">
+                          </figure>
+                          <p class="thumbnail-label">상품 00% 할인중</p>
+                        </div>
+                        <ul class="card-information">
+                          <li>
+                            <h5 class="card-name">상품이름 1줄표기</h5>
+                          </li>
+                          <li>
+                            <div class="price-item">
+                              <i class="ico ico-20 ico-coin-cash"></i>
+                              <span class="txt">0,000</span>
+                            </div>
+                          </li>
+                          <li>
+                            <dl class="gray-dl">
+                              <dt class="dt">구매가능 수량</dt>
+                              <dt class="dd">1,234</dt>
+                            </dl>
+                          </li>
+                          <li>
+                            <div class="user-item">
+                              <figure class="user-thumbnail">
+                                <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                              </figure>
+                              <span class="user-name">등록자 닉네임</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
                     </li>
                   </ul>
-                </section>
+                </div>
 
-                <!-- END 섹션: 업데이트 추가상품 배너 -->
-              </div>
+                <!-- TODO: 아이템 없을 때 -->
+                <div class="content" style="display: none;">
+                  <h4 class="title title-18">재화상품</h4>
+                  <div class="nothing-card">
+                    <i class="ico-nothing"></i>
+                    <p class="txt">등록된 상품이 없어요</p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- END 섹션: 상점 아이템 -->
+
+              <!-- 섹션: 업데이트 추가상품 배너 -->
+              <section class="section banner-section">
+                <h4 class="title title-18">12월 8일 업데이트 추가 상품</h4>
+                <div class="banner-card-grp">
+
+                  <!-- 배너 아이템 -->
+                  <div class="banner-card">
+                    <img src="assets/images/img-sample-banner.png" alt="">
+                  </div>
+
+                  <!-- END 배너 아이템 -->
+
+                  <!-- 배너 아이템 -->
+                  <div class="banner-card">
+                    <img src="assets/images/img-sample-banner.png" alt="">
+                  </div>
+
+                  <!-- END 배너 아이템 -->
+
+                  <!-- 배너 아이템 -->
+                  <div class="banner-card">
+                    <img src="assets/images/img-sample-banner.png" alt="">
+                  </div>
+
+                  <!-- END 배너 아이템 -->
+                </div>
+              </section>
+
+              <!-- END 섹션: 업데이트 추가상품 배너 -->
             </div>
           </div>
 
@@ -206,35 +350,35 @@
           <!-- layout: 페이지 하단 -->
           <div class="l-page-bottom">
             <div class="l-bottom-nav">
-              <button type="button" class="nav-btn active">
+              <button type="button" onclick="location.href='mypage-main.html';" class="nav-btn ">
                 <div class="ico-box">
                   <i class="ico ico-off ico-nav-home"></i>
                   <i class="ico ico-on ico-nav-home"></i>
                 </div>
                 <span class="txt">홈</span>
               </button>
-              <button type="button" class="nav-btn">
+              <button type="button" onclick="location.href='guild-main.html';" class="nav-btn ">
                 <div class="ico-box">
                   <i class="ico ico-off ico-nav-guild"></i>
                   <i class="ico ico-on ico-nav-guild"></i>
                 </div>
                 <span class="txt">길드</span>
               </button>
-              <button type="button" class="nav-btn">
+              <button type="button" onclick="location.href='board-list.html';" class="nav-btn ">
                 <div class="ico-box">
                   <i class="ico ico-off ico-nav-board"></i>
                   <i class="ico ico-on ico-nav-board"></i>
                 </div>
                 <span class="txt">게시판</span>
               </button>
-              <button type="button" class="nav-btn">
+              <button type="button" onclick="location.href='shop-list.html';" class="nav-btn active">
                 <div class="ico-box">
                   <i class="ico ico-off ico-nav-shop"></i>
                   <i class="ico ico-on ico-nav-shop"></i>
                 </div>
                 <span class="txt">상점</span>
               </button>
-              <button type="button" class="nav-btn">
+              <button type="button" onclick="location.href='chat-list.html';" class="nav-btn ">
                 <div class="ico-box">
                   <i class="ico ico-off ico-nav-chat"></i>
                   <i class="ico ico-on ico-nav-chat"></i>
@@ -249,115 +393,62 @@
 
         <!-- END layout: 페이지 -->
 
-        <!-- layout: 페이지 팝업 (상품 상세) -->
-        <div class="l-page l-page-popup">
+        <!-- layout: 바텀시트 (아이템 갯수) -->
+        <div id="bottom-sheet-1" class="l-bottom-sheet">
+          <div class="overlay type-blur" onclick="closeModal('bottom-sheet-1');"></div>
+          <div class="bottom-sheet">
 
-          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header class="header">
-            <div class="header-left">
-              <h2 class="hd-title invisible"></h2>
-            </div>
-            <div class="header-right">
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
-              </button>
-            </div>
-          </header>
+            <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <header class="header">
+              <div class="header-left">
+                <h2 class="hd-title ">아이템 목록</h2>
+              </div>
+              <div class="header-right">
+                <div class="hd-btn-grp">
+                  <button onclick="closeModal('bottom-sheet-1');" type="button" class="hd-btn">
+                    <span class="txt-hidden">닫기</span>
+                    <i class="ico ico-22 ico-x"></i>
+                  </button>
+                </div>
+              </div>
+            </header>
 
-          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-
-          <!-- layout: 페이지 상단 -->
-          <div class="l-page-top">
-            <div class="page">
-              <div>
-
-                <!-- 섹션: 이미지 슬라이드 -->
-                <section>
-                  <div>
-                    <div>
-                      <img src="" alt="">
-                    </div>
-                    <div>
-                      <img src="" alt="">
-                    </div>
-                    <div>
-                      <img src="" alt="">
-                    </div>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 이미지 슬라이드 -->
-
-                <!-- 섹션: 상품 정보 (상품명, 수량 등) -->
-                <section>
-                  <ul>
-                    <li>
-                      <span>00% 할인중</span>
-                    </li>
-                    <li>
-                      <h5>명령 블록이 실린 광산 수레</h5>
-                    </li>
-                    <li>
-                      <div>
-                        <i></i>
-                        <span>0,000 원</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <span>구매가능 수량</span>
-                        <span>1,234</span>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <i></i>
-                        <span>등록자 닉네임</span>
-                      </div>
-                    </li>
-                  </ul>
-                  <div>
-                    <div>
-                      <i></i>
-                      <span>판매기간</span>
-                    </div>
-                    <p>23.00.00 - 23.00.00</p>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 상품 정보 (상품명, 수량 등) -->
-
-                <!-- 섹션: 상품 설명 -->
-                <section>
-                  <h4>상품 설명</h4>
-                  <div>
-                    <img src="" alt="">
-                    <p>
-                      기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다.기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다. 기본 게시글 내용
-                      텍스트 입니다.기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다.
-                    </p>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 상품 설명 -->
+            <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <div class="bs-page-content">
+              <div class="bs-opt-container">
+                <ul class="opt-list-grp">
+                  <li class="opt-list">
+                    <button data-opt-btn="opt-item-cnt" type="button" class="opt-btn active">
+                      <span class="txt">10개씩 보기</span>
+                    </button>
+                  </li>
+                  <li class="opt-list">
+                    <button data-opt-btn="opt-item-cnt" type="button" class="opt-btn">
+                      <span class="txt">30개씩 보기</span>
+                    </button>
+                  </li>
+                  <li class="opt-list">
+                    <button data-opt-btn="opt-item-cnt" type="button" class="opt-btn">
+                      <span class="txt">50개씩 보기</span>
+                    </button>
+                  </li>
+                  <li class="opt-list">
+                    <button data-opt-btn="opt-item-cnt" type="button" class="opt-btn">
+                      <span class="txt">100개씩 보기</span>
+                    </button>
+                  </li>
+                  <li class="opt-list">
+                    <button data-opt-btn="opt-item-cnt" type="button" class="opt-btn">
+                      <span class="txt">최신순</span>
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-
-          <!-- END layout: 페이지 상단 -->
-
-          <!-- layout: 페이지 하단 -->
-          <div class="l-page-bottom">
-            <div>
-              <button type="button">구매하기</button>
-            </div>
-          </div>
-
-          <!-- END layout: 페이지 하단 -->
         </div>
 
-        <!-- END layout: 페이지 팝업 (상품 상세) -->
+        <!-- END layout: 바텀시트 (게시글 목록) -->
       </div>
 
       <!-- END layout: 상점 메인 페이지 -->

@@ -2,8 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>딜라잇게임즈</title>
+
+    <!-- Open Graph -->
+    <meta name="title" content="Delight Games">
+    <meta name="author" content="딜라잇 게임즈">
+    <meta name="description" content="딜라잇 게임즈 커뮤니티입니다.">
+    <meta name="keywords" content="딜라잇 게임즈 커뮤니티, 게임 커뮤니티">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+
+    <!-- TODO: web url 설정해야함 -->
+
+    <!-- <meta property="og:url" content="해당 웹 url"> -->
+    <meta property="og:title" content="딜라잇 게임즈">
+    <meta property="og:description" content="딜라잇 게임즈 커뮤니티입니다.">
+
+    <!-- TODO: meta thumbnail 설정 -->
+    <meta property="og:image" content="assets/images/og/og-thumbnail.png">
+
+    <!-- Favicon -->
+
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-36x36.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#101017">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> -->
 
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -43,6 +83,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light-10: #fff;
         --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
@@ -56,17 +97,20 @@
         --surface-10: #686879;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 
     <!-- Js -->
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
   </head>
   <body ontouchstart>
     <div id="app">
 
       <!-- layout: 이모티콘 등록 신청 페이지 -->
-      <div class="l-page-wrapper">
+      <div class="emoticon-apply-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
@@ -74,7 +118,7 @@
           <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
           <header class="header">
             <div class="header-left">
-              <button type="button" class="hd-btn">
+              <button type="button" onclick="history.back();" class="hd-btn">
                 <span class="txt-hidden">뒤로 가기</span>
                 <i class="ico ico-22 ico-arrow-back"></i>
               </button>
@@ -88,238 +132,465 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
-              <div>
+            <div class="page-content">
 
-                <!-- 섹션: 기본 정보 -->
-                <section>
-                  <div>
-                    <h4>기본 정보</h4>
+              <!-- 섹션: 기본 정보 -->
+              <section class="section default-section">
+                <div class="section-title-wrap">
+                  <div class="left-title-wrap type-sm">
+                    <h3 class="left-title">메인 이미지</h3>
                   </div>
-                  <ul>
-                    <li>
-                      <div>
-                        <input type="text" placeholder="이모티콘 제목을 입력하세요">
-                        <div><span>0</span>/40</div>
+                </div>
+                <div class="form-item-grp">
+                  <div class="form-item">
+                    <div class="form-inp-wrap">
+                      <div class="form-inp-unit-item">
+                        <input type="text" data-unit-inp data-count-inp class="inp" maxlength="40" placeholder="이모티콘 제목을 입력하세요">
+                        <div class="unit"><span class="unit-count">0</span>/40</div>
                       </div>
-                    </li>
-                    <li>
-                      <div>
-                        <input type="text" placeholder="이모티콘을 간단하게 설명해주세요">
-                        <div><span>0</span>/40</div>
-                      </div>
-                    </li>
-                  </ul>
-                </section>
-
-                <!-- END 섹션: 기본 정보 -->
-
-                <!-- 섹션: 이모티콘 이미지 -->
-                <section>
-                  <div>
-                    <h4>이모티콘 이미지</h4>
-                  </div>
-                  <div>
-                    <dl>
-                      <dt>파일형식 :</dt>
-                      <dd>PNG (배경 투명)</dd>
-                    </dl>
-                    <dl>
-                      <dt>이미지 개수 :</dt>
-                      <dd>최대 16개</dd>
-                    </dl>
-                    <dl>
-                      <dt>이미지 사이즈 :</dt>
-                      <dd>360 X 360 px (픽셀)</dd>
-                    </dl>
-                    <dl>
-                      <dt>이미지 용량 :</dt>
-                      <dd>개당 150 KB 이하</dd>
-                    </dl>
-                    <dl>
-                      <dt>해상도 :</dt>
-                      <dd>72dpi, 컬러모드 RGB 권장</dd>
-                    </dl>
-                  </div>
-                  <ul>
-                    <li>
-                      <input type="file">
-
-                      <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
-                      <label for="">
-                        <span>1</span>
-
-                        <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
-
-                        <!-- FIXME: -->
-
-                        <!-- <img src="" alt=""> -->
-                        <button type="button">
-                          <span>삭제하기</span>
-                          <i></i>
-                        </button>
-                      </label>
-                    </li>
-                    <li>
-                      <input type="file">
-
-                      <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
-                      <label for="">
-                        <span>2</span>
-
-                        <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
-
-                        <!-- FIXME: -->
-
-                        <!-- <img src="" alt=""> -->
-                        <button type="button">
-                          <span>삭제하기</span>
-                          <i></i>
-                        </button>
-                      </label>
-                    </li>
-                  </ul>
-                </section>
-
-                <!-- END 섹션: 이모티콘 이미지 -->
-
-                <!-- 섹션: 메인 이미지 -->
-                <section>
-                  <div>
-                    <div>
-                      <h4>메인 이미지</h4>
-                      <p>+를 눌러 파일을 첨부하세요</p>
-                      <dl>
-                        <dt>이미지 사이즈 : </dt>
-                        <dd>360 X 360 px (픽셀)</dd>
-                      </dl>
-                    </div>
-                    <div>
-                      <input type="file">
-                      <label for="">
-                        <span>메인 이미지 첨부하기</span>
-                        <i></i>
-                      </label>
                     </div>
                   </div>
-
-                  <!-- TODO: 메인 이미지 첨부되어있을 때 -->
-                  <ul>
-                    <li>
-
-                      <!-- 첨부파일 아이템 -->
-                      <div>
-                        <div>
-                          <i></i>
-                          <span>파일첨부명 1줄까지만 표기.jpg</span>
-                        </div>
-                        <button type="button">
-                          <span>삭제하기</span>
-                          <i></i>
-                        </button>
+                  <div class="form-item">
+                    <div class="form-inp-wrap">
+                      <div class="form-inp-unit-item">
+                        <textarea data-autoresize rows="1" data-unit-inp data-count-inp class="inp" maxlength="40" placeholder="이모티콘을 간단하게 설명해주세요"></textarea>
+                        <div class="unit"><span class="unit-count">0</span>/40</div>
                       </div>
-
-                      <!-- END 첨부파일 아이템 -->
-                    </li>
-                  </ul>
-
-                  <!-- TODO: 메인 이미지 첨부되어있지 않을 때 -->
-                  <div>
-                    <i></i>
-                    <p>등록된 파일이 없어요</p>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 메인 이미지 -->
-
-                <!-- 섹션: 탭 이미지 -->
-                <section>
-                  <div>
-                    <div>
-                      <h4>탭 이미지</h4>
-                      <p>+를 눌러 파일을 첨부하세요</p>
-                      <dl>
-                        <dt>이미지 사이즈 : </dt>
-                        <dd>30 X 30 px (픽셀)</dd>
-                      </dl>
-                    </div>
-                    <div>
-                      <input type="file">
-                      <label for="">
-                        <span>탭 이미지 첨부하기</span>
-                        <i></i>
-                      </label>
                     </div>
                   </div>
+                </div>
+              </section>
 
-                  <!-- TODO: 탭 이미지 첨부되어있을 때 -->
-                  <ul>
-                    <li>
+              <!-- END 섹션: 기본 정보 -->
 
-                      <!-- 첨부파일 아이템 -->
-                      <div>
-                        <div>
-                          <i></i>
-                          <span>파일첨부명 1줄까지만 표기.jpg</span>
-                        </div>
-                        <button type="button">
-                          <span>삭제하기</span>
-                          <i></i>
-                        </button>
-                      </div>
-
-                      <!-- END 첨부파일 아이템 -->
-                    </li>
-                  </ul>
-
-                  <!-- TODO: 탭 이미지 첨부되어있지 않을 때 -->
-                  <div>
-                    <i></i>
-                    <p>등록된 파일이 없어요</p>
+              <!-- 섹션: 이모티콘 이미지 -->
+              <section class="section emoticon-section">
+                <div class="section-title-wrap">
+                  <div class="left-title-wrap type-sm">
+                    <h3 class="left-title">이모티콘 이미지</h3>
                   </div>
-                </section>
+                </div>
+                <div class="info-dl-grp">
+                  <dl class="info-dl type-02">
+                    <dt class="dt">파일형식 :</dt>
+                    <dd class="dd">PNG (배경 투명)</dd>
+                  </dl>
+                  <dl class="info-dl type-02">
+                    <dt class="dt">이미지 개수 :</dt>
+                    <dd class="dd">최대 16개</dd>
+                  </dl>
+                  <dl class="info-dl type-02">
+                    <dt class="dt">이미지 사이즈 :</dt>
+                    <dd class="dd">360 X 360 px (픽셀)</dd>
+                  </dl>
+                  <dl class="info-dl type-02">
+                    <dt class="dt">이미지 용량 :</dt>
+                    <dd class="dd">개당 150 KB 이하</dd>
+                  </dl>
+                  <dl class="info-dl type-02">
+                    <dt class="dt">해상도 :</dt>
+                    <dd class="dd">72dpi, 컬러모드 RGB 권장</dd>
+                  </dl>
+                </div>
+                <ul class="grid-grp type-col4">
 
-                <!-- END 섹션: 탭 이미지 -->
+                  <!-- 박스 4개 -->
+                  <li class="grid">
+                    <input id="emoticon01" type="file" class="none">
 
-                <!-- 섹션: 판매 가격 -->
-                <section>
-                  <div>
-                    <div>
-                      <div>
-                        <h4>탭 이미지</h4>
-                        <span>3</span>
-                      </div>
-                      <p>재화를 추가할 수 있습니다</p>
-                    </div>
-                    <div>
-                      <button type="button">
-                        <span>판매 가격 추가하기</span>
-                        <i></i>
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon01" class="thumbnail-box emoticon-box active">
+                      <span class="num">1</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
                       </button>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <div>
-                        <input type="text" placeholder="가격 입력">
-                        <button type="button">
-                          <img src="" alt="">
-                        </button>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <input type="text" placeholder="가격 입력">
-                        <button type="button">
-                          선택
-                        </button>
-                      </div>
-                    </li>
-                  </ul>
-                </section>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon02" type="file" class="none">
 
-                <!-- END 섹션: 판매 가격 -->
-              </div>
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon02" class="thumbnail-box emoticon-box active">
+                      <span class="num">2</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon03" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon03" class="thumbnail-box emoticon-box active">
+                      <span class="num">3</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon04" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon04" class="thumbnail-box emoticon-box active">
+                      <span class="num">4</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+
+                  <!-- END 박스 4개 -->
+
+                  <!-- 박스 4개 -->
+                  <li class="grid">
+                    <input id="emoticon05" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon05" class="thumbnail-box emoticon-box active">
+                      <span class="num">5</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon06" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon06" class="thumbnail-box emoticon-box active">
+                      <span class="num">6</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon07" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon07" class="thumbnail-box emoticon-box active">
+                      <span class="num">7</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon08" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon08" class="thumbnail-box emoticon-box active">
+                      <span class="num">8</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+
+                  <!-- END 박스 4개 -->
+
+                  <!-- 박스 4개 -->
+                  <li class="grid">
+                    <input id="emoticon09" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon09" class="thumbnail-box emoticon-box active">
+                      <span class="num">9</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon10" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon10" class="thumbnail-box emoticon-box active">
+                      <span class="num">10</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+                      <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon11" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon11" class="thumbnail-box emoticon-box">
+                      <span class="num">11</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+
+                      <!-- <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain"> -->
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon12" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon12" class="thumbnail-box emoticon-box">
+                      <span class="num">12</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+
+                      <!-- <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain"> -->
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+
+                  <!-- END 박스 4개 -->
+
+                  <!-- 박스 4개 -->
+                  <li class="grid">
+                    <input id="emoticon13" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon13" class="thumbnail-box emoticon-box">
+                      <span class="num">13</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+
+                      <!-- <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain"> -->
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon14" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon14" class="thumbnail-box emoticon-box">
+                      <span class="num">14</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+
+                      <!-- <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain"> -->
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon15" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon15" class="thumbnail-box emoticon-box">
+                      <span class="num">15</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+
+                      <!-- <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain"> -->
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+                  <li class="grid">
+                    <input id="emoticon15" type="file" class="none">
+
+                    <!-- TODO: 이미지가 첨부되었을 경우 클래스 active가 추가 됩니다. -->
+                    <label for="emoticon15" class="thumbnail-box emoticon-box">
+                      <span class="num">15</span>
+
+                      <!-- TODO: 이미지가 첨부되었을 경우 첨부된 이미지 태그가 보입니다. -->
+
+                      <!-- <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain"> -->
+                      <button type="button" class="del-btn">
+                        <span class="txt-hidden">삭제하기</span>
+                        <i class="ico ico-12 ico-x"></i>
+                      </button>
+                    </label>
+                  </li>
+
+                  <!-- END 박스 4개 -->
+                </ul>
+              </section>
+
+              <!-- END 섹션: 이모티콘 이미지 -->
+
+              <!-- 섹션: 메인 이미지 -->
+              <section class="section file-section">
+                <div class="section-title-wrap">
+                  <div class="left-title-wrap type-sm">
+                    <h3 class="left-title">메인 이미지</h3>
+                    <p class="left-title-desc">+를 눌러 파일을 첨부하세요</p>
+                    <dl class="info-dl type-02">
+                      <dt class="dt">이미지 사이즈 : </dt>
+                      <dd class="dd">360 X 360 px (픽셀)</dd>
+                    </dl>
+                  </div>
+                  <input id="tab-upload" type="file" class="none">
+                  <label for="tab-upload" class="theme-circle-btn">
+                    <span class="txt-hidden">첨부하기</span>
+                    <i class="ico ico-add"></i>
+                  </label>
+                </div>
+
+                <!-- TODO: 메인 이미지 첨부되어있을 때 -->
+                <div class="btn-grp">
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn">
+                      <span class="txt-hidden">삭제하기</span>
+                      <i class="ico ico-x"></i>
+                    </button>
+                  </div>
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn">
+                      <span class="txt-hidden">삭제하기</span>
+                      <i class="ico ico-x"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- TODO: 메인 이미지 첨부되어있지 않을 때 -->
+                <div class="nothing-card">
+                  <i class="ico-nothing"></i>
+                  <p class="txt">등록된 파일이 없어요</p>
+                </div>
+              </section>
+
+              <!-- END 섹션: 메인 이미지 -->
+
+              <!-- 섹션: 탭 이미지 -->
+              <section class="section file-section">
+                <div class="section-title-wrap">
+                  <div class="left-title-wrap type-sm">
+                    <h3 class="left-title">탭 이미지</h3>
+                    <p class="left-title-desc">+를 눌러 파일을 첨부하세요</p>
+                    <dl class="info-dl type-02">
+                      <dt class="dt">이미지 사이즈 : </dt>
+                      <dd class="dd">30 X 30 px (픽셀)</dd>
+                    </dl>
+                  </div>
+                  <input id="tab-upload" type="file" class="none">
+                  <label for="tab-upload" class="theme-circle-btn">
+                    <span class="txt-hidden">첨부하기</span>
+                    <i class="ico ico-add"></i>
+                  </label>
+                </div>
+
+                <!-- TODO: 탭 이미지 첨부되어있을 때 -->
+                <div class="btn-grp">
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn">
+                      <span class="txt-hidden">삭제하기</span>
+                      <i class="ico ico-x"></i>
+                    </button>
+                  </div>
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn">
+                      <span class="txt-hidden">삭제하기</span>
+                      <i class="ico ico-x"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- TODO: 탭 이미지 첨부되어있지 않을 때 -->
+                <div class="nothing-card">
+                  <i class="ico-nothing"></i>
+                  <p class="txt">등록된 파일이 없어요</p>
+                </div>
+              </section>
+
+              <!-- END 섹션: 탭 이미지 -->
+
+              <!-- 섹션: 판매 가격 -->
+              <section class="section price-section">
+                <div class="section-title-wrap">
+                  <div class="left-title-wrap type-sm">
+                    <h3 class="left-title">원하는 판매 가격 <span class="cnt-txt">0</span></h3>
+                    <p class="left-title-desc">재화를 추가할 수 있습니다</p>
+                  </div>
+                  <button type="button" class="theme-circle-btn">
+                    <span class="txt-hidden">판매 가격 설정하기</span>
+                    <i class="ico ico-add"></i>
+                  </button>
+                </div>
+                <div class="list-grp">
+                  <div class="price-inp-unit-item">
+                    <input type="text" placeholder="가격 입력" class="form-inp">
+                    <button type="button" data-index="1" onclick="choiceCoin(this);" class="form-inp form-select">
+                      선택
+                    </button>
+                  </div>
+                  <div class="price-inp-unit-item">
+                    <input type="text" placeholder="가격 입력" class="form-inp">
+                    <button type="button" data-index="2" onclick="choiceCoin(this);" class="form-inp form-select">
+                      선택
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <!-- END 섹션: 판매 가격 -->
             </div>
           </div>
 
@@ -327,8 +598,10 @@
 
           <!-- layout: 페이지 하단 -->
           <div class="l-page-bottom">
-            <div>
-              <button type="button">등록하기</button>
+            <div class="l-bottom-btn-wrap">
+
+              <!-- TODO: 모든 정보 완료시, btn-before 클래스를 지워주세요 -->
+              <button type="button" onclick="openModal('modal-1');" class="theme-solid-btn btn-lg btn-w100 btn-before">등록하기</button>
             </div>
           </div>
 
@@ -338,67 +611,90 @@
         <!-- END layout: 페이지 -->
 
         <!-- layout: 바텀시트 (재화 선택) -->
-        <div class="l-bottom-sheet">
+        <div id="bottom-sheet-1" class="l-bottom-sheet">
+          <div class="overlay type-blur"></div>
+          <div class="bottom-sheet">
 
-          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header class="header">
-            <div class="header-left">
-              <h2 class="hd-title ">재화 선택</h2>
-            </div>
-            <div class="header-right">
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
-              </button>
-            </div>
-          </header>
+            <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <header class="header">
+              <div class="header-left">
+                <h2 class="hd-title ">재화 선택</h2>
+              </div>
+              <div class="header-right">
+                <div class="hd-btn-grp">
+                  <button type="button" onclick="closeModal('bottom-sheet-1');" class="hd-btn">
+                    <span class="txt-hidden">닫기</span>
+                    <i class="ico ico-22 ico-x"></i>
+                  </button>
+                </div>
+              </div>
+            </header>
 
-          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
 
-          <!-- layout: 페이지 상단 -->
-          <div class="l-page-top">
-            <div class="page">
-              <div>
-                <ul>
-                  <li>
-                    <button type="button">
-                      <i></i>
-                      <span>골드</span>
+            <!-- layout: 페이지 상단 -->
+            <div class="bs-page-content">
+              <div class="bs-opt-container">
+                <ul class="opt-list-grp">
+                  <li class="opt-list">
+                    <button data-coin-btn type="button" class="opt-btn">
+                      <i class="ico ico-coin-gold"></i>
+                      <span class="txt">골드</span>
                     </button>
                   </li>
-                  <li>
-                    <button type="button">
-                      <i></i>
-                      <span>크리스탈</span>
+                  <li class="opt-list">
+                    <button data-coin-btn type="button" class="opt-btn">
+                      <i class="ico ico-coin-crystal"></i>
+                      <span class="txt">크리스탈</span>
                     </button>
                   </li>
-                  <li>
-                    <button type="button">
-                      <span>원 (현금)</span>
+                  <li class="opt-list">
+                    <button data-coin-btn type="button" class="opt-btn">
+                      <i class="ico ico-coin-cash"></i>
+                      <span class="txt">캐쉬</span>
+                    </button>
+                  </li>
+                  <li class="opt-list">
+                    <button data-coin-btn type="button" class="opt-btn">
+                      <i class="ico ico-coin-bossp"></i>
+                      <span class="txt">보스포인트</span>
+                    </button>
+                  </li>
+                  <li class="opt-list">
+                    <button data-coin-btn type="button" class="opt-btn">
+                      <i class="ico ico-coin-honorp"></i>
+                      <span class="txt">명예포인트</span>
+                    </button>
+                  </li>
+                  <li class="opt-list">
+
+                    <!-- <button data-opt-btn="opt-bank" type="button" class="opt-btn"> -->
+                    <button data-coin-btn data-coin-type="won" type="button" class="opt-btn">
+                      <span class="txt">원(현금)</span>
                     </button>
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
 
-          <!-- END layout: 페이지 상단 -->
+            <!-- END layout: 페이지 상단 -->
+          </div>
         </div>
 
         <!-- END layout: 바텀시트 (재화 선택) -->
 
         <!-- layout: 시스템 모달 (이모티콘 등록 확인) -->
-        <div class="l-modal">
-          <div class="modal-overlay"></div>
+        <div id="modal-1" class="l-modal">
+          <div class="overlay" onclick="closeModal('modal-1');"></div>
           <div class="modal system-modal">
             <div class="smodal-top">
-              <div>
-                <h3>이모티콘을 등록하시겠습니까?</h3>
+              <div class="smodal-content">
+                <h3 class="smodal-ttl">이모티콘을 등록하시겠습니까?</h3>
               </div>
             </div>
-            <div class="smodal-bottom">
-              <button type="button">아니오</button>
-              <button type="button">확인</button>
+            <div class="smodal-btn-wrap">
+              <button type="button" onclick="closeModal('modal-1');" class="cancel-btn btn-sm bd-btn">아니오</button>
+              <button type="button" class="btn btn-sm theme-solid-btn" onclick="location.href='emoticon-apply-complete.html';">예</button>
             </div>
           </div>
         </div>
@@ -409,5 +705,23 @@
       <!-- END layout: 이모티콘 등록 신청 페이지 -->
     </div>
     <script src="assets/js/ui.js"></script>
+    <script>
+      var currentIndex = null;
+      function choiceCoin(element) {
+        var idx = $(element).attr('data-index');
+        currentIndex = idx;
+        openModal('bottom-sheet-1');
+      }
+      $('[data-coin-btn]').on('click', function() {
+        console.log(currentIndex);
+        if ($(this).attr('data-coin-type') == 'won') {
+          $(`[data-index=${currentIndex}]`).html('원');
+          closeModal('bottom-sheet-1');
+        } else {
+          $(`[data-index=${currentIndex}]`).html($(this).find('i').clone());
+          closeModal('bottom-sheet-1');
+        }
+      })
+    </script>
   </body>
 </html>

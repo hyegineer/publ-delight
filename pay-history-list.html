@@ -2,8 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>딜라잇게임즈</title>
+
+    <!-- Open Graph -->
+    <meta name="title" content="Delight Games">
+    <meta name="author" content="딜라잇 게임즈">
+    <meta name="description" content="딜라잇 게임즈 커뮤니티입니다.">
+    <meta name="keywords" content="딜라잇 게임즈 커뮤니티, 게임 커뮤니티">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+
+    <!-- TODO: web url 설정해야함 -->
+
+    <!-- <meta property="og:url" content="해당 웹 url"> -->
+    <meta property="og:title" content="딜라잇 게임즈">
+    <meta property="og:description" content="딜라잇 게임즈 커뮤니티입니다.">
+
+    <!-- TODO: meta thumbnail 설정 -->
+    <meta property="og:image" content="assets/images/og/og-thumbnail.png">
+
+    <!-- Favicon -->
+
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-36x36.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#101017">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> -->
 
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -43,6 +83,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light-10: #fff;
         --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
@@ -56,17 +97,20 @@
         --surface-10: #686879;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 
     <!-- Js -->
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
   </head>
   <body ontouchstart>
     <div id="app">
 
       <!-- layout: 결제내역 페이지 -->
-      <div class="l-page-wrapper">
+      <div class="pay-history-list-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
@@ -74,7 +118,7 @@
           <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
           <header class="header">
             <div class="header-left">
-              <button type="button" class="hd-btn">
+              <button type="button" onclick="history.back();" class="hd-btn">
                 <span class="txt-hidden">뒤로 가기</span>
                 <i class="ico ico-22 ico-arrow-back"></i>
               </button>
@@ -88,206 +132,266 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
-              <div>
+            <div class="page-content">
 
-                <!-- 섹션: 결제 상태 요약 -->
-                <section>
-                  <div>
-                    <div>
-                      <div>
-                        <span>0</span>
-                      </div>
-                      <p>대기줄</p>
-                    </div>
-                    <div>
-                      <div>
-                        <span>0</span>
-                      </div>
-                      <p>결제실패</p>
-                    </div>
-                    <div>
-                      <div>
-                        <span>0</span>
-                      </div>
-                      <p>지급 대기중</p>
-                    </div>
-                    <div>
-                      <div>
-                        <span>0</span>
-                      </div>
-                      <p>지급 완료</p>
-                    </div>
+              <!-- 섹션: 결제 상태 요약 -->
+              <section class="section pay-status-section">
+                <div class="pay-status-card">
+                  <div class="status-dl">
+                    <dd class="dd">
+                      <span class="txt">0</span>
+                    </dd>
+                    <dt class="dt">대기중</dt>
                   </div>
-                </section>
-
-                <!-- END 섹션: 결제 상태 요약 -->
-
-                <!-- 섹션: 결제 상태 및 내역 -->
-                <section>
-                  <h4>결제 상태</h4>
-                  <div>
-                    <button type="button">전체</button>
-                    <button type="button">대기중</button>
-                    <button type="button">결제실패</button>
-                    <button type="button">지급완료</button>
+                  <div class="status-dl">
+                    <dd class="dd">
+                      <span class="txt">7</span>
+                    </dd>
+                    <dt class="dt">결제실패</dt>
                   </div>
+                  <div class="status-dl">
+                    <dd class="dd">
+                      <span class="txt">88</span>
+                    </dd>
+                    <dt class="dt">지급 대기중</dt>
+                  </div>
+                  <div class="status-dl">
+                    <dd class="dd">
+                      <span class="txt">999</span>
+                    </dd>
+                    <dt class="dt">지급 완료</dt>
+                  </div>
+                </div>
+              </section>
 
-                  <!-- TODO: 결제 내역 있을 때 -->
-                  <div>
-                    <div>
-                      <div>
-                        <p>23.00.00</p>
-                      </div>
-                      <ul>
-                        <li>
+              <!-- END 섹션: 결제 상태 요약 -->
 
-                          <!-- 결제했던 아이템 -->
-                          <div>
-                            <div>
-                              <p>대기중</p>
-                              <button type="button">
-                                <span>더보기</span>
-                                <i></i>
-                              </button>
-                            </div>
-                            <div>
-                              <figure>
-                                <img src="" alt="">
-                              </figure>
-                              <ul>
-                                <li>
-                                  <h5>상품이름 1줄 표기</h5>
-                                </li>
-                                <li>
-                                  <div>
-                                    <i></i>
-                                    <span>0,000 원</span>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div>
-                                    <span>구매수량</span>
-                                    <span>1,234</span>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
+              <!-- 섹션: 결제 상태 및 내역 -->
+              <section class="section history-section">
+                <h4 class="title title-20">결제 상태</h4>
+                <div class="rounded-tabs">
+                  <button type="button" class="rounded-tab active">전체</button>
+                  <button type="button" class="rounded-tab">대기중</button>
+                  <button type="button" class="rounded-tab">결제실패</button>
+                  <button type="button" class="rounded-tab">지급완료</button>
+                </div>
 
-                          <!-- END 결제했던 아이템 -->
-                        </li>
-                        <li>
-
-                          <!-- 결제했던 아이템 -->
-                          <div>
-                            <div>
-                              <p>결제실패</p>
-                              <button type="button">
-                                <span>더보기</span>
-                                <i></i>
-                              </button>
-                            </div>
-                            <div>
-                              <figure>
-                                <img src="" alt="">
-                              </figure>
-                              <ul>
-                                <li>
-                                  <h5>상품이름 1줄 표기</h5>
-                                </li>
-                                <li>
-                                  <div>
-                                    <i></i>
-                                    <span>0,000 원</span>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div>
-                                    <span>구매수량</span>
-                                    <span>1,234</span>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-
-                          <!-- END 결제했던 아이템 -->
-                        </li>
-                      </ul>
+                <!-- TODO: 결제 내역 있을 때 -->
+                <div class="history-list-grp">
+                  <div class="history-list">
+                    <div class="ttl-wrap">
+                      <p class="ttl">23.00.00</p>
                     </div>
-                    <div>
-                      <div>
-                        <p>23.00.00</p>
-                      </div>
-                      <ul>
-                        <li>
+                    <div class="card-grp">
+                      <div class="item-card type-02">
+                        <div class="card-top">
+                          <h5 class="card-status">대기중</h5>
 
-                          <!-- 결제했던 아이템 -->
-                          <div>
-                            <div>
-                              <p>지급완료</p>
-                              <div>
-                                <button type="button">
-                                  <span>더보기</span>
-                                  <i></i>
-                                </button>
+                          <!-- <h5 class="card-status type-fail">결제실패</h5> -->
+
+                          <!-- <h5 class="card-status type-done">지급완료</h5> -->
+                          <div class="mg-left" style="display: none;">
+                            <button type="button" class="btn">
+                              <span class="txt-hidden">자세히 보기</span>
+                              <i class="ico ico-arrow-right ico-white"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="card-mid">
+                          <figure class="thumbnail">
+                            <img src="assets/images/img-sample-item.png" alt="" class="img-thumbnail">
+                          </figure>
+                          <ul class="card-information">
+                            <li>
+                              <h5 class="card-name">상품이름 1줄표기</h5>
+                            </li>
+                            <li>
+                              <div class="price-item">
+                                <i class="ico ico-20 ico-coin-cash"></i>
+                                <span class="txt">0,000</span>
+                                <span class="txt">원</span>
                               </div>
-                            </div>
-                            <div>
-                              <figure>
-                                <img src="" alt="">
-                              </figure>
-                              <ul>
-                                <li>
-                                  <h5>상품이름 1줄 표기</h5>
-                                </li>
-                                <li>
-                                  <div>
-                                    <i></i>
-                                    <span>0,000 원</span>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div>
-                                    <span>구매수량</span>
-                                    <span>1,234</span>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                            <div>
-                              <dl>
-                                <dt>지급 일자</dt>
-                                <dd>23.00.00(월) 00:00</dd>
+                            </li>
+                            <li>
+                              <dl class="gray-dl">
+                                <dt class="dt">구매 수량</dt>
+                                <dt class="dd">1,234</dt>
                               </dl>
-                              <dl>
-                                <dt>지급 담당자</dt>
-                                <dd>
-                                  <div>
-                                    <i></i>
-                                    <span>담당자닉네임</span>
-                                  </div>
-                                </dd>
-                              </dl>
-                            </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="card-bottom" style="display: none;">
+                          <div class="card-detail-wrap">
+                            <dl class="info-dl type-01">
+                              <dt class="dt">
+                                <span class="txt">지급 일자</span>
+                              </dt>
+                              <dd class="dd">23.00.00(월) 00:00</dd>
+                            </dl>
+                            <dl class="info-dl type-01">
+                              <dt class="dt">
+                                <span class="txt">지급 담당자</span>
+                              </dt>
+                              <dd class="dd">
+                                <div class="user-item">
+                                  <figure class="user-thumbnail">
+                                    <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                                  </figure>
+                                  <span class="user-name">닉네임</span>
+                                </div>
+                              </dd>
+                            </dl>
                           </div>
+                        </div>
+                      </div>
+                      <div class="item-card type-02">
+                        <div class="card-top">
 
-                          <!-- END 결제했던 아이템 -->
-                        </li>
-                      </ul>
+                          <!-- <h5 class="card-status">대기중</h5> -->
+                          <h5 class="card-status type-fail">결제실패</h5>
+
+                          <!-- <h5 class="card-status type-done">지급완료</h5> -->
+                          <div class="mg-left" style="display: none;">
+                            <button type="button" class="btn">
+                              <span class="txt-hidden">자세히 보기</span>
+                              <i class="ico ico-arrow-right ico-white"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="card-mid">
+                          <figure class="thumbnail">
+                            <img src="assets/images/img-sample-item.png" alt="" class="img-thumbnail">
+                          </figure>
+                          <ul class="card-information">
+                            <li>
+                              <h5 class="card-name">상품이름 1줄표기</h5>
+                            </li>
+                            <li>
+                              <div class="price-item">
+                                <i class="ico ico-20 ico-coin-gold"></i>
+                                <span class="txt">0,000</span>
+                                <span class="txt">원</span>
+                              </div>
+                            </li>
+                            <li>
+                              <dl class="gray-dl">
+                                <dt class="dt">구매 수량</dt>
+                                <dt class="dd">1,234</dt>
+                              </dl>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="card-bottom" style="display: none;">
+                          <div class="card-detail-wrap">
+                            <dl class="info-dl type-01">
+                              <dt class="dt">
+                                <span class="txt">지급 일자</span>
+                              </dt>
+                              <dd class="dd">23.00.00(월) 00:00</dd>
+                            </dl>
+                            <dl class="info-dl type-01">
+                              <dt class="dt">
+                                <span class="txt">지급 담당자</span>
+                              </dt>
+                              <dd class="dd">
+                                <div class="user-item">
+                                  <figure class="user-thumbnail">
+                                    <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                                  </figure>
+                                  <span class="user-name">닉네임</span>
+                                </div>
+                              </dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  <div class="history-list">
+                    <div class="ttl-wrap">
+                      <p class="ttl">23.00.00</p>
+                    </div>
+                    <div class="card-grp">
+                      <div class="item-card type-02">
+                        <div class="card-top">
 
-                  <!-- TODO: 결제 내역 없을 때 -->
-                  <div>
-                    <i></i>
-                    <p>해당 상태의 내역이 없어요</p>
+                          <!-- <h5 class="card-status">대기중</h5> -->
+
+                          <!-- <h5 class="card-status type-fail">결제실패</h5> -->
+                          <h5 class="card-status type-done">지급완료</h5>
+                          <div class="mg-left">
+                            <button type="button" onclick="location.href='pay-history-detail.html';" class="btn">
+                              <span class="txt-hidden">자세히 보기</span>
+                              <i class="ico ico-arrow-right ico-white"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="card-mid">
+                          <figure class="thumbnail">
+                            <img src="assets/images/img-sample-item.png" alt="" class="img-thumbnail">
+                          </figure>
+                          <ul class="card-information">
+                            <li>
+                              <h5 class="card-name">상품이름 1줄표기</h5>
+                            </li>
+                            <li>
+                              <div class="price-item">
+
+                                <!-- <i class="ico ico-20 ico-coin-cash"></i> -->
+                                <span class="txt">0,000</span>
+                                <span class="txt">원</span>
+                              </div>
+                            </li>
+                            <li>
+                              <dl class="gray-dl">
+                                <dt class="dt">구매 수량</dt>
+                                <dt class="dd">1,234</dt>
+                              </dl>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="card-bottom">
+                          <div class="card-detail-wrap">
+                            <dl class="info-dl type-01">
+                              <dt class="dt">
+                                <span class="txt">지급 일자</span>
+                              </dt>
+                              <dd class="dd">23.00.00(월) 00:00</dd>
+                            </dl>
+                            <dl class="info-dl type-01">
+                              <dt class="dt">
+                                <span class="txt">지급 담당자</span>
+                              </dt>
+                              <dd class="dd">
+                                <div class="user-item">
+                                  <figure class="user-thumbnail">
+                                    <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                                  </figure>
+                                  <span class="user-name">닉네임</span>
+                                </div>
+                              </dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </section>
+                </div>
 
-                <!-- END 섹션: 결제 상태 및 내역 -->
-              </div>
+                <!-- TODO: 결제 내역 없을 때 -->
+                <div class="nothing-card">
+                  <i class="ico-nothing"></i>
+                  <p class="txt">결제내역이 없어요</p>
+                </div>
+
+                <!-- TODO: 해당 상태의 내역 없을 때 -->
+                <div class="nothing-card">
+                  <i class="ico-nothing"></i>
+                  <p class="txt">해당 상태의 내역이 없어요</p>
+                </div>
+              </section>
+
+              <!-- END 섹션: 결제 상태 및 내역 -->
             </div>
           </div>
 
@@ -295,153 +399,6 @@
         </div>
 
         <!-- END layout: 페이지 -->
-
-        <!-- layout: 페이지 팝업 (결제내역 상세) -->
-        <div class="l-page l-page-popup">
-
-          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header class="header">
-            <div class="header-left">
-              <h2 class="hd-title ">결제내역</h2>
-            </div>
-            <div class="header-right">
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
-              </button>
-            </div>
-          </header>
-
-          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-
-          <!-- layout: 페이지 상단 -->
-          <div class="l-page-top">
-            <div class="page">
-              <div>
-
-                <!-- 섹션: 상세내역 상단 정보 -->
-                <section>
-                  <div>
-                    <h4>23.00.00 (월)</h4>
-                    <p>주문번호 123456789</p>
-                  </div>
-
-                  <!-- 결제했던 아이템 -->
-                  <div>
-                    <div>
-                      <p>지급완료</p>
-                      <div>
-                        <button type="button">
-                          <span>더보기</span>
-                          <i></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div>
-                      <figure>
-                        <img src="" alt="">
-                      </figure>
-                      <ul>
-                        <li>
-                          <h5>상품이름 1줄 표기</h5>
-                        </li>
-                        <li>
-                          <div>
-                            <i></i>
-                            <span>0,000 원</span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            <span>구매수량</span>
-                            <span>1,234</span>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <dl>
-                        <dt>구매자</dt>
-                        <dd>
-                          <div>
-                            <i></i>
-                            <span>담당자닉네임</span>
-                          </div>
-                        </dd>
-                      </dl>
-                      <dl>
-                        <dt>지급 담당자</dt>
-                        <dd>
-                          <div>
-                            <i></i>
-                            <span>담당자닉네임</span>
-                          </div>
-                        </dd>
-                      </dl>
-                    </div>
-                    <div>
-                      <dl>
-                        <dt>결제 승인</dt>
-                        <dd>23.00.00(월) 00:00</dd>
-                      </dl>
-                      <dl>
-                        <dt>지급 일자</dt>
-                        <dd>23.00.00(월) 00:00</dd>
-                      </dl>
-                    </div>
-                  </div>
-
-                  <!-- END 결제했던 아이템 -->
-                </section>
-
-                <!-- END 섹션: 상세내역 상단 정보 -->
-
-                <!-- 섹션: 구성품 -->
-                <section>
-                  <div>
-                    <h4>구성품</h4>
-                    <span>16</span>
-                  </div>
-                  <ul>
-                    <li>
-                      <figure>
-                        <img src="" alt="">
-                      </figure>
-                    </li>
-                    <li>
-                      <figure>
-                        <img src="" alt="">
-                      </figure>
-                    </li>
-                    <li>
-                      <figure>
-                        <img src="" alt="">
-                      </figure>
-                    </li>
-                    <li>
-                      <figure>
-                        <img src="" alt="">
-                      </figure>
-                    </li>
-                  </ul>
-                </section>
-
-                <!-- END 섹션: 구성품 -->
-                <div>
-                  <button type="button">세금계산서 신청하기</button>
-                  <button type="button">
-                    <i></i>
-                    <span>환불 요청하기</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- END layout: 페이지 상단 -->
-        </div>
-
-        <!-- END layout: 페이지 팝업 (결제내역 상세) -->
       </div>
 
       <!-- END layout: 결제내역 페이지 -->

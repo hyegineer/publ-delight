@@ -2,8 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>딜라잇게임즈</title>
+
+    <!-- Open Graph -->
+    <meta name="title" content="Delight Games">
+    <meta name="author" content="딜라잇 게임즈">
+    <meta name="description" content="딜라잇 게임즈 커뮤니티입니다.">
+    <meta name="keywords" content="딜라잇 게임즈 커뮤니티, 게임 커뮤니티">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+
+    <!-- TODO: web url 설정해야함 -->
+
+    <!-- <meta property="og:url" content="해당 웹 url"> -->
+    <meta property="og:title" content="딜라잇 게임즈">
+    <meta property="og:description" content="딜라잇 게임즈 커뮤니티입니다.">
+
+    <!-- TODO: meta thumbnail 설정 -->
+    <meta property="og:image" content="assets/images/og/og-thumbnail.png">
+
+    <!-- Favicon -->
+
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-36x36.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#101017">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> -->
 
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -43,6 +83,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light-10: #fff;
         --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
@@ -56,37 +97,42 @@
         --surface-10: #686879;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 
     <!-- Js -->
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
   </head>
   <body ontouchstart>
     <div id="app">
 
-      <!-- layout: 채팅 목록 페이지 -->
-      <div class="l-page-wrapper">
+      <!-- layout: 채팅 상세 페이지 -->
+      <div class="chat-detail-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
 
           <!-- END layout: 헤더 타입 3 (채팅) -->
-          <header>
-            <div>
-              <button type="button">
-                <i></i>
-                <span>99+</span>
+          <header class="header">
+            <div class="header-left">
+              <button type="button" onclick="location.href='chat-list.html';" class="hd-btn">
+                <i class="ico ico-22 ico-arrow-back"></i>
+                <span class="hd-cnt-txt">99+</span>
               </button>
             </div>
-            <div>
-              <h2>인게임&그룹채팅방 이름</h2>
+            <div class="header-center">
+              <h2 class="hd-title ">인게임&그룹채팅방 이름</h2>
             </div>
-            <div>
-              <button type="button">
-                <span>채팅방버튼</span>
-                <i></i>
-              </button>
+            <div class="header-right">
+              <div class="hd-btn-grp">
+                <button onclick="openModal('right-modal-1');" type="button" class="hd-btn">
+                  <span class="txt-hidden">채팅방버튼</span>
+                  <i class="ico ico-22 ico-menu-open"></i>
+                </button>
+              </div>
             </div>
           </header>
 
@@ -94,155 +140,210 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
-              <div>
-                <div>
+            <div class="page-content">
+              <div class="chat-view-container">
 
-                  <!-- TODO: 채팅방 상태는 이 요소에 담겨져서 보입니다. -->
-                  <div>
-                    <p>2023.00.00</p>
-                    <p>딜라잇게임즈님이 채팅방에 참여했습니다</p>
-                    <p>딜라잇게임즈님이 채팅방을 나갔습니다</p>
+                <!-- TODO: 채팅방 상태는 이 요소에 담겨져서 보입니다. -->
+                <p class="chat-status-box">2023.00.00</p>
+                <p class="chat-status-box">딜라잇게임즈님이 채팅방에 참여했습니다</p>
+                <p class="chat-status-box">딜라잇게임즈님이 채팅방을 나갔습니다</p>
+
+                <!-- TODO: 채팅방 말풍선은 이 요소에 담겨져서 보입니다. -->
+
+                <!-- TODO: 보낸 사람일 경우에 클래스 type-send가 추가됩니다. -->
+                <div class="chat-bubble-wrap">
+                  <div class="user-info-card">
+                    <div class="thumbnail-wrap">
+                      <figure class="thumbnail type-circle">
+                        <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                      </figure>
+                      <span class="status-circle active"></span>
+                    </div>
+                    <ul class="card-information">
+                      <li>
+                        <div class="dot-txt-grp">
+                          <span class="dot-txt">직업명</span>
+                          <span class="dot-txt">1차 전직</span>
+                          <span class="dot-txt">1차 전직</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="card-name-wrap">
+                          <h5 class="card-name">닉네임</h5>
+                          <span class="tertiary-txt">길드이름</span>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
-
-                  <!-- TODO: 채팅방 말풍선은 이 요소에 담겨져서 보입니다. -->
-
-                  <!-- TODO: 보낸 사람일 경우에 클래스 send가 추가됩니다. -->
-                  <section>
-                    <div>
-
-                      <!-- 사람 정보 -->
-
-                      <!-- TODO: 보낸 사람일 경우 보이지 않습니다. -->
-                      <div>
-                        <div>
-                          <figure>
-                            <img src="" alt="">
-                          </figure>
-                          <span></span>
-                        </div>
-                        <ul>
-                          <li>
-                            <div>
-                              <span>Lv.00</span>
-                              <span>직업명</span>
-                              <span>0차 전직</span>
-                            </div>
-                          </li>
-                          <li>
-                            <div>
-                              <h5>닉네임</h5>
-                              <span>길드이름</span>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-
-                      <!-- END 사람 정보 -->
-
-                      <!-- TODO: 말풍선일 때입니다. -->
-                      <p>컨셉을 위한 장식용 머리블록 이라던가
-                        거점은 초반에 진짜 살아남으려고 지어서 심층암으로 된 투박한 컨테이너예요..ㅎㅎ</p>
-
-                      <!-- TODO: 이모티콘 디자인 이미지일 때입니다. -->
-                      <figure>
-                        <img src="" alt="">
+                  <div class="bubble-wrap">
+                    <div class="bubble-box">
+                      컨셉을 위한 장식용 머리블록 이라던가
+                      거점은 초반에 진짜 살아남으려고 지어서 심층암으로 된 투박한 컨테이너예요..ㅎㅎ
+                    </div>
+                    <div class="status-wrap">
+                      <span class="color-txt">10</span>
+                      <span class="date-txt">00:00</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="chat-bubble-wrap">
+                  <div class="user-info-card">
+                    <div class="thumbnail-wrap">
+                      <figure class="thumbnail type-circle">
+                        <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
                       </figure>
-
-                      <!-- TODO: 이모티콘 선물할 때입니다. -->
-                      <div>
-                        <div>
-                          <i></i>
-                          <p>‘상대방닉네임'이 <br>
-                            이모티콘을 선물했습니다.</p>
-                        </div>
-                        <figure>
-                          <img src="" alt="">
-                        </figure>
-                        <div>
-                          <p>똥강아지 용구</p>
-                          <span>작가닉네임</span>
-                        </div>
-                        <div>
-                          <button type="button">거절</button>
-                          <button type="button">수락</button>
-                        </div>
-                      </div>
+                      <span class="status-circle active"></span>
                     </div>
-                    <div>
-                      <span>1</span>
-                      <p>00:00</p>
-                    </div>
-                  </section>
-
-                  <!-- TODO: 채팅방 상태는 이 요소에 담겨져서 보입니다. -->
-
-                  <!-- TODO: 보낸 사람일 경우에 클래스 send가 추가됩니다. -->
-                  <section>
-                    <div>
-
-                      <!-- 사람 정보 -->
-
-                      <!-- TODO: 보낸 사람일 경우 보이지 않습니다. -->
-                      <div style="display: none;">
-                        <div>
-                          <figure>
-                            <img src="" alt="">
-                          </figure>
-                          <span></span>
+                    <ul class="card-information">
+                      <li>
+                        <div class="dot-txt-grp">
+                          <span class="dot-txt">직업명</span>
+                          <span class="dot-txt">1차 전직</span>
+                          <span class="dot-txt">1차 전직</span>
                         </div>
-                        <ul>
-                          <li>
-                            <div>
-                              <span>Lv.00</span>
-                              <span>직업명</span>
-                              <span>0차 전직</span>
-                            </div>
-                          </li>
-                          <li>
-                            <div>
-                              <h5>닉네임</h5>
-                              <span>길드이름</span>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
+                      </li>
+                      <li>
+                        <div class="card-name-wrap">
+                          <h5 class="card-name">닉네임</h5>
+                          <span class="tertiary-txt">길드이름</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="bubble-wrap">
+                    <div class="bubble-box">
+                      메세지 연달아 보냈을 때
+                    </div>
+                    <div class="status-wrap">
+                      <span class="color-txt">10</span>
+                      <span class="date-txt">00:00</span>
+                    </div>
+                  </div>
+                </div>
 
-                      <!-- END 사람 정보 -->
+                <!-- TODO: 채팅방 말풍선은 이 요소에 담겨져서 보입니다. -->
 
-                      <!-- TODO: 말풍선일 때입니다. -->
-                      <p>카카오톡 처럼 읽은 사람 수 노출함</p>
-
-                      <!-- TODO: 이모티콘 디자인 이미지일 때입니다. -->
-                      <figure>
-                        <img src="" alt="">
+                <!-- TODO: 보낸 사람일 경우에 클래스 type-send가 추가됩니다. -->
+                <div class="chat-bubble-wrap">
+                  <div class="user-info-card">
+                    <div class="thumbnail-wrap">
+                      <figure class="thumbnail type-circle">
+                        <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
                       </figure>
+                      <span class="status-circle active"></span>
+                    </div>
+                    <ul class="card-information">
+                      <li>
+                        <div class="dot-txt-grp">
+                          <span class="dot-txt">직업명</span>
+                          <span class="dot-txt">1차 전직</span>
+                          <span class="dot-txt">1차 전직</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="card-name-wrap">
+                          <h5 class="card-name">닉네임</h5>
+                          <span class="tertiary-txt">길드이름</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="bubble-wrap">
+                    <div class="img-wrap">
+                      <img src="assets/images/img-sample-emoticon02.png" alt="">
+                    </div>
+                    <div class="status-wrap">
+                      <span class="color-txt">10</span>
+                      <span class="date-txt">00:00</span>
+                    </div>
+                  </div>
+                </div>
 
-                      <!-- TODO: 이모티콘 선물할 때입니다. -->
-                      <div>
-                        <div>
-                          <i></i>
-                          <p>‘상대방닉네임'이 <br>
-                            이모티콘을 선물했습니다.</p>
+                <!-- TODO: 채팅방 말풍선은 이 요소에 담겨져서 보입니다. -->
+
+                <!-- TODO: 보낸 사람일 경우에 클래스 type-send가 추가됩니다. -->
+                <div class="chat-bubble-wrap">
+                  <div class="user-info-card">
+                    <div class="thumbnail-wrap">
+                      <figure class="thumbnail type-circle">
+                        <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                      </figure>
+                      <span class="status-circle active"></span>
+                    </div>
+                    <ul class="card-information">
+                      <li>
+                        <div class="dot-txt-grp">
+                          <span class="dot-txt">직업명</span>
+                          <span class="dot-txt">1차 전직</span>
+                          <span class="dot-txt">1차 전직</span>
                         </div>
-                        <figure>
-                          <img src="" alt="">
-                        </figure>
-                        <div>
-                          <p>똥강아지 용구</p>
-                          <span>작가닉네임</span>
+                      </li>
+                      <li>
+                        <div class="card-name-wrap">
+                          <h5 class="card-name">닉네임</h5>
+                          <span class="tertiary-txt">길드이름</span>
                         </div>
-                        <div>
-                          <button type="button">거절</button>
-                          <button type="button">수락</button>
-                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="bubble-wrap">
+                    <div class="gift-card">
+                      <div class="ico-txt-wrap">
+                        <i class="ico ico-32 ico-gift"></i>
+                        <p class="txt">‘상대방닉네임'이 <br>이모티콘을 선물했습니다.</p>
+                      </div>
+                      <figure class="thumbnail type-transparent">
+                        <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                      </figure>
+                      <div class="emoticon-info-wrap">
+                        <h5 class="info-name">이모티콘 이름</h5>
+                        <span class="tertiary-txt">작가닉네임</span>
+                      </div>
+                      <div class="gift-btn-wrap">
+                        <button type="button" onclick="openModal('modal-2-2');" class="btn bd-btn btn-sm">거절</button>
+                        <button type="button" onclick="openModal('modal-2-1');" class="btn theme-solid-btn btn-sm">수락</button>
                       </div>
                     </div>
-                    <div>
-                      <span>10</span>
-                      <p>00:00</p>
+                    <span class="date-txt">00:00</span>
+                  </div>
+                </div>
+
+                <!-- TODO: 채팅방 말풍선은 이 요소에 담겨져서 보입니다. -->
+
+                <!-- TODO: 보낸 사람일 경우에 클래스 type-send가 추가됩니다. -->
+                <div class="chat-bubble-wrap type-send">
+                  <div class="bubble-wrap">
+                    <div class="bubble-box">
+                      컨셉을 위한 장식용 머리블록 이라던가
+                      거점은 초반에 진짜 살아남으려고 지어서 심층암으로 된 투박한 컨테이너예요..ㅎㅎ
                     </div>
-                  </section>
+                    <div class="status-wrap">
+                      <span class="color-txt">10</span>
+                      <span class="date-txt">00:00</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TODO: 채팅방 말풍선은 이 요소에 담겨져서 보입니다. -->
+
+                <!-- TODO: 보낸 사람일 경우에 클래스 type-send가 추가됩니다. -->
+                <div class="chat-bubble-wrap type-send">
+                  <div class="bubble-wrap">
+                    <div class="gift-card">
+                      <div class="ico-txt-wrap">
+                        <i class="ico ico-32 ico-gift"></i>
+                        <p class="txt">‘상대방닉네임'에게 <br>이모티콘을 선물했습니다.</p>
+                      </div>
+                      <figure class="thumbnail type-transparent">
+                        <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                      </figure>
+                      <div class="emoticon-info-wrap">
+                        <h5 class="info-name">이모티콘 이름</h5>
+                        <span class="tertiary-txt">작가닉네임</span>
+                      </div>
+                    </div>
+                    <span class="date-txt">00:00</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -252,84 +353,183 @@
 
           <!-- layout: 페이지 하단 -->
           <div class="l-page-bottom">
-            <div>
 
-              <!-- 채팅 작성 상단 -->
-              <div>
-                <div>
-                  <input type="text" placeholder="채팅을 작성해주세요">
-                  <div>
-                    <button type="button">
-                      <span>이모티콘</span>
-                      <i></i>
-                    </button>
-                    <button type="button">
-                      <span>앨범</span>
-                      <i></i>
+            <!-- 작성 상단 -->
+            <div class="create-container">
+              <div class="create-bottom">
+                <div class="create-inp-unit-item">
+                  <textarea data-autoresize class="inp" rows="1" placeholder="채팅내용을 입력해주세요."></textarea>
+                  <div class="btn-wrap">
+                    <input id="chat-emoticon-choice" type="checkbox" class="custom-checkbox-inp">
+                    <label for="chat-emoticon-choice" class="btn toggle-btn custom-checkbox-toggle-btn">
+                      <span class="txt-hidden">이모티콘 선택</span>
+                      <i class="ico ico-20 ico-smile ico-on"></i>
+                      <i class="ico ico-20 ico-smile-off ico-off"></i>
+                    </label>
+                    <button type="button" class="btn toggle-btn">
+                      <span class="txt-hidden">앨범 선택</span>
+                      <i class="ico ico-20 ico-camera ico-on"></i>
+                      <i class="ico ico-20 ico-camera-off ico-off"></i>
                     </button>
                   </div>
                 </div>
-                <button type="button">
-                  <span>전송</span>
-                  <i></i>
-                </button>
-              </div>
-
-              <!-- END 채팅 작성 상단 -->
-
-              <!-- 채팅 작성 하단 (이모티콘 선택시) -->
-              <div>
-                <div>
-                  <button type="button">
-                    <span>이모티콘 선물하기</span>
-                    <i></i>
+                <div class="btn-wrap">
+                  <button type="button" class="btn send-btn">
+                    <span class="txt-hidden">전송</span>
+                    <i class="ico ico-send-arrow"></i>
                   </button>
-                  <div>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                  </div>
                 </div>
-                <div>
+              </div>
+            </div>
 
-                  <!-- TODO: 이모티콘 있을 때 -->
-                  <div>
-                    <div>
-                      <h5>이모티콘이름</h5>
-                      <span>작가닉네임</span>
+            <!-- END 작성 상단 -->
+
+            <!-- 댓글 작성 하단 (이모티콘 선택시) -->
+            <div class="emoticon-container">
+              <div class="emoticon-btns-wrap">
+                <div class="gift-btn-wrap">
+                  <button type="button" onclick="location.href='emoticon-gift-1.html';" class="btn gift-btn">
+                    <span class="txt-hidden">이모티콘 선물하기</span>
+                    <i class="ico ico-32 ico-gift"></i>
+                  </button>
+                </div>
+                <div class="emoticon-btns">
+
+                  <!-- TODO: 선택시 active 클래스가 추가됩니다 -->
+                  <button type="button" class="emoticon-btn active">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                </div>
+              </div>
+              <div class="emoticon-grid-container">
+
+                <!-- TODO: 이모티콘 있을 때 -->
+                <div class="emoticon-content">
+                  <div class="content">
+                    <div class="emoticon-info-wrap">
+                      <h5 class="info-name">이모티콘이름</h5>
+                      <span class="tertiary-txt">작가닉네임</span>
                     </div>
-                    <div>
-                      <ul>
-                        <li>
-
-                          <!-- 이모티콘 아이템 -->
-                          <figure>
-                            <img src="" alt="">
-                          </figure>
-
-                          <!-- END 이모티콘 아이템 -->
-                        </li>
-                      </ul>
-                    </div>
+                    <ul class="grid-grp type-col4">
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                    </ul>
                   </div>
 
                   <!-- TODO: 이모티콘 없을 때 -->
-                  <div>
-                    <div>
-                      <p>이모티콘이 없어요</p>
-                    </div>
+                  <div class="nothing-card" style="display: none;">
+                    <p class="txt">이모티콘이 없어요</p>
                   </div>
                 </div>
               </div>
-
-              <!-- END 채팅 작성 하단 (이모티콘 선택시) -->
             </div>
+
+            <!-- END 댓글 작성 하단 (이모티콘 선택시) -->
           </div>
 
           <!-- END layout: 페이지 하단 -->
@@ -338,58 +538,127 @@
         <!-- END layout: 페이지 -->
 
         <!-- layout: 오른쪽에서 나타나는 모달 (멤버 구성) -->
-        <div class="l-right-modal">
-          <div class="modal-overlay"></div>
-          <div class="modal right-modal">
-            <button type="button">
-              <span>닫기</span>
-              <i></i>
+        <div id="right-modal-1" class="chat-member-modal l-right-modal">
+          <div class="overlay type-blur"></div>
+          <div class="overlay" onclick="closeModal('right-modal-1');"></div>
+          <div class="right-modal">
+            <button onclick="closeModal('right-modal-1');" type="button" class="btn close-btn">
+              <span class="txt-hidden">닫기</span>
+              <i class="ico ico-22 ico-x"></i>
             </button>
-            <div class="">
-              <div>
-                <h4>멤버</h4>
-                <span>30</span>
+            <div class="rmodal-top">
+              <div class="rmodal-top-section">
+                <div class="title-wrap">
+                  <div class="title-item">
+                    <h4 class="title title-16">멤버</h4>
+                    <span class="gray-txt">30</span>
+                  </div>
+                </div>
+                <button type="button" onclick="location.href='chat-invite.html';" class="bd-btn btn-xs btn-w100">+ 멤버
+                  초대하기</button>
               </div>
-              <button type="button">+ 멤버 초대하기</button>
-              <div>
-                <ul>
-                  <li>
-
-                    <!-- 사람 정보 -->
-                    <div>
-                      <div>
-                        <figure>
-                          <img src="" alt="">
-                        </figure>
-                        <span></span>
-                      </div>
-                      <ul>
-                        <li>
-                          <div>
-                            <span>Lv.00</span>
-                            <span>직업명</span>
-                            <span>0차 전직</span>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            <h5>닉네임</h5>
-                            <span>길드이름</span>
-                          </div>
-                        </li>
-                      </ul>
+              <div class="rmodal-content">
+                <div class="card-grp">
+                  <div class="user-info-card type-01">
+                    <div class="thumbnail-wrap">
+                      <figure class="thumbnail type-circle">
+                        <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                      </figure>
+                      <span class="status-circle active"></span>
                     </div>
-
-                    <!-- END 사람 정보 -->
-                  </li>
-                </ul>
+                    <ul class="card-information">
+                      <li>
+                        <div class="dot-txt-grp">
+                          <span class="dot-txt">직업명</span>
+                          <span class="dot-txt">1차 전직</span>
+                          <span class="dot-txt">1차 전직</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="card-name-wrap">
+                          <h5 class="card-name">닉네임</h5>
+                          <span class="tertiary-txt">길드이름</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="user-info-card type-01">
+                    <div class="thumbnail-wrap">
+                      <figure class="thumbnail type-circle">
+                        <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                      </figure>
+                      <span class="status-circle active"></span>
+                    </div>
+                    <ul class="card-information">
+                      <li>
+                        <div class="dot-txt-grp">
+                          <span class="dot-txt">직업명</span>
+                          <span class="dot-txt">1차 전직</span>
+                          <span class="dot-txt">1차 전직</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="card-name-wrap">
+                          <h5 class="card-name">닉네임</h5>
+                          <span class="tertiary-txt">길드이름</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="user-info-card type-01">
+                    <div class="thumbnail-wrap">
+                      <figure class="thumbnail type-circle">
+                        <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                      </figure>
+                      <span class="status-circle active"></span>
+                    </div>
+                    <ul class="card-information">
+                      <li>
+                        <div class="dot-txt-grp">
+                          <span class="dot-txt">직업명</span>
+                          <span class="dot-txt">1차 전직</span>
+                          <span class="dot-txt">1차 전직</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="card-name-wrap">
+                          <h5 class="card-name">닉네임</h5>
+                          <span class="tertiary-txt">길드이름</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="user-info-card type-01">
+                    <div class="thumbnail-wrap">
+                      <figure class="thumbnail type-circle">
+                        <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                      </figure>
+                      <span class="status-circle active"></span>
+                    </div>
+                    <ul class="card-information">
+                      <li>
+                        <div class="dot-txt-grp">
+                          <span class="dot-txt">직업명</span>
+                          <span class="dot-txt">1차 전직</span>
+                          <span class="dot-txt">1차 전직</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="card-name-wrap">
+                          <h5 class="card-name">닉네임</h5>
+                          <span class="tertiary-txt">길드이름</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
-            <div>
-              <div>
-                <button type="button">
-                  <i></i>
-                  <span>채팅방 나가기</span>
+            <div class="rmodal-bottom">
+              <div class="right-btn-grp">
+                <button type="button" onclick="openModal('modal-1');" class="txt-btn type-sm">
+                  <i class="ico ico-16 ico-exit"></i>
+                  <span class="txt">채팅방 나가기</span>
                 </button>
               </div>
             </div>
@@ -398,125 +667,18 @@
 
         <!-- END layout: 오른쪽에서 나타나는 모달 (멤버 구성) -->
 
-        <!-- layout: 페이지 팝업 (멤버 초대하기) -->
-        <div class="l-page l-page-popup">
-
-          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header class="header">
-            <div class="header-left">
-              <h2 class="hd-title ">멤버 초대하기</h2>
-            </div>
-            <div class="header-right">
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
-              </button>
-            </div>
-          </header>
-
-          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-
-          <!-- layout: 페이지 상단 -->
-          <div class="l-page-top">
-            <div class="page">
-              <div>
-
-                <!-- 섹션: 멤버 구성원 -->
-                <section>
-                  <h4>총 22명</h4>
-                  <ul>
-                    <li>
-
-                      <!-- 멤버 아이템 -->
-                      <div>
-                        <div>
-                          <figure>
-                            <img src="" alt="">
-                          </figure>
-                          <span></span>
-                        </div>
-                        <ul>
-                          <li>
-                            <div>
-                              <span>Lv.00</span>
-                              <span>직업명</span>
-                              <span>0차 전직</span>
-                            </div>
-                          </li>
-                          <li>
-                            <div>
-                              <h5>닉네임</h5>
-                              <span>길드이름</span>
-                            </div>
-                          </li>
-                        </ul>
-                        <input type="checkbox">
-                        <label for=""></label>
-                      </div>
-
-                      <!-- END 멤버 아이템 -->
-                    </li>
-                    <li>
-
-                      <!-- 멤버 아이템 -->
-                      <div>
-                        <div>
-                          <figure>
-                            <img src="" alt="">
-                          </figure>
-                          <span></span>
-                        </div>
-                        <ul>
-                          <li>
-                            <div>
-                              <span>Lv.00</span>
-                              <span>직업명</span>
-                              <span>0차 전직</span>
-                            </div>
-                          </li>
-                          <li>
-                            <div>
-                              <h5>닉네임</h5>
-                              <span>길드이름</span>
-                            </div>
-                          </li>
-                        </ul>
-                        <input type="checkbox">
-                        <label for=""></label>
-                      </div>
-
-                      <!-- END 멤버 아이템 -->
-                    </li>
-                  </ul>
-                </section>
-
-                <!-- END 섹션: 멤버 구성원 -->
-              </div>
-            </div>
-          </div>
-
-          <!-- END layout: 페이지 상단 -->
-          <div class="l-page-bottom">
-            <div>
-              <button type="button">2명 초대하기</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- END layout: 페이지 팝업 (멤버 초대하기) -->
-
         <!-- layout: 시스템 모달 (채팅방 나가기) -->
-        <div class="l-modal">
-          <div class="modal-overlay"></div>
+        <div id="modal-1" class="l-modal">
+          <div class="overlay" onclick="closeModal('modal-1');"></div>
           <div class="modal system-modal">
             <div class="smodal-top">
-              <div>
-                <h3>채팅방을 나가시겠습니까?</h3>
+              <div class="smodal-content">
+                <h3 class="smodal-ttl">채팅방을 나가시겠습니까?</h3>
               </div>
             </div>
-            <div class="smodal-bottom">
-              <button type="button">아니오</button>
-              <button type="button">확인</button>
+            <div class="smodal-btn-wrap">
+              <button type="button" onclick="closeModal('modal-1');" class="cancel-btn btn-sm bd-btn">아니오</button>
+              <button type="button" class="btn btn-sm theme-solid-btn" onclick="closeModal('modal-1');">예</button>
             </div>
           </div>
         </div>
@@ -524,129 +686,39 @@
         <!-- END layout: 시스템 모달 (채팅방 나가기) -->
 
         <!-- layout: 시스템 모달 (이모티콘 수락/거절 확인) -->
-        <div class="l-modal">
-          <div class="modal-overlay"></div>
+        <div id="modal-2-1" class="l-modal">
+          <div class="overlay" onclick="closeModal('modal-2-1');"></div>
           <div class="modal system-modal">
             <div class="smodal-top">
-              <div>
-                <h3>‘상대방닉네임'이 선물한 <br>이모티콘을 수락/거절 하시겠습니까?</h3>
+              <div class="smodal-content">
+                <h3 class="smodal-ttl">‘상대방닉네임'이 선물한 <br>이모티콘을 수락하시겠습니까?</h3>
               </div>
             </div>
-            <div class="smodal-bottom">
-              <button type="button">아니오</button>
-              <button type="button">확인</button>
+            <div class="smodal-btn-wrap">
+              <button type="button" onclick="closeModal('modal-2-1');" class="cancel-btn btn-sm bd-btn">아니오</button>
+              <button type="button" class="btn btn-sm theme-solid-btn" onclick="closeModal('modal-2-1');">예</button>
+            </div>
+          </div>
+        </div>
+        <div id="modal-2-2" class="l-modal">
+          <div class="overlay" onclick="closeModal('modal-2-2');"></div>
+          <div class="modal system-modal">
+            <div class="smodal-top">
+              <div class="smodal-content">
+                <h3 class="smodal-ttl">‘상대방닉네임'이 선물한 <br>이모티콘을 거절하시겠습니까?</h3>
+              </div>
+            </div>
+            <div class="smodal-btn-wrap">
+              <button type="button" onclick="closeModal('modal-2-2');" class="cancel-btn btn-sm bd-btn">아니오</button>
+              <button type="button" class="btn btn-sm theme-solid-btn" onclick="closeModal('modal-2-2');">예</button>
             </div>
           </div>
         </div>
 
         <!-- END layout: 시스템 모달 (이모티콘 수락/거절 확인) -->
-
-        <!-- layout: 시스템 모달 (이모티콘 선물 확인) -->
-        <div class="l-modal">
-          <div class="modal-overlay"></div>
-          <div class="modal system-modal">
-            <div class="smodal-top">
-              <div>
-                <h3>이모티콘을 선물하시겠습니까?</h3>
-              </div>
-            </div>
-            <div class="smodal-bottom">
-              <button type="button">아니오</button>
-              <button type="button">확인</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- END layout: 시스템 모달 (이모티콘 선물 확인) -->
-
-        <!-- layout: 페이지 팝업 (이모티콘 선물하기) -->
-        <div class="l-page l-page-popup">
-
-          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header class="header">
-            <div class="header-left">
-              <h2 class="hd-title ">이모티콘 선물하기</h2>
-            </div>
-            <div class="header-right">
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
-              </button>
-            </div>
-          </header>
-
-          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-
-          <!-- layout: 페이지 상단 -->
-          <div class="l-page-top">
-            <div class="page">
-              <div>
-
-                <!-- 섹션: 이모티콘 선물하기 문구 -->
-                <section>
-                  <div>
-                    <img src="" alt="">
-                    <h3>선물할 이모티콘을 <br>선택하세요!</h3>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 이모티콘 선물하기 문구 -->
-
-                <!-- 섹션: 이모티콘 목록과 상세보기 -->
-                <section>
-                  <h4>총 16개</h4>
-                  <div>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                  </div>
-                  <div>
-                    <div>
-                      <figure>
-                        <img src="" alt="">
-                      </figure>
-                      <div>
-                        <p>똥강아지 용구</p>
-                        <span>작가닉네임</span>
-                      </div>
-                      <p>이모티콘 한줄 소개 텍스트</p>
-                    </div>
-                    <ul>
-                      <li>
-                        <figure>
-                          <img src="" alt="">
-                        </figure>
-                      </li>
-                    </ul>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 이모티콘 목록과 상세보기 -->
-              </div>
-            </div>
-          </div>
-
-          <!-- END layout: 페이지 상단 -->
-          <div class="l-page-bottom">
-            <div>
-              <button type="button">선물하기</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- END layout: 페이지 팝업 (이모티콘 선물하기) -->
       </div>
 
-      <!-- END layout: 채팅 목록 페이지 -->
+      <!-- END layout: 채팅 상세 페이지 -->
     </div>
     <script src="assets/js/ui.js"></script>
   </body>

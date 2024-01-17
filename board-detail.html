@@ -2,8 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>딜라잇게임즈</title>
+
+    <!-- Open Graph -->
+    <meta name="title" content="Delight Games">
+    <meta name="author" content="딜라잇 게임즈">
+    <meta name="description" content="딜라잇 게임즈 커뮤니티입니다.">
+    <meta name="keywords" content="딜라잇 게임즈 커뮤니티, 게임 커뮤니티">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+
+    <!-- TODO: web url 설정해야함 -->
+
+    <!-- <meta property="og:url" content="해당 웹 url"> -->
+    <meta property="og:title" content="딜라잇 게임즈">
+    <meta property="og:description" content="딜라잇 게임즈 커뮤니티입니다.">
+
+    <!-- TODO: meta thumbnail 설정 -->
+    <meta property="og:image" content="assets/images/og/og-thumbnail.png">
+
+    <!-- Favicon -->
+
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-36x36.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-72x72.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#101017">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> -->
 
     <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -43,6 +83,7 @@
         --text-light-04: rgba(255, 255, 255, 0.4);
         --text-light-06: rgba(255, 255, 255, 0.6);
         --text-light-08: rgba(255, 255, 255, 0.8);
+        --text-light-10: #fff;
         --text-light: rgba(255, 255, 255, 1);
         --surface-01: #15151e;
         --surface-02: #1A1A24;
@@ -56,17 +97,20 @@
         --surface-10: #686879;
       }
     </style>
+    <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/vendor/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/ui.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
 
     <!-- Js -->
     <script src="assets/js/vendor/jquery-3.6.1.min.js"></script>
+    <script src="assets/js/vendor/swiper-bundle.min.js"></script>
   </head>
   <body ontouchstart>
     <div id="app">
 
       <!-- layout: 게시판 상세 페이지 -->
-      <div class="l-page-wrapper">
+      <div class="board-detail-page l-page-wrapper">
 
         <!-- layout: 페이지 -->
         <div class="l-page">
@@ -74,17 +118,19 @@
           <!-- layout: 헤더 타입 2-1 (왼: 뒤로가기 + 페이지명 / 오: 기타 버튼) -->
           <header class="header">
             <div class="header-left">
-              <button type="button" class="hd-btn">
+              <button type="button" onclick="history.back();" class="hd-btn">
                 <span class="txt-hidden">뒤로 가기</span>
                 <i class="ico ico-22 ico-arrow-back"></i>
               </button>
               <h2 class="hd-title invisible"></h2>
             </div>
             <div class="header-right">
-              <button type="button">
-                <span>게시글 관리하기</span>
-                <i></i>
-              </button>
+              <div class="hd-btn-grp">
+                <button type="button" onclick="openModal('bottom-sheet-1');" class="hd-btn">
+                  <span class="txt-hidden">게시글 관리하기</span>
+                  <i class="ico ico-more"></i>
+                </button>
+              </div>
             </div>
           </header>
 
@@ -92,244 +138,229 @@
 
           <!-- layout: 페이지 상단 -->
           <div class="l-page-top">
-            <div class="page">
-              <div>
+            <div class="page-content">
 
-                <!-- 섹션: 제목 -->
-                <section>
-                  <ul>
-                    <li>
-                      <i></i>
-                    </li>
-                    <li>
-                      <h4>게시글 제목 전체 노출, List Card 재사용(제목 폰트 스타일)+패딩값+마진값 변경)</h4>
-                    </li>
-                    <li>
-                      <div>
-                        <div>
-                          <span>닉네임</span>
-                          <p>23.00.00</p>
-                        </div>
-                        <div>
-                          <i></i>
-                          <span>1,234</span>
-                        </div>
-                        <div>
-                          <i></i>
-                          <span>9,999</span>
-                        </div>
+              <!-- 섹션: 제목 -->
+              <section class="section title-section">
+                <ul class="board-title-information">
+
+                  <!-- TODO: 비밀글일 경우에 해당 li 표시 / 아니면 아예 표시하지 않아야합니다~ -->
+                  <li>
+                    <i class="ico ico-18 ico-secret"></i>
+                  </li>
+
+                  <!-- TODO: 공지일 경우에 해당 li 표시 / 아니면 아예 표시하지 않아야합니다~ -->
+                  <li>
+                    <span class="badge type-solid-red type-ico">
+                <i class="ico ico-14 ico-notice"></i>
+              </span>
+                  </li>
+                  <li>
+                    <h4 class="board-ttl">게시글 제목 전체 노출, List Card 재사용(제목 폰트 스타일)+패딩값+마진값 변경)</h4>
+                  </li>
+                  <li>
+                    <div class="sm-txt-wrap">
+                      <div class="user-item">
+                        <figure class="user-thumbnail">
+                          <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                        </figure>
+                        <span class="user-name">닉네임</span>
                       </div>
-                    </li>
-                  </ul>
-                </section>
-
-                <!-- END: 섹션: 제목 -->
-
-                <!-- 내용 -->
-                <section>
-                  <div>
-                    <p>내용 시작</p>
-
-                    <!-- TODO: 비디오일 경우 이 요소가 나타납니다. -->
-                    <div>
-                      <div>
-                        <video src=""></video>
+                      <span class="sm-txt">23.00.00</span>
+                      <div class="ico-sm-txt">
+                        <i class="ico ico-14 ico-view"></i>
+                        <span class="sm-txt">1,234</span>
                       </div>
                     </div>
+                  </li>
+                </ul>
+              </section>
 
-                    <!-- TODO: 이미지일 경우 이 요소가 나타납니다 -->
-                    <img src="" alt="">
-                    <p>기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다.기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다.
-                      기본 게시글 내용 텍스트 입니다.기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다.
-                      <br><br>
-                      기본 게시글 내용 텍스트 입니다.
-                    </p>
-                  </div>
-                  <div>
-                    <button type="button">
-                      <i></i>
-                      <span>123</span>
+              <!-- END: 섹션: 제목 -->
+
+              <!-- 내용 -->
+              <section class="section content-section">
+                <div class="board-detail-container">
+                  <p class="content-txt">내용 시작</p>
+
+                  <!-- TODO: 이미지일 경우 이 요소가 나타납니다 -->
+                  <img src="assets/images/img-sample-board.png" alt="">
+                  <p class="content-txt">기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다.기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다. 기본 게시글 내용
+                    텍스트 입니다.
+                    기본 게시글 내용 텍스트 입니다.기본 게시글 내용 텍스트 입니다. 기본 게시글 내용 텍스트 입니다.
+                    <br><br>
+                    기본 게시글 내용 텍스트 입니다.
+                  </p>
+                </div>
+                <div class="btn-wrap">
+
+                  <!-- TODO: 좋아요 누를 시 rounded-toggle-btn에 active 클래스가 추가됩니다. -->
+                  <button type="button" class="rounded-toggle-btn toggle-btn active">
+                    <i class="ico ico-like-on ico-on"></i>
+                    <i class="ico ico-like-off ico-off"></i>
+                    <span class="txt">123</span>
+                  </button>
+                  <button type="button" class="rounded-toggle-btn toggle-btn">
+                    <i class="ico ico-scrap-on ico-on"></i>
+                    <i class="ico ico-scrap-off ico-off"></i>
+                    <span class="txt">스크랩</span>
+                  </button>
+                </div>
+              </section>
+
+              <!-- END: 제목 -->
+
+              <!-- 섹션: 첨부파일 -->
+              <section class="section file-section">
+                <h4 class="title title-14">첨부파일 (3)</h4>
+                <ul class="btn-grp">
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-20 ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn download-btn">
+                      <span class="txt-hidden">다운로드</span>
+                      <i class="ico ico-download"></i>
                     </button>
-                    <div>
-                      <button type="button">
-                        <i></i>
-                        <span>스크랩</span>
-                      </button>
+                  </div>
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-20 ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
                     </div>
+                    <button type="button" class="btn download-btn">
+                      <span class="txt-hidden">다운로드</span>
+                      <i class="ico ico-download"></i>
+                    </button>
                   </div>
-                </section>
-
-                <!-- END: 제목 -->
-
-                <!-- 섹션: 첨부파일 -->
-                <section>
-                  <div>
-                    <h4>첨부파일 (3)</h4>
+                  <div class="file-btn">
+                    <div class="left-txt">
+                      <i class="ico ico-20 ico-clip"></i>
+                      <span class="txt">파일 첨부명 1줄까지만 표기.jpg</span>
+                    </div>
+                    <button type="button" class="btn download-btn">
+                      <span class="txt-hidden">다운로드</span>
+                      <i class="ico ico-download"></i>
+                    </button>
                   </div>
-                  <ul>
-                    <li>
+                </ul>
+              </section>
 
-                      <!-- 첨부파일 아이템 -->
-                      <button type="button">
-                        <div>
-                          <i></i>
-                          <span>파일첨부명 1줄까지만 표기.jpg</span>
+              <!-- END 섹션: 첨부파일 -->
+
+              <!-- 섹션: 댓글 -->
+              <section class="section comment-section">
+
+                <!-- TODO: 댓글 있을 때 -->
+                <div class="content">
+                  <h4 class="title title-14">댓글 (3)</h4>
+                  <ul class="list-grp">
+                    <li class="list">
+
+                      <!-- 댓글 아이템 -->
+                      <div class="comment-card">
+                        <div class="card-top">
+                          <div class="thumbnail-wrap">
+                            <figure class="thumbnail type-circle">
+                              <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                            </figure>
+                            <span class="status-circle"></span>
+                          </div>
+                          <ul class="card-information">
+                            <li>
+                              <div class="card-name-wrap">
+                                <h5 class="card-name">유저닉네임</h5> <span class="color-txt">작성자</span>
+                              </div>
+                            </li>
+                            <li>
+                              <span class="sm-txt">23.00.00</span>
+                            </li>
+                          </ul>
+                          <div class="btn-wrap">
+                            <button type="button" class="btn">
+                              <span class="txt-hidden">비밀글</span>
+                              <i class="ico ico-18 ico-secret"></i>
+                            </button>
+                            <button type="button" onclick="openModal('bottom-sheet-2');" class="btn">
+                              <span class="txt-hidden">더보기</span>
+                              <i class="ico ico-18 ico-more"></i>
+                            </button>
+                          </div>
                         </div>
-                        <i></i>
-                      </button>
-
-                      <!-- END 첨부파일 아이템 -->
-                    </li>
-                    <li>
-
-                      <!-- 첨부파일 아이템 -->
-                      <button type="button">
-                        <div>
-                          <i></i>
-                          <span>파일첨부명 1줄까지만 표기.jpg</span>
+                        <div class="card-bottom">
+                          <p class="card-desc">내가 쓴 댓글 내용입니다. </p>
+                          <div class="media-wrap">
+                            <img src="assets/images/img-sample-comment-img.png" alt="">
+                          </div>
                         </div>
-                        <i></i>
-                      </button>
+                      </div>
 
-                      <!-- END 첨부파일 아이템 -->
-                    </li>
-                    <li>
+                      <!-- END 댓글 아이템 -->
 
-                      <!-- 첨부파일 아이템 -->
-                      <button type="button">
-                        <div>
-                          <i></i>
-                          <span>파일첨부명 1줄까지만 표기.jpg</span>
+                      <!-- 대댓글 아이템 -->
+                      <div class="comment-card type-recomment">
+                        <div class="card-top">
+                          <div class="thumbnail-wrap">
+                            <figure class="thumbnail type-circle">
+                              <img src="assets/images/img-default-person.png" alt="" class="img-thumbnail">
+                            </figure>
+                            <span class="status-circle"></span>
+                          </div>
+                          <ul class="card-information">
+                            <li>
+                              <div class="card-name-wrap">
+                                <h5 class="card-name">유저닉네임</h5> <span class="color-txt">작성자</span>
+                              </div>
+                            </li>
+                            <li>
+                              <span class="sm-txt">23.00.00</span>
+                            </li>
+                          </ul>
+                          <div class="btn-wrap">
+                            <button type="button" class="btn">
+                              <span class="txt-hidden">비밀글</span>
+                              <i class="ico ico-18 ico-secret"></i>
+                            </button>
+                            <button type="button" class="btn">
+                              <span class="txt-hidden">더보기</span>
+                              <i class="ico ico-18 ico-more"></i>
+                            </button>
+                          </div>
                         </div>
-                        <i></i>
-                      </button>
+                        <div class="card-bottom">
+                          <p class="card-desc">내가 쓴 댓글 내용입니다. </p>
 
-                      <!-- END 첨부파일 아이템 -->
+                          <!-- <div class="media-wrap">
+                      <img src="" alt="">
+                    </div> -->
+                        </div>
+                      </div>
+
+                      <!-- END 대댓글 아이템 -->
                     </li>
                   </ul>
-                </section>
+                </div>
 
-                <!-- END 섹션: 첨부파일 -->
-
-                <!-- 섹션: 댓글 -->
-                <section>
-
-                  <!-- TODO: 댓글 있을 때 -->
-                  <div>
-                    <h4>댓글 (3)</h4>
-                    <ul>
-                      <li>
-
-                        <!-- 댓글 아이템 -->
-                        <div>
-
-                          <!-- 댓글 상단 -->
-                          <div>
-                            <div>
-                              <figure>
-                                <img src="" alt="">
-                              </figure>
-                              <span></span>
-                            </div>
-                            <ul>
-                              <li>
-                                <div>
-                                  <h5>닉네임</h5>
-                                  <span>작성자</span>
-                                </div>
-                              </li>
-                              <li>
-                                <p>23.00.00</p>
-                              </li>
-                            </ul>
-                            <div>
-                              <button type="button">
-                                <span>비밀글</span>
-                                <i></i>
-                              </button>
-                              <button type="button">
-                                <span>내 댓글 관리하기</span>
-                                <i></i>
-                              </button>
-                            </div>
-                          </div>
-
-                          <!-- END 댓글 상단 -->
-                          <div>
-                            <p>내가 쓴 댓글 내용입니다. </p>
-                            <img src="" alt="">
-                          </div>
-                        </div>
-
-                        <!-- END 댓글 아이템 -->
-
-                        <!-- 대댓글 아이템 -->
-                        <div>
-
-                          <!-- 댓글 상단 -->
-                          <div>
-                            <div>
-                              <figure>
-                                <img src="" alt="">
-                              </figure>
-                              <span></span>
-                            </div>
-                            <ul>
-                              <li>
-                                <div>
-                                  <h5>닉네임</h5>
-
-                                  <!-- <span>작성자</span> -->
-                                </div>
-                              </li>
-                              <li>
-                                <p>23.00.00</p>
-                              </li>
-                            </ul>
-                            <div>
-                              <button type="button">
-                                <span>비밀글</span>
-                                <i></i>
-                              </button>
-                              <button type="button">
-                                <span>내 댓글 관리하기</span>
-                                <i></i>
-                              </button>
-                            </div>
-                          </div>
-
-                          <!-- END 댓글 상단 -->
-                          <div>
-                            <p>대댓글 내용입니다. </p>
-                            <img src="" alt="">
-                          </div>
-                        </div>
-
-                        <!-- END 대댓글 아이템 -->
-                      </li>
-                    </ul>
+                <!-- TODO: 댓글 없을 때 -->
+                <div class="content">
+                  <h4 class="title title-14">댓글 (0)</h4>
+                  <div class="nothing-card">
+                    <i class="ico-nothing"></i>
+                    <p class="txt">등록된 댓글이 없어요</p>
                   </div>
+                </div>
 
-                  <!-- TODO: 댓글 없을 때 -->
-                  <div>
-                    <h4>댓글 (0)</h4>
-                    <div>
-                      <i></i>
-                      <p>소속된 길드가 없어요</p>
-                    </div>
+                <!-- TODO: 댓글 허용되지 않을 때 -->
+                <div class="content">
+                  <h4 class="title title-14">댓글 (0)</h4>
+                  <div class="nothing-card">
+                    <p class="txt">댓글을 허용하지 않은 게시글입니다</p>
                   </div>
+                </div>
+              </section>
 
-                  <!-- TODO: 댓글 허용되지 않을 때 -->
-                  <div>
-                    <h4>댓글 (0)</h4>
-                    <div>
-                      <p>댓글을 허용하지 않은 게시글입니다</p>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- END 섹션: 댓글 -->
-              </div>
+              <!-- END 섹션: 댓글 -->
             </div>
           </div>
 
@@ -337,96 +368,193 @@
 
           <!-- layout: 페이지 하단 -->
           <div class="l-page-bottom">
-            <div>
 
-              <!-- 댓글 작성 상단 -->
-              <div>
-                <div>
-                  <h4>댓글 작성</h4>
-                  <div>
-                    <input type="checkbox">
-                    <label for="">
-                      <i></i>
-                      <i></i>
+            <!-- 댓글 작성 상단 -->
+            <div class="create-container">
+              <div class="create-top">
+                <h5 class="secret-mode-txt name">댓글 작성</h5>
+
+                <!-- TODO: 비밀글 작성 체크할 시 효과가 작동됩니다. (js로 처리함) -->
+                <input id="secret-mode" type="checkbox" class="custom-checkbox-inp">
+                <label for="secret-mode" class="btn toggle-btn custom-checkbox-toggle-btn">
+                  <i class="ico ico-18 ico-gray-secret-on ico-on"></i>
+                  <i class="ico ico-18 ico-gray-secret-off ico-off"></i>
+                </label>
+              </div>
+              <div class="create-bottom">
+                <div class="create-inp-unit-item">
+                  <textarea data-autoresize class="inp" rows="1" placeholder="댓글을 작성해주세요."></textarea>
+                  <div class="btn-wrap">
+                    <input id="chat-emoticon-choice" type="checkbox" class="custom-checkbox-inp">
+                    <label for="chat-emoticon-choice" class="btn toggle-btn custom-checkbox-toggle-btn">
+                      <span class="txt-hidden">이모티콘 선택</span>
+                      <i class="ico ico-20 ico-smile ico-on"></i>
+                      <i class="ico ico-20 ico-smile-off ico-off"></i>
                     </label>
+                    <button type="button" class="btn toggle-btn">
+                      <span class="txt-hidden">앨범 선택</span>
+                      <i class="ico ico-20 ico-camera ico-on"></i>
+                      <i class="ico ico-20 ico-camera-off ico-off"></i>
+                    </button>
                   </div>
                 </div>
-                <div>
-                  <div>
-                    <input type="text" placeholder="댓글을 작성해주세요">
-                    <div>
-                      <button type="button">
-                        <span>이모티콘</span>
-                        <i></i>
-                      </button>
-                      <button type="button">
-                        <span>앨범</span>
-                        <i></i>
-                      </button>
-                    </div>
-                  </div>
-                  <button type="button">
-                    <span>전송</span>
-                    <i></i>
+                <div class="btn-wrap">
+                  <button type="button" class="btn send-btn">
+                    <span class="txt-hidden">전송</span>
+                    <i class="ico ico-send-arrow"></i>
                   </button>
                 </div>
               </div>
+            </div>
 
-              <!-- END 댓글 작성 상단 -->
+            <!-- END 댓글 작성 상단 -->
 
-              <!-- 댓글 작성 하단 (이모티콘 선택시) -->
-              <div>
-                <div>
-                  <button type="button">
-                    <span>이모티콘 선물하기</span>
-                    <i></i>
+            <!-- 댓글 작성 하단 (이모티콘 선택시) -->
+            <div class="emoticon-container">
+              <div class="emoticon-btns-wrap">
+                <div class="gift-btn-wrap">
+                  <button type="button" onclick="location.href='emoticon-gift-1.html';" class="btn gift-btn">
+                    <span class="txt-hidden">이모티콘 선물하기</span>
+                    <i class="ico ico-32 ico-gift"></i>
                   </button>
-                  <div>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                    <button type="button">
-                      <img src="" alt="">
-                    </button>
-                  </div>
                 </div>
-                <div>
+                <div class="emoticon-btns">
 
-                  <!-- TODO: 이모티콘 있을 때 -->
-                  <div>
-                    <div>
-                      <h5>이모티콘이름</h5>
-                      <span>작가닉네임</span>
+                  <!-- TODO: 선택시 active 클래스가 추가됩니다 -->
+                  <button type="button" class="emoticon-btn active">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon01.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                  <button type="button" class="emoticon-btn">
+                    <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                  </button>
+                </div>
+              </div>
+              <div class="emoticon-grid-container">
+
+                <!-- TODO: 이모티콘 있을 때 -->
+                <div class="emoticon-content">
+                  <div class="content">
+                    <div class="emoticon-info-wrap">
+                      <h5 class="info-name">이모티콘이름</h5>
+                      <span class="tertiary-txt">작가닉네임</span>
                     </div>
-                    <div>
-                      <ul>
-                        <li>
-
-                          <!-- 이모티콘 아이템 -->
-                          <figure>
-                            <img src="" alt="">
-                          </figure>
-
-                          <!-- END 이모티콘 아이템 -->
-                        </li>
-                      </ul>
-                    </div>
+                    <ul class="grid-grp type-col4">
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                      <li class="grid">
+                        <figure class="thumbnail-box type-transparent">
+                          <img src="assets/images/img-sample-emoticon02.png" alt="" class="img-thumbnail type-contain">
+                        </figure>
+                      </li>
+                    </ul>
                   </div>
 
                   <!-- TODO: 이모티콘 없을 때 -->
-                  <div>
-                    <div>
-                      <p>이모티콘이 없어요</p>
-                    </div>
+                  <div class="nothing-card" style="display: none;">
+                    <p class="txt">이모티콘이 없어요</p>
                   </div>
                 </div>
               </div>
-
-              <!-- END 댓글 작성 하단 (이모티콘 선택시) -->
             </div>
+
+            <!-- END 댓글 작성 하단 (이모티콘 선택시) -->
           </div>
 
           <!-- END layout: 페이지 하단 -->
@@ -435,126 +563,104 @@
         <!-- END layout: 페이지 -->
 
         <!-- layout: 바텀시트 (게시글 관리) -->
-        <div class="l-bottom-sheet">
+        <div id="bottom-sheet-1" class="l-bottom-sheet">
+          <div class="overlay type-blur" onclick="closeModal('bottom-sheet-1');"></div>
+          <div class="bottom-sheet">
 
-          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header class="header">
-            <div class="header-left">
-              <h2 class="hd-title ">게시글 관리</h2>
-            </div>
-            <div class="header-right">
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
-              </button>
-            </div>
-          </header>
+            <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <header class="header">
+              <div class="header-left">
+                <h2 class="hd-title ">게시글 관리</h2>
+              </div>
+              <div class="header-right">
+                <div class="hd-btn-grp">
+                  <button onclick="closeModal('bottom-sheet-1');" type="button" class="hd-btn">
+                    <span class="txt-hidden">닫기</span>
+                    <i class="ico ico-22 ico-x"></i>
+                  </button>
+                </div>
+              </div>
+            </header>
 
-          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-
-          <!-- layout: 페이지 상단 -->
-          <div class="l-page-top">
-            <div class="page">
-              <div>
-                <ul>
-                  <li>
-                    <button type="button">
-                      <span>수정</span>
+            <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <div class="bs-page-content">
+              <div class="bs-opt-container">
+                <ul class="opt-list-grp">
+                  <li class="opt-list">
+                    <button type="button" class="opt-btn">
+                      <span class="txt">수정</span>
                     </button>
                   </li>
-                  <li>
-                    <button type="button">
-                      <span>삭제</span>
+                  <li class="opt-list">
+                    <button onclick="openModal('modal-1');" type="button" class="opt-btn">
+                      <span class="txt">삭제</span>
                     </button>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <!-- END layout: 페이지 상단 -->
         </div>
 
         <!-- END layout: 바텀시트 (게시글 관리) -->
 
         <!-- layout: 바텀시트 (내 댓글 관리) -->
-        <div class="l-bottom-sheet">
+        <div id="bottom-sheet-2" class="l-bottom-sheet">
+          <div class="overlay type-blur" onclick="closeModal('bottom-sheet-2');"></div>
+          <div class="bottom-sheet">
 
-          <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-          <header class="header">
-            <div class="header-left">
-              <h2 class="hd-title ">내 댓글 관리</h2>
-            </div>
-            <div class="header-right">
-              <button type="button">
-                <span>닫기</span>
-                <i></i>
-              </button>
-            </div>
-          </header>
+            <!-- layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <header class="header">
+              <div class="header-left">
+                <h2 class="hd-title ">내 댓글 관리</h2>
+              </div>
+              <div class="header-right">
+                <div class="hd-btn-grp">
+                  <button onclick="closeModal('bottom-sheet-2');" type="button" class="hd-btn">
+                    <span class="txt-hidden">닫기</span>
+                    <i class="ico ico-22 ico-x"></i>
+                  </button>
+                </div>
+              </div>
+            </header>
 
-          <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
-
-          <!-- layout: 페이지 상단 -->
-          <div class="l-page-top">
-            <div class="page">
-              <div>
-                <ul>
-                  <li>
-                    <button type="button">
-                      <span>수정</span>
+            <!-- END layout: 헤더 타입 1-2 (왼: 페이지명 / 오: 닫기 버튼) -->
+            <div class="bs-page-content">
+              <div class="bs-opt-container">
+                <ul class="opt-list-grp">
+                  <li class="opt-list">
+                    <button type="button" class="opt-btn">
+                      <span class="txt">수정</span>
                     </button>
                   </li>
-                  <li>
-                    <button type="button">
-                      <span>삭제</span>
+                  <li class="opt-list">
+                    <button type="button" class="opt-btn">
+                      <span class="txt">삭제</span>
                     </button>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <!-- END layout: 페이지 상단 -->
         </div>
 
         <!-- END layout: 바텀시트 (내 댓글 관리) -->
 
         <!-- layout: 시스템 모달 (게시글 삭제 확인) -->
-        <div class="l-modal">
-          <div class="modal-overlay"></div>
+        <div id="modal-1" class="l-modal">
+          <div class="overlay" onclick="closeModal('modal-1');"></div>
           <div class="modal system-modal">
-            <div class="smodal-top">
-              <div>
-                <h3>게시글을 삭제하시겠습니까?</h3>
-              </div>
+            <div class="smodal-content">
+              <h3 class="smodal-ttl">게시글을 삭제하시겠습니까?</h3>
             </div>
-            <div class="smodal-bottom">
-              <button type="button">아니오</button>
-              <button type="button">확인</button>
+            <div class="smodal-btn-wrap">
+              <button type="button" onclick="closeModal('modal-1');" class="cancel-btn btn-sm bd-btn">아니오</button>
+              <button type="button" class="btn btn-sm theme-solid-btn">예</button>
             </div>
           </div>
         </div>
 
         <!-- END layout: 시스템 모달 (게시글 삭제 확인) -->
-
-        <!-- layout: 시스템 모달 (댓글 삭제 확인) -->
-        <div class="l-modal">
-          <div class="modal-overlay"></div>
-          <div class="modal system-modal">
-            <div class="smodal-top">
-              <div>
-                <h3>댓글을 삭제하시겠습니까?</h3>
-              </div>
-            </div>
-            <div class="smodal-bottom">
-              <button type="button">아니오</button>
-              <button type="button">확인</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- END layout: 시스템 모달 (댓글 삭제 확인) -->
       </div>
 
       <!-- END layout: 게시판 상세 페이지 -->
